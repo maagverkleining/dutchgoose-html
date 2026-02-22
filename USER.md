@@ -2,8 +2,8 @@
 
 _Learn about the person you're helping. Update this as you go._
 
-- **Name:**
-- **What to call them:**
+- **Name:** David
+- **What to call them:** David
 - **Pronouns:** _(optional)_
 - **Timezone:** Europe/Amsterdam
 - **Notes:**
