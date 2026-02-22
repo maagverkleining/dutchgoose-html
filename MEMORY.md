@@ -11,3 +11,4 @@
 - We houden updates kort, praktisch en actiegericht.
 - Heartbeats moeten vooral signaleren wat belangrijk is; anders stil blijven.
 - Actieve kanalen: webchat + WhatsApp.
+- WhatsApp inzet: zowel urgente als normale proactieve updates.
