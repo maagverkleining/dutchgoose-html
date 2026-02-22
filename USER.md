@@ -7,6 +7,8 @@ _Learn about the person you're helping. Update this as you go._
 - **Pronouns:** _(optional)_
 - **Timezone:** Europe/Amsterdam
 - **Notes:**
+  - Taalvoorkeur: Nederlands
+  - Aanspreekvorm: je/jij (informeel)
 
 ## Context
 
