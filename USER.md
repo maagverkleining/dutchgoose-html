@@ -21,6 +21,7 @@ _Learn about the person you're helping. Update this as you go._
 - Website-stack nu: gebouwd via Codex, live via GitHub + Netlify.
 - Houdt van automatisering, templates en herbruikbare workflows.
 - Wil oplossingen en volgende stappen i.p.v. lange analyses.
+- Avondroutine: meestal slapen tussen 22:15–22:30.
 
 ---
 
