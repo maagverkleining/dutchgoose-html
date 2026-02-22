@@ -10,3 +10,4 @@
 ## Operating preferences
 - We houden updates kort, praktisch en actiegericht.
 - Heartbeats moeten vooral signaleren wat belangrijk is; anders stil blijven.
+- Actieve kanalen: webchat + WhatsApp.

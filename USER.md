@@ -14,6 +14,7 @@ _Learn about the person you're helping. Update this as you go._
 
 - Voorkeur voor proactieve assistentie.
 - Liefst korte, concrete updates i.p.v. veel losse berichten.
+- Kanaalvoorkeur: webchat + WhatsApp.
 
 ---
 
