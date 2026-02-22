@@ -16,6 +16,10 @@ _Learn about the person you're helping. Update this as you go._
 - Liefst korte, concrete updates i.p.v. veel losse berichten.
 - Kanaalvoorkeur: webchat + WhatsApp.
 - WhatsApp gebruik: zowel urgente als normale proactieve updates.
+- Communicatiestijl: direct, praktisch, zonder fluff/AI-taal.
+- Werkfocus: TikTok growth + monetisatie, affiliate business, website (dutchgoose.nl), training/facilitatie.
+- Houdt van automatisering, templates en herbruikbare workflows.
+- Wil oplossingen en volgende stappen i.p.v. lange analyses.
 
 ---
 
