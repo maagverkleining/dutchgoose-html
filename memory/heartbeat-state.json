@@ -6,7 +6,8 @@
     "todos": 1771854732
   },
   "lastAlerts": {
-    "whatsapp_disconnected": 1771842820
+    "whatsapp_disconnected": 1771842820,
+    "gateway_token_mismatch": 1771864419
   },
   "notes": {
     "email": "Geen directe inbox-uitlezing beschikbaar in huidige OpenClaw-setup.",
