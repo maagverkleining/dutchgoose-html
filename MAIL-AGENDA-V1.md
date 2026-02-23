@@ -7,7 +7,7 @@
 - Google hoofdaccount: `gansster@gmail.com`
 - Extra Gmail: `dutchgooseyourney@gmail.com`
 - Domeinmail: `contact@davidgans.nl` (werkt)
-- Domeinmail: `info@dutchgoose.nl` (nog te fixen)
+- Domeinmail: `info@dutchgoose.nl` (werkt)
 - Outlook: `david-gans@outlook.com` (werkt)
 
 ## Werkwijze
@@ -31,6 +31,8 @@
 - [x] `info@dutchgoose.nl` stabiel werkend op iPhone + Mac Mail
 - [x] Definitieve mailserver-instellingen documenteren (IMAP/SMTP)
 - [x] Forwarding ingericht naar centrale inbox (`gansster@gmail.com`) voor Gmail/Outlook/domeinmail
+- [x] Send-as actief voor `contact@davidgans.nl` en `info@dutchgoose.nl`
+- [ ] Outlook send-as via Gmail (geblokkeerd door Microsoft SMTP-auth; antwoorden vanuit Outlook app)
 - [ ] Agenda-overzicht routine finetunen (ochtend + middag + avond)
 
 ## Definitieve mailinstellingen (`info@dutchgoose.nl`)
