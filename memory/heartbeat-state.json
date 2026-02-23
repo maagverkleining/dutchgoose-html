@@ -1,11 +1,13 @@
 {
   "lastChecks": {
-    "email": 1771826220,
-    "calendar": 1771826220,
+    "email": 1771842820,
+    "calendar": 1771842820,
     "weather": null,
     "todos": 1771826220
   },
-  "lastAlerts": {},
+  "lastAlerts": {
+    "whatsapp_disconnected": 1771842820
+  },
   "notes": {
     "email": "Geen directe inbox-uitlezing beschikbaar in huidige OpenClaw-setup.",
     "calendar": "Geen directe kalender-uitlezing beschikbaar in huidige OpenClaw-setup."
