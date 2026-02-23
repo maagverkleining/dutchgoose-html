@@ -30,6 +30,7 @@
 ## Open acties
 - [x] `info@dutchgoose.nl` stabiel werkend op iPhone + Mac Mail
 - [x] Definitieve mailserver-instellingen documenteren (IMAP/SMTP)
+- [x] Forwarding ingericht naar centrale inbox (`gansster@gmail.com`) voor Gmail/Outlook/domeinmail
 - [ ] Agenda-overzicht routine finetunen (ochtend + middag + avond)
 
 ## Definitieve mailinstellingen (`info@dutchgoose.nl`)

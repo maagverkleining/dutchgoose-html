@@ -28,6 +28,7 @@ _Learn about the person you're helping. Update this as you go._
 - Mailstatus: `contact@davidgans.nl` werkt; `info@dutchgoose.nl` werkt nu ook.
 - Extra mailbox actief: `david-gans@outlook.com` (werkt al lokaal).
 - Extra Gmail-account: `dutchgooseyourney@gmail.com`.
+- Mailhub-forwarding actief naar `gansster@gmail.com` (Gmail + Outlook + domeinmail).
 
 ---
 
