@@ -15,6 +15,7 @@
 - Tone of voice: direct, concreet, geen fluff/AI-clichés.
 - Prioriteit: hoge impact boven lage-impact details.
 - Doel nu: centraal overzicht van agenda + multi-inbox (Google/iCloud/domeinmail).
+- Key voorkeur: eerst automatiseren (relay/schermovername/app-koppelingen), handwerk alleen als fallback.
 
 ## Work profile (v1)
 - David is creator + trainer/facilitator + affiliate ondernemer.
