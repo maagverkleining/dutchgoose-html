@@ -28,9 +28,20 @@
   - nieuwsbrieven, promoties, FYI
 
 ## Open acties
-- [ ] `info@dutchgoose.nl` stabiel werkend op iPhone + Mac Mail
-- [ ] Definitieve mailserver-instellingen documenteren (IMAP/SMTP)
+- [x] `info@dutchgoose.nl` stabiel werkend op iPhone + Mac Mail
+- [x] Definitieve mailserver-instellingen documenteren (IMAP/SMTP)
 - [ ] Agenda-overzicht routine finetunen (ochtend + middag + avond)
+
+## Definitieve mailinstellingen (`info@dutchgoose.nl`)
+- Type: IMAP
+- Gebruikersnaam: `info@dutchgoose.nl`
+- Inkomende server: `mail.dutchgoose.nl` (poort 993, SSL)
+- Uitgaande server: `mail.dutchgoose.nl` (poort 465 SSL of 587 STARTTLS)
+
+## Dagelijkse updateflow (v1)
+- Ochtend (08:30): agenda vandaag + top 3 belangrijke mails
+- Middag (13:00): alleen wijzigingen/urgente zaken
+- Eind dag (18:00): korte actielijst voor morgen
 
 ## Updateformat (compact)
 - Agenda: "Vandaag: X afspraken. Eerstvolgende: [tijd] [titel]."
