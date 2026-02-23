@@ -14,6 +14,7 @@
 - WhatsApp inzet: zowel urgente als normale proactieve updates.
 - Tone of voice: direct, concreet, geen fluff/AI-clichés.
 - Prioriteit: hoge impact boven lage-impact details.
+- Doel nu: centraal overzicht van agenda + multi-inbox (Google/iCloud/domeinmail).
 
 ## Work profile (v1)
 - David is creator + trainer/facilitator + affiliate ondernemer.

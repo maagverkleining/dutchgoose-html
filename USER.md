@@ -24,8 +24,10 @@ _Learn about the person you're helping. Update this as you go._
 - Avondroutine: meestal slapen tussen 22:15–22:30.
 - Wil centraal overzicht over agenda + meerdere mailboxen (Google, iCloud, domeinmail).
 - Werkt primair vanaf iPhone (Apple Agenda/Mail).
+- Google hoofdaccount: `gansster@gmail.com`.
 - Mailstatus: `contact@davidgans.nl` werkt; `info@dutchgoose.nl` heeft nog setup issues.
 - Extra mailbox actief: `david-gans@outlook.com` (werkt al lokaal).
+- Extra Gmail-account: `dutchgooseyourney@gmail.com`.
 
 ---
 
