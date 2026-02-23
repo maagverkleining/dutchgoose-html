@@ -1,9 +1,13 @@
 {
   "lastChecks": {
-    "email": null,
-    "calendar": null,
+    "email": 1771826220,
+    "calendar": 1771826220,
     "weather": null,
-    "todos": 1771794182
+    "todos": 1771826220
   },
-  "lastAlerts": {}
+  "lastAlerts": {},
+  "notes": {
+    "email": "Geen directe inbox-uitlezing beschikbaar in huidige OpenClaw-setup.",
+    "calendar": "Geen directe kalender-uitlezing beschikbaar in huidige OpenClaw-setup."
+  }
 }
