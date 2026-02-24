@@ -1,4 +1,21 @@
-rank,advertiserId,programmeName,epc,approvalRate,conversionRate,cookieLength,primarySector,displayUrl
-1,15442,ICS zakelijk NL,2.15,100.0,7.99351,30,Credit Cards,https://www.icsbusiness.nl
-2,11315,Youfone TV NL,1.07,87.19,1.31252,15,Internet Service Provider,https://www.youfone.nl/
-3,24024,ABN AMRO Creditcard & Betaalpakket NL,0.45,83.24,1.29151,30,Personal Banking,https://www.abnamro.nl/nl/prive/betalen
+rank,advertiserId,programmeName,epc,approvalRate,conversionRate,cookieLength,commissionMin,commissionMax,primarySector,subSectors,averagePaymentTime,displayUrl
+1,30525,Insetto Horren op maat NL,19.93,100.0,16.6667,30,0.0,0.0,Home & Garden,Home & Garden,89,https://www.insetto.nl/
+2,8548,Eurotops NL,17.47,88.89,8.52792,60,10.0,10.0,Department Stores,Department Stores,75,https://www.eurotops.nl/
+3,9779,ABN AMRO Verzekeringen NL,4.76,96.73,6.31994,30,0.0,0.0,Insurance,Insurance,87,https://www.abnamro.nl/nl/prive/index11.html
+4,15809,Vodafone Zakelijk NL,4.54,99.31,2.58121,30,0.0,0.0,Business Services (B2B),Business Services (B2B),47,https://www.vodafone.nl/zakelijk/home/
+5,8354,FBTO NL,3.58,90.81,6.56412,30,0.0,0.0,Insurance,Insurance,50,http://www.fbto.nl
+6,8490,InShared NL,3.2,99.6,4.81436,30,0.0,0.0,Insurance,Credit Cards|Insurance,64,https://www.inshared.nl
+7,8519,Unive NL,3.19,89.77,6.14298,30,0.0,0.0,Insurance,Credit Cards|Insurance|Mortgages,113,http://www.unive.nl
+8,8357,Centraal Beheer NL,2.6,86.87,6.66473,30,100.0,100.0,Insurance,Insurance,51,https://www.centraalbeheer.nl
+9,19630,Supergreens NL,2.57,100.0,12.3942,30,20.0,20.0,Health & Beauty,Health & Beauty|Sports Equipment,51,https://supergreens.nl/
+10,15442,ICS zakelijk NL,2.15,100.0,7.99351,30,0.0,0.0,Credit Cards,Credit Cards,55,https://www.icsbusiness.nl
+11,68288,Energiekiezer NL,1.35,95.47,6.3993,30,0.0,0.0,Utilities,Utilities,66,https://www.energiekiezer.nl/
+12,26452,Make Me Royal NL,1.34,100.0,25.0249,30,0.0,0.0,Photos & Print Services,Photography|Photos & Print Services,,https://www.makemeroyal.com/
+13,8536,Ivol NL,1.22,95.5,8.74376,30,7.0,7.0,Home & Garden,Home & Garden,49,https://www.ivol.nl
+14,23833,HairLust NL,1.17,100.0,9.66502,30,0.0,0.0,Health & Beauty,FMCG|Green (Eco friendly)|Health & Beauty,26,https://hairlust.nl/
+15,8458,Sneltoner NL,1.14,99.25,19.3372,30,0.0,15.0,Photos & Print Services,Office Supplies|Photos & Print Services,36,http://www.sneltoner.nl
+16,11315,Youfone TV NL,1.07,87.19,1.31252,15,0.0,0.0,Internet Service Provider,Digital TV & Video-on-Demand|Internet Service Provider,70,https://www.youfone.nl/
+17,9845,FBTO Zorg NL,0.96,97.51,2.47924,30,0.0,0.0,Insurance,Insurance,43,https://www.fbto.nl
+18,28393,Allesimpregneren.nl NL,0.91,100.0,15.1497,30,0.0,0.0,Home & Garden,Home & Garden,58,https://allesimpregneren.nl/
+19,27383,Cheflix NL,0.77,95.83,9.38584,30,0.0,0.0,Books & Subscriptions,Books & Subscriptions|DIY|Entertainment Superstore|Gifts & Flowers|Home & Garden,27,https://cheflix.com/
+20,85173,Coolblue Recruitment,0.77,93.65,3.4852,30,0.0,0.0,,,23,https://www.werkenbijcoolblue.nl/
