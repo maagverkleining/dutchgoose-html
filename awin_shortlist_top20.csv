@@ -1,0 +1,4 @@
+rank,advertiserId,programmeName,epc,approvalRate,conversionRate,cookieLength,primarySector,displayUrl
+1,15442,ICS zakelijk NL,2.15,100.0,7.99351,30,Credit Cards,https://www.icsbusiness.nl
+2,11315,Youfone TV NL,1.07,87.19,1.31252,15,Internet Service Provider,https://www.youfone.nl/
+3,24024,ABN AMRO Creditcard & Betaalpakket NL,0.45,83.24,1.29151,30,Personal Banking,https://www.abnamro.nl/nl/prive/betalen
