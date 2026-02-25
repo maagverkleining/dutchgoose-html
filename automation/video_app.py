@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import cgi
 import html
 import json
 import os
+import shutil
 import signal
 import subprocess
 from datetime import datetime
@@ -36,6 +38,16 @@ def read_json(path: Path, fallback):
         return json.loads(path.read_text(encoding="utf-8"))
     except Exception:
         return fallback
+
+
+def tail(path: Path, lines: int = 30) -> str:
+    if not path.exists():
+        return ""
+    try:
+        data = path.read_text(encoding="utf-8", errors="ignore").splitlines()
+        return "\n".join(data[-lines:])
+    except Exception:
+        return ""
 
 
 def is_pid_running(pid: int) -> bool:
@@ -72,11 +84,12 @@ def start_pipeline() -> tuple[bool, str]:
     with APP_LOG.open("a", encoding="utf-8") as f:
         f.write(f"\n[{datetime.now().isoformat()}] Start pipeline requested\n")
 
+    out = APP_LOG.open("a", encoding="utf-8")
     proc = subprocess.Popen(
         ["python3", str(PIPELINE_SCRIPT)],
         cwd=str(WORKSPACE),
-        stdout=APP_LOG.open("a", encoding="utf-8"),
-        stderr=APP_LOG.open("a", encoding="utf-8"),
+        stdout=out,
+        stderr=out,
         preexec_fn=os.setsid,
     )
     PID_FILE.write_text(str(proc.pid), encoding="utf-8")
@@ -132,12 +145,37 @@ def set_approval(project_name: str, approved: bool):
     return True, f"Approval gezet op {approved}"
 
 
+def save_uploaded_file(handler: BaseHTTPRequestHandler) -> tuple[bool, str]:
+    ctype, _ = cgi.parse_header(handler.headers.get("content-type"))
+    if ctype != "multipart/form-data":
+        return False, "Upload mislukt: geen multipart/form-data"
+
+    fs = cgi.FieldStorage(
+        fp=handler.rfile,
+        headers=handler.headers,
+        environ={"REQUEST_METHOD": "POST", "CONTENT_TYPE": handler.headers.get("content-type")},
+    )
+    if "file" not in fs:
+        return False, "Geen bestand ontvangen"
+
+    fileitem = fs["file"]
+    filename = Path(fileitem.filename or "").name
+    if not filename.lower().endswith(".mp4"):
+        return False, "Alleen .mp4 bestanden zijn toegestaan"
+
+    target = INBOX / filename
+    with target.open("wb") as f:
+        shutil.copyfileobj(fileitem.file, f)
+    return True, f"Bestand geüpload naar INBOX: {filename}"
+
+
 def page_html(message: str = "") -> str:
     pid = get_pipeline_pid()
     status = f"🟢 Actief (PID {pid})" if pid else "🔴 Uit"
     projects = list_projects()
     dash = read_json(DASHBOARD, {"runs": []})
     runs = list(reversed(dash.get("runs", [])[-8:]))
+    logs = tail(APP_LOG, 20)
 
     rows = []
     for p in projects:
@@ -165,6 +203,7 @@ def page_html(message: str = "") -> str:
 <html>
 <head>
   <meta charset='utf-8'/>
+  <meta http-equiv='refresh' content='10'>
   <title>Video Automation App</title>
   <style>
     body {{ font-family: Inter, Arial, sans-serif; max-width: 1100px; margin: 24px auto; line-height: 1.45; }}
@@ -174,11 +213,13 @@ def page_html(message: str = "") -> str:
     th, td {{ border-bottom:1px solid #eee; text-align:left; padding:8px; }}
     .muted {{ color:#666; }}
     code {{ background:#f5f5f5; padding:2px 6px; border-radius:6px; }}
+    #dropzone {{ border:2px dashed #9aa; border-radius:12px; padding:24px; text-align:center; background:#fafcfe; }}
+    #dropzone.drag {{ border-color:#2d7; background:#f0fff4; }}
   </style>
 </head>
 <body>
   <h1>🎬 Video Automation App</h1>
-  <p class='muted'>Simpel gebruik: 1) Start pipeline 2) Drop MP4 in INBOX 3) Open project 4) Klik Approved</p>
+  <p class='muted'>Simpel gebruik: 1) Start pipeline 2) Upload of sleep MP4 in INBOX 3) Open project 4) Klik Approved</p>
   {msg_block}
 
   <div class='card'>
@@ -190,10 +231,21 @@ def page_html(message: str = "") -> str:
   </div>
 
   <div class='card'>
+    <h2>Upload video (.mp4)</h2>
+    <div id='dropzone'>
+      Sleep je MP4 hierheen (drag & drop), of kies bestand hieronder.
+      <form id='uploadForm' method='post' action='/upload' enctype='multipart/form-data' style='margin-top:12px'>
+        <input type='file' name='file' accept='.mp4,video/mp4' required>
+        <button type='submit'>Upload naar INBOX</button>
+      </form>
+    </div>
+  </div>
+
+  <div class='card'>
     <h2>Snelle stappen (voor leken)</h2>
     <ol>
       <li>Klik <b>Start pipeline</b>.</li>
-      <li>Zet je CapCut-export (<code>.mp4</code>) in de INBOX map.</li>
+      <li>Upload of sleep je CapCut-export (<code>.mp4</code>) hierboven.</li>
       <li>Wacht tot project in de lijst verschijnt (compliance = OK).</li>
       <li>Open project en check <code>review_pack.html</code>.</li>
       <li>Klik <b>Approve & Post</b> als alles klopt.</li>
@@ -215,6 +267,28 @@ def page_html(message: str = "") -> str:
       <tbody>{''.join(run_rows) or '<tr><td colspan="3" class="muted">Geen runs</td></tr>'}</tbody>
     </table>
   </div>
+
+  <div class='card'>
+    <h2>Laatste logs</h2>
+    <pre>{html.escape(logs or 'Nog geen logs')}</pre>
+  </div>
+
+<script>
+const dz = document.getElementById('dropzone');
+['dragenter','dragover'].forEach(ev => dz.addEventListener(ev, e => {{ e.preventDefault(); dz.classList.add('drag'); }}));
+['dragleave','drop'].forEach(ev => dz.addEventListener(ev, e => {{ e.preventDefault(); dz.classList.remove('drag'); }}));
+dz.addEventListener('drop', async (e) => {{
+  const files = e.dataTransfer.files;
+  if (!files || !files.length) return;
+  const file = files[0];
+  if (!file.name.toLowerCase().endsWith('.mp4')) {{ alert('Alleen .mp4'); return; }}
+  const fd = new FormData();
+  fd.append('file', file);
+  const res = await fetch('/upload', {{ method:'POST', body: fd }});
+  const txt = await res.text();
+  document.open(); document.write(txt); document.close();
+}});
+</script>
 </body>
 </html>
 """
@@ -299,6 +373,10 @@ class Handler(BaseHTTPRequestHandler):
             return
         if parsed.path == "/stop":
             _, msg = stop_pipeline()
+            self._send(page_html(msg))
+            return
+        if parsed.path == "/upload":
+            _, msg = save_uploaded_file(self)
             self._send(page_html(msg))
             return
         if parsed.path in {"/approve", "/unapprove"}:
