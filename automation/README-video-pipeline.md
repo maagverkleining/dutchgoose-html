@@ -1,6 +1,8 @@
 # Ultra Automation Video Pipeline (lokale versie)
 
-Bestand: `automation/video_pipeline.py`
+Bestanden:
+- `automation/video_pipeline.py` (engine)
+- `automation/video_app.py` (simpele lokale app/UI)
 
 ## Wat dit nu doet
 
@@ -15,12 +17,17 @@ Bestand: `automation/video_pipeline.py`
   - post-flow start **alleen** als `approval.json` op `"approved": true` staat
 - Compliance-check blokkeert bij issues (`NEEDS_EDIT`)
 
-## Starten
+## Starten (aanbevolen: via app)
 
 ```bash
 cd /Users/davidgans/.openclaw/workspace
-python3 automation/video_pipeline.py
+python3 automation/video_app.py
 ```
+
+Open daarna in je browser:
+- `http://127.0.0.1:8765`
+
+In de app klik je op **Start pipeline**.
 
 Optionele env vars:
 
