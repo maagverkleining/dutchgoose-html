@@ -362,6 +362,12 @@ class Handler(BaseHTTPRequestHandler):
             name = (qs.get("project") or [""])[0]
             self._send(project_html(name))
             return
+        if parsed.path in {"/start", "/stop", "/upload", "/approve", "/unapprove"}:
+            self._send(
+                page_html("Deze route werkt alleen via de knoppen in de app. Ga terug naar Home."),
+                200,
+            )
+            return
         self._send("<h1>404</h1>", 404)
 
     def do_POST(self):
