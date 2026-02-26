@@ -7,7 +7,7 @@ Bestanden:
 ## Wat dit nu doet
 
 - Watch folder: `~/Videos/CapCut/Exports/INBOX`
-- Pakt nieuwe `.mp4` op en verplaatst naar:
+- Pakt nieuwe video’s op (`.mp4`, `.mov`, `.m4v`, `.hevc`) en verplaatst naar:
   - `~/Videos/CapCut/Exports/OUTBOX/<bestandsnaam>/source.mp4`
 - Maakt alle gevraagde outputbestanden (incl. review pack, captions, metadata, exports, approval.json, dashboard.json)
 - Dynamische YouTube-keuze:

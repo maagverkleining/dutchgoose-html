@@ -17,6 +17,7 @@ INBOX = Path(os.environ.get("CAPCUT_INBOX", str(HOME / "Videos/CapCut/Exports/IN
 OUTBOX = Path(os.environ.get("CAPCUT_OUTBOX", str(HOME / "Videos/CapCut/Exports/OUTBOX")))
 DASHBOARD = Path(os.environ.get("CAPCUT_DASHBOARD", str(HOME / "Videos/CapCut/Exports/dashboard.json")))
 POLL_SECONDS = int(os.environ.get("CAPCUT_POLL_SECONDS", "8"))
+SUPPORTED_EXTENSIONS = {".mp4", ".mov", ".m4v", ".hevc"}
 
 BANNED_WORDS = {"before and after guaranteed", "miracle cure"}
 AFFILIATE_HINTS = {"affiliate", "ad", "sponsor", "code", "korting", "ahead nutrition", "link in bio"}
@@ -65,7 +66,22 @@ def init_project(video_file: Path) -> Project:
     root = OUTBOX / slug
     root.mkdir(parents=True, exist_ok=True)
     project = Project(source_path=video_file, slug=slug, root=root)
-    shutil.move(str(video_file), str(project.source_mp4))
+
+    # Normalize all incoming formats (mov/m4v/hevc/mp4) to a clean mp4 source.
+    tmp_input = project.root / f"_input{video_file.suffix.lower()}"
+    shutil.move(str(video_file), str(tmp_input))
+    run([
+        "ffmpeg", "-y", "-i", str(tmp_input),
+        "-c:v", "libx264", "-preset", "veryfast", "-crf", "20",
+        "-c:a", "aac", "-ar", "48000",
+        str(project.source_mp4)
+    ], check=False)
+
+    # Fallback: if transcode failed, keep original bytes as source.mp4 so pipeline can still attempt processing.
+    if not project.source_mp4.exists() or project.source_mp4.stat().st_size == 0:
+        shutil.copy2(tmp_input, project.source_mp4)
+
+    tmp_input.unlink(missing_ok=True)
     (project.root / "processing.lock").write_text(datetime.now().isoformat(), encoding="utf-8")
     return project
 
@@ -417,7 +433,10 @@ def main():
     INBOX.mkdir(parents=True, exist_ok=True)
     OUTBOX.mkdir(parents=True, exist_ok=True)
     while True:
-        videos = sorted(INBOX.glob("*.mp4"), key=lambda p: p.stat().st_mtime)
+        videos = sorted(
+            [p for p in INBOX.iterdir() if p.is_file() and p.suffix.lower() in SUPPORTED_EXTENSIONS],
+            key=lambda p: p.stat().st_mtime,
+        )
         for video in videos:
             process_video(video)
         time.sleep(POLL_SECONDS)

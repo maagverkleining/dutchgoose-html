@@ -26,6 +26,7 @@ DASHBOARD = Path(os.environ.get("CAPCUT_DASHBOARD", str(HOME / "Videos/CapCut/Ex
 
 HOST = os.environ.get("VIDEO_APP_HOST", "127.0.0.1")
 PORT = int(os.environ.get("VIDEO_APP_PORT", "8765"))
+SUPPORTED_EXTENSIONS = {".mp4", ".mov", ".m4v", ".hevc"}
 
 
 def ensure_dirs():
@@ -160,8 +161,10 @@ def save_uploaded_file(handler: BaseHTTPRequestHandler) -> tuple[bool, str]:
 
     fileitem = fs["file"]
     filename = Path(fileitem.filename or "").name
-    if not filename.lower().endswith(".mp4"):
-        return False, "Alleen .mp4 bestanden zijn toegestaan"
+    suffix = Path(filename).suffix.lower()
+    if suffix not in SUPPORTED_EXTENSIONS:
+        allowed = ", ".join(sorted(SUPPORTED_EXTENSIONS))
+        return False, f"Bestandstype niet ondersteund. Gebruik: {allowed}"
 
     target = INBOX / filename
     with target.open("wb") as f:
@@ -219,7 +222,7 @@ def page_html(message: str = "") -> str:
 </head>
 <body>
   <h1>🎬 Video Automation App</h1>
-  <p class='muted'>Simpel gebruik: 1) Start pipeline 2) Upload of sleep MP4 in INBOX 3) Open project 4) Klik Approved</p>
+  <p class='muted'>Simpel gebruik: 1) Start pipeline 2) Upload/sleep video in INBOX 3) Open project 4) Klik Approved</p>
   {msg_block}
 
   <div class='card'>
@@ -231,11 +234,12 @@ def page_html(message: str = "") -> str:
   </div>
 
   <div class='card'>
-    <h2>Upload video (.mp4)</h2>
+    <h2>Upload video</h2>
     <div id='dropzone'>
-      Sleep je MP4 hierheen (drag & drop), of kies bestand hieronder.
+      Sleep je video hierheen (drag & drop), of kies bestand hieronder.<br/>
+      <span class='muted'>Ondersteund: .mp4, .mov, .m4v, .hevc (iPhone werkt dus ook)</span>
       <form id='uploadForm' method='post' action='/upload' enctype='multipart/form-data' style='margin-top:12px'>
-        <input type='file' name='file' accept='.mp4,video/mp4' required>
+        <input type='file' name='file' accept='.mp4,.mov,.m4v,.hevc,video/mp4,video/quicktime' required>
         <button type='submit'>Upload naar INBOX</button>
       </form>
     </div>
@@ -245,7 +249,7 @@ def page_html(message: str = "") -> str:
     <h2>Snelle stappen (voor leken)</h2>
     <ol>
       <li>Klik <b>Start pipeline</b>.</li>
-      <li>Upload of sleep je CapCut-export (<code>.mp4</code>) hierboven.</li>
+      <li>Upload/sleep je export hierboven (<code>.mp4/.mov/.m4v/.hevc</code>).</li>
       <li>Wacht tot project in de lijst verschijnt (compliance = OK).</li>
       <li>Open project en check <code>review_pack.html</code>.</li>
       <li>Klik <b>Approve & Post</b> als alles klopt.</li>
@@ -281,7 +285,9 @@ dz.addEventListener('drop', async (e) => {{
   const files = e.dataTransfer.files;
   if (!files || !files.length) return;
   const file = files[0];
-  if (!file.name.toLowerCase().endsWith('.mp4')) {{ alert('Alleen .mp4'); return; }}
+  const okExt = ['.mp4', '.mov', '.m4v', '.hevc'];
+  const name = file.name.toLowerCase();
+  if (!okExt.some(ext => name.endsWith(ext))) {{ alert('Ondersteund: .mp4, .mov, .m4v, .hevc'); return; }}
   const fd = new FormData();
   fd.append('file', file);
   const res = await fetch('/upload', {{ method:'POST', body: fd }});
