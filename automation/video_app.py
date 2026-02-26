@@ -183,10 +183,12 @@ def save_uploaded_file(handler: BaseHTTPRequestHandler) -> tuple[bool, str]:
         guessed = MIME_TO_EXT.get(mime)
         if guessed in SUPPORTED_EXTENSIONS:
             suffix = guessed
+        elif mime.startswith("video/"):
+            suffix = ".mov"
 
     if suffix not in SUPPORTED_EXTENSIONS:
         allowed = ", ".join(sorted(SUPPORTED_EXTENSIONS))
-        return False, f"Bestandstype niet ondersteund ({mime or 'onbekend'}). Gebruik: {allowed}"
+        return False, f"Bestandstype niet ondersteund ({mime or 'onbekend'}). Gebruik: {allowed} of kies via Bestanden i.p.v. Foto's."
 
     stem = Path(raw_name).stem if Path(raw_name).stem else f"upload_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
     safe_name = _safe_name(stem) + suffix
@@ -267,7 +269,7 @@ def page_html(message: str = "") -> str:
       Sleep je video hierheen (drag & drop), of kies bestand hieronder.<br/>
       <span class='muted'>Ondersteund: .mp4, .mov, .m4v, .hevc (iPhone werkt dus ook)</span>
       <form id='uploadForm' method='post' action='/upload' enctype='multipart/form-data' style='margin-top:12px'>
-        <input type='file' name='file' accept='.mp4,.mov,.m4v,.hevc,video/mp4,video/quicktime' required>
+        <input id='fileInput' type='file' name='file' accept='video/*,.mp4,.mov,.m4v,.hevc' required><div id='fileHint' class='muted' style='margin-top:6px'></div>
         <button type='submit'>Upload naar INBOX</button>
       </form>
     </div>
@@ -307,18 +309,24 @@ def page_html(message: str = "") -> str:
 
 <script>
 const dz = document.getElementById('dropzone');
+const fileInput = document.getElementById('fileInput');
+const fileHint = document.getElementById('fileHint');
+if (fileInput) {
+  fileInput.addEventListener('change', () => {
+    const f = fileInput.files && fileInput.files[0];
+    if (!f) {
+      fileHint.textContent = 'Nog geen bestand gekozen.';
+      return;
+    }
+    fileHint.textContent = `Gekozen: ${f.name || '(zonder naam)'} (${f.type || 'mime onbekend'})`;
+  });
+}
 ['dragenter','dragover'].forEach(ev => dz.addEventListener(ev, e => {{ e.preventDefault(); dz.classList.add('drag'); }}));
 ['dragleave','drop'].forEach(ev => dz.addEventListener(ev, e => {{ e.preventDefault(); dz.classList.remove('drag'); }}));
 dz.addEventListener('drop', async (e) => {{
   const files = e.dataTransfer.files;
   if (!files || !files.length) return;
   const file = files[0];
-  const okExt = ['.mp4', '.mov', '.m4v', '.hevc'];
-  const okMime = ['video/mp4', 'video/quicktime', 'video/x-m4v', 'video/hevc', 'video/h265'];
-  const name = (file.name || '').toLowerCase();
-  const type = (file.type || '').toLowerCase();
-  const valid = okExt.some(ext => name.endsWith(ext)) || okMime.includes(type);
-  if (!valid) {{ alert('Ondersteund: .mp4, .mov, .m4v, .hevc'); return; }}
   const fd = new FormData();
   fd.append('file', file);
   const res = await fetch('/upload', {{ method:'POST', body: fd }});
