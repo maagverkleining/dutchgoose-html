@@ -235,7 +235,6 @@ def page_html(message: str = "") -> str:
 <html>
 <head>
   <meta charset='utf-8'/>
-  <meta http-equiv='refresh' content='10'>
   <title>Video Automation App</title>
   <style>
     body {{ font-family: Inter, Arial, sans-serif; max-width: 1100px; margin: 24px auto; line-height: 1.45; }}
