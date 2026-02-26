@@ -147,6 +147,15 @@ def set_approval(project_name: str, approved: bool):
     return True, f"Approval gezet op {approved}"
 
 
+MIME_TO_EXT = {
+    "video/mp4": ".mp4",
+    "video/quicktime": ".mov",
+    "video/x-m4v": ".m4v",
+    "video/hevc": ".hevc",
+    "video/h265": ".hevc",
+}
+
+
 def _safe_name(name: str) -> str:
     cleaned = re.sub(r"[^A-Za-z0-9._-]+", "_", name).strip("._")
     return cleaned[:120] or "upload_video"
@@ -168,11 +177,19 @@ def save_uploaded_file(handler: BaseHTTPRequestHandler) -> tuple[bool, str]:
     fileitem = fs["file"]
     raw_name = Path(fileitem.filename or "").name
     suffix = Path(raw_name).suffix.lower()
+    mime = (getattr(fileitem, "type", "") or "").lower().strip()
+
+    if suffix not in SUPPORTED_EXTENSIONS:
+        guessed = MIME_TO_EXT.get(mime)
+        if guessed in SUPPORTED_EXTENSIONS:
+            suffix = guessed
+
     if suffix not in SUPPORTED_EXTENSIONS:
         allowed = ", ".join(sorted(SUPPORTED_EXTENSIONS))
-        return False, f"Bestandstype niet ondersteund. Gebruik: {allowed}"
+        return False, f"Bestandstype niet ondersteund ({mime or 'onbekend'}). Gebruik: {allowed}"
 
-    safe_name = _safe_name(Path(raw_name).stem) + suffix
+    stem = Path(raw_name).stem if Path(raw_name).stem else f"upload_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+    safe_name = _safe_name(stem) + suffix
     target = INBOX / safe_name
     with target.open("wb") as f:
         shutil.copyfileobj(fileitem.file, f)
@@ -298,8 +315,11 @@ dz.addEventListener('drop', async (e) => {{
   if (!files || !files.length) return;
   const file = files[0];
   const okExt = ['.mp4', '.mov', '.m4v', '.hevc'];
-  const name = file.name.toLowerCase();
-  if (!okExt.some(ext => name.endsWith(ext))) {{ alert('Ondersteund: .mp4, .mov, .m4v, .hevc'); return; }}
+  const okMime = ['video/mp4', 'video/quicktime', 'video/x-m4v', 'video/hevc', 'video/h265'];
+  const name = (file.name || '').toLowerCase();
+  const type = (file.type || '').toLowerCase();
+  const valid = okExt.some(ext => name.endsWith(ext)) || okMime.includes(type);
+  if (!valid) {{ alert('Ondersteund: .mp4, .mov, .m4v, .hevc'); return; }}
   const fd = new FormData();
   fd.append('file', file);
   const res = await fetch('/upload', {{ method:'POST', body: fd }});
