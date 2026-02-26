@@ -5,6 +5,7 @@ import cgi
 import html
 import json
 import os
+import re
 import shutil
 import signal
 import subprocess
@@ -146,6 +147,11 @@ def set_approval(project_name: str, approved: bool):
     return True, f"Approval gezet op {approved}"
 
 
+def _safe_name(name: str) -> str:
+    cleaned = re.sub(r"[^A-Za-z0-9._-]+", "_", name).strip("._")
+    return cleaned[:120] or "upload_video"
+
+
 def save_uploaded_file(handler: BaseHTTPRequestHandler) -> tuple[bool, str]:
     ctype, _ = cgi.parse_header(handler.headers.get("content-type"))
     if ctype != "multipart/form-data":
@@ -160,16 +166,22 @@ def save_uploaded_file(handler: BaseHTTPRequestHandler) -> tuple[bool, str]:
         return False, "Geen bestand ontvangen"
 
     fileitem = fs["file"]
-    filename = Path(fileitem.filename or "").name
-    suffix = Path(filename).suffix.lower()
+    raw_name = Path(fileitem.filename or "").name
+    suffix = Path(raw_name).suffix.lower()
     if suffix not in SUPPORTED_EXTENSIONS:
         allowed = ", ".join(sorted(SUPPORTED_EXTENSIONS))
         return False, f"Bestandstype niet ondersteund. Gebruik: {allowed}"
 
-    target = INBOX / filename
+    safe_name = _safe_name(Path(raw_name).stem) + suffix
+    target = INBOX / safe_name
     with target.open("wb") as f:
         shutil.copyfileobj(fileitem.file, f)
-    return True, f"Bestand geüpload naar INBOX: {filename}"
+
+    if target.stat().st_size == 0:
+        target.unlink(missing_ok=True)
+        return False, "Upload lijkt leeg (0 bytes). Kies het videobestand opnieuw vanuit Foto's/Bestanden."
+
+    return True, f"Bestand geüpload naar INBOX: {safe_name}"
 
 
 def page_html(message: str = "") -> str:

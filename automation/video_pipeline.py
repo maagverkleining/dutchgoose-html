@@ -7,6 +7,7 @@ import re
 import shutil
 import subprocess
 import time
+import unicodedata
 from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
@@ -61,8 +62,15 @@ def ffprobe_duration(path: Path, log: Path) -> float:
     return float((p.stdout or "0").strip() or 0)
 
 
+def _slugify(name: str) -> str:
+    v = unicodedata.normalize("NFKD", name)
+    v = v.encode("ascii", "ignore").decode("ascii")
+    v = re.sub(r"[^A-Za-z0-9._-]+", "_", v).strip("._")
+    return v[:120] or f"video_{int(time.time())}"
+
+
 def init_project(video_file: Path) -> Project:
-    slug = video_file.stem
+    slug = _slugify(video_file.stem)
     root = OUTBOX / slug
     root.mkdir(parents=True, exist_ok=True)
     project = Project(source_path=video_file, slug=slug, root=root)
@@ -70,6 +78,10 @@ def init_project(video_file: Path) -> Project:
     # Normalize all incoming formats (mov/m4v/hevc/mp4) to a clean mp4 source.
     tmp_input = project.root / f"_input{video_file.suffix.lower()}"
     shutil.move(str(video_file), str(tmp_input))
+
+    if not tmp_input.exists() or tmp_input.stat().st_size == 0:
+        raise RuntimeError("Leeg inputbestand ontvangen (0 bytes)")
+
     run([
         "ffmpeg", "-y", "-i", str(tmp_input),
         "-c:v", "libx264", "-preset", "veryfast", "-crf", "20",
@@ -80,6 +92,9 @@ def init_project(video_file: Path) -> Project:
     # Fallback: if transcode failed, keep original bytes as source.mp4 so pipeline can still attempt processing.
     if not project.source_mp4.exists() or project.source_mp4.stat().st_size == 0:
         shutil.copy2(tmp_input, project.source_mp4)
+
+    if not project.source_mp4.exists() or project.source_mp4.stat().st_size == 0:
+        raise RuntimeError("Kon geen geldige source.mp4 maken")
 
     tmp_input.unlink(missing_ok=True)
     (project.root / "processing.lock").write_text(datetime.now().isoformat(), encoding="utf-8")
