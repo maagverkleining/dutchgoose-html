@@ -1,16 +1,16 @@
 {
   "lastChecks": {
-    "email": 1772121895,
-    "calendar": 1772121895,
+    "email": 1772136737,
+    "calendar": 1772136737,
     "weather": null,
-    "todos": 1772107494
+    "todos": 1772136737
   },
   "lastAlerts": {
     "whatsapp_disconnected": 1772054160,
     "gateway_token_mismatch": 1771864419
   },
   "notes": {
-    "email": "Geen directe inbox-uitlezing beschikbaar in huidige OpenClaw-setup.",
-    "calendar": "Geen directe kalender-uitlezing beschikbaar in huidige OpenClaw-setup."
+    "email": "Gmail API is actief via gog (triage/zoeken/concepten mogelijk zonder browser-tab).",
+    "calendar": "Kalender-uitlezing nog niet actief; vereist extra OAuth-scope voor Google Calendar."
   }
 }
