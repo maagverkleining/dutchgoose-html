@@ -1,7 +1,7 @@
 {
   "lastChecks": {
-    "email": 1772136737,
-    "calendar": 1772136737,
+    "email": 1772160007,
+    "calendar": 1772160007,
     "weather": null,
     "todos": 1772136737
   },
@@ -11,6 +11,6 @@
   },
   "notes": {
     "email": "Gmail API is actief via gog (triage/zoeken/concepten mogelijk zonder browser-tab).",
-    "calendar": "Kalender-uitlezing nog niet actief; vereist extra OAuth-scope voor Google Calendar."
+    "calendar": "Google Calendar API is actief via gog (agenda-uitlezing mogelijk); iCloud is gekoppeld als subscribed importagenda."
   }
 }
