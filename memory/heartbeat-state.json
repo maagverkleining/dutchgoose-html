@@ -1,13 +1,19 @@
 {
   "lastChecks": {
-    "email": 1772160007,
-    "calendar": 1772160007,
-    "weather": null,
-    "todos": 1772136737
+    "email": 1772387254,
+    "calendar": 1772387254,
+    "weather": 1772387254,
+    "todos": 1772387254
   },
   "lastAlerts": {
-    "whatsapp_disconnected": 1772054160,
-    "gateway_token_mismatch": 1771864419
+    "whatsapp_disconnected": 1772287343,
+    "gateway_token_mismatch": 1771864419,
+    "account_security_alert": 1772176142,
+    "github_pat_added": 1772187389,
+    "open_actions_memory": 1772196382,
+    "calendar_event_2h": 1772263808,
+    "github_deploy_failed": 1772312510,
+    "calendar_event_tonight": 1772302215
   },
   "notes": {
     "email": "Gmail API is actief via gog (triage/zoeken/concepten mogelijk zonder browser-tab).",
