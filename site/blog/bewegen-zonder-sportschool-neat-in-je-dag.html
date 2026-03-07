@@ -12,13 +12,13 @@
 body{background:#faf8f4;color:#1a2b28;font-family:'Inter',sans-serif;line-height:1.6}
 h1,h2,h3{font-family:'Nunito',sans-serif}
 a{color:inherit;text-decoration:none}
-nav{position:sticky;top:0;z-index:100;background:#fff;border-bottom:2px solid #c5e8e1;padding:0 5vw;display:flex;align-items:center;justify-content:space-between;height:68px;box-shadow:0 2px 12px rgba(26,124,107,.07)}
-.logo{display:flex;align-items:center;gap:.6rem}
+nav{position:sticky;top:0;z-index:100;background:#fff;border-bottom:2px solid #c5e8e1;padding:.75rem 5vw;display:flex;align-items:center;justify-content:space-between;min-height:68px;height:auto;box-shadow:0 2px 12px rgba(26,124,107,.07)}
+.logo{display:flex;align-items:center;gap:.6rem;min-width:0}.logo-copy{min-width:0}
 .lt{font-size:1.2rem;font-weight:900;color:#1a7c6b;letter-spacing:-.02em;font-family:'Nunito',sans-serif}
 .ls{font-size:.62rem;color:#7a9b94;font-weight:500;display:block;letter-spacing:.04em;text-transform:uppercase;line-height:1;margin-top:1px}
 .nl{display:flex;gap:.2rem;list-style:none}
 .nl a{font-size:.83rem;font-weight:600;color:#4a6b64;padding:.4rem .75rem;border-radius:8px;transition:background .15s,color .15s}
-.nl a:hover,.nl a.on{background:#e8f5f2;color:#1a7c6b}
+.nl a:hover,.nl a.on{background:#e8f5f2;color:#1a7c6b}.nav-actions{display:flex;align-items:center;gap:.3rem;flex-shrink:0}
 .nc{background:#1a7c6b;color:white;font-family:'Nunito',sans-serif;font-weight:800;font-size:.83rem;padding:.48rem 1.1rem;border-radius:100px;margin-left:.35rem}
 .bc{font-size:.77rem;color:#7a9b94;padding:.6rem 5vw;background:#fff;border-bottom:1px solid #d8ede8}
 .bc a{color:#1a7c6b}
@@ -34,10 +34,12 @@ nav{position:sticky;top:0;z-index:100;background:#fff;border-bottom:2px solid #c
 .cta-box a{background:white;color:#1a7c6b;font-family:'Nunito',sans-serif;font-weight:900;font-size:.85rem;padding:.6rem 1.4rem;border-radius:100px;display:inline-flex;align-items:center;gap:.3rem}
 .back{display:inline-flex;align-items:center;gap:.4rem;color:#1a7c6b;font-family:'Nunito',sans-serif;font-weight:800;font-size:.85rem;margin-top:1.5rem;padding:.5rem 1rem;border:2px solid #c5e8e1;border-radius:8px;transition:background .15s}
 .back:hover{background:#e8f5f2}
+@media(max-width:820px){nav{height:auto;padding:.8rem 5vw}.lt{font-size:1.08rem}.ls{font-size:.68rem;letter-spacing:.1em}.nc{display:none}.nav-actions .ns{display:none}}
+@media(max-width:560px){nav{align-items:flex-start;gap:.75rem;padding:.8rem 5vw 1.15rem}.logo{align-items:flex-start;flex:1}.logo-copy{display:flex;flex-direction:column;justify-content:center;padding-top:.1rem}.ls{max-width:16ch;white-space:normal}.nav-actions{padding-top:.15rem}.nav-actions .ns{display:none}}
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3CW3B2KHD0"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag("js", new Date());gtag("config", "G-3CW3B2KHD0");</script></head>
 <body>
-<nav><a href="../index.html" class="logo"><img src="../assets/dutch-goose-logo-cropped.png" alt="Dutch Goose logo" style="width:48px;height:48px;flex-shrink:0;border-radius:12px;display:block"/><div><div class="lt">Dutch Goose</div><span class="ls">Portal na maagverkleining</span></div></a><ul class="nl"><li><a href="../deals.html">🏷️ Deals</a></li><li><a href="../vitamines.html">💊 Vitamines</a></li><li><a href="../blog.html" class="on">📖 Blog</a></li><li><a href="../tools.html">🔧 Tools</a></li><li><a href="../community.html">👥 Community</a></li></ul><div style="display:flex;align-items:center;gap:.3rem"><a href="../community.html" class="nc">🥝 Join BariBuddies</a></div></nav>
+<nav><a href="../index.html" class="logo"><img src="../assets/dutch-goose-logo-cropped.png" alt="Dutch Goose logo" style="width:48px;height:48px;flex-shrink:0;border-radius:12px;display:block"/><div class="logo-copy"><div class="lt">Dutch Goose</div><span class="ls">Portal na maagverkleining</span></div></a><ul class="nl"><li><a href="../deals.html">🏷️ Deals</a></li><li><a href="../vitamines.html">💊 Vitamines</a></li><li><a href="../blog.html" class="on">📖 Blog</a></li><li><a href="../tools.html">🔧 Tools</a></li><li><a href="../community.html">👥 Community</a></li></ul><div class="nav-actions"><a href="../community.html" class="nc">🥝 Join BariBuddies</a></div></nav>
 <div class="bc"><a href="../index.html">Dutch Goose</a><span>›</span><a href="../blog.html">Blog</a><span>›</span>Bewegen zonder sportschool: NEAT in je d...</div>
 
 <div class="coming">
