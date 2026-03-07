@@ -1,0 +1,13 @@
+Options -Indexes
+RewriteEngine On
+
+# If Plesk serves the repository root, expose the static site from /site
+# without changing public URLs.
+RewriteRule ^$ site/index.html [L]
+
+RewriteCond %{REQUEST_URI} !^/site/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{DOCUMENT_ROOT}/site/$1 -f [OR]
+RewriteCond %{DOCUMENT_ROOT}/site/$1 -d
+RewriteRule ^(.+)$ site/$1 [L]
