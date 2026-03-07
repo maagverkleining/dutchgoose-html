@@ -1,9 +1,10 @@
 # Dutch Goose live site
 
-Static site source files live in `site/`.
+Source content is maintained in `site/`.
 
-The repository root contains a deploy `.htaccess` so Plesk can serve the site
-correctly even when the Git deployment target is the repo root instead of the
-`site/` subdirectory.
+For compatibility with the current Plesk setup, the same static site is also
+published at the repository root. This ensures deployments work whether the
+document root points at the repo root or directly at `site/`.
 
-When editing content, update files in `site/`.
+When making content edits, update `site/` first and then sync those files to
+the repository root before pushing.
