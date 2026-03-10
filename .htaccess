@@ -33,5 +33,6 @@ Redirect 301 /kennisbank/supplementen-en-bloedwaarden-hoe-je-uitslagen-leest-na-
 Redirect 301 /kennisbank/haaruitval-na-maagverkleining-oorzaak-en-aanpak /blog/haaruitval-na-maagverkleining-oorzaak-en-aanpak.html
 Redirect 301 /kennisbank/vitamines-na-maagverkleining-wat-heb-je-nodig /blog/vitamines-na-maagverkleining-wat-heb-je-nodig.html
 # Redirect verwijderde pagina
+Redirect 301 /alcohol-na-maagverkleining-waarom-het-harder-aankomt.html /blog/alcohol-na-maagverkleining-waarom-het-harder-aankomt.html
 Redirect 301 /starter-kits /deals.html
 Redirect 301 /starter-kits.html /deals.html
