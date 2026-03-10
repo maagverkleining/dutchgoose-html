@@ -1,37 +1,45 @@
-Options -Indexes
+Options -Indexes -MultiViews
 RewriteEngine On
 
+# Canonical homepage URL
+RewriteRule ^index\.html$ / [R=301,L]
+
+# Redirect extensionless requests to the real .html page when that file exists
+RewriteCond %{REQUEST_URI} !\.[A-Za-z0-9]{2,8}$
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^(.+?)/?$ /$1.html [R=301,L]
+
 # Redirect kennisbank overzicht naar blog
-Redirect 301 /kennisbank /blog
-Redirect 301 /kennisbank/ /blog/
+Redirect 301 /kennisbank /blog.html
+Redirect 301 /kennisbank/ /blog.html
 
 # Redirect individuele kennisbank artikelen naar blog
-Redirect 301 /kennisbank/hoofdhonger-vs-buikhonger-na-maagverkleining /blog/hoofdhonger-vs-buikhonger-na-maagverkleining
-Redirect 301 /kennisbank/dumping-vroeg-en-laat-zo-herken-je-het-na-maagverkleining /blog/dumping-vroeg-en-laat-zo-herken-je-het-na-maagverkleining
-Redirect 301 /kennisbank/altijd-koud-na-afvallen-wat-gebeurt-er /blog/altijd-koud-na-afvallen-wat-gebeurt-er
-Redirect 301 /kennisbank/eten-zit-vast-stappenplan-zonder-paniek /blog/eten-zit-vast-stappenplan-zonder-paniek
-Redirect 301 /kennisbank/eten-en-drinken-scheiden-zo-maak-je-het-haalbaar /blog/eten-en-drinken-scheiden-zo-maak-je-het-haalbaar
-Redirect 301 /kennisbank/eiwit-doelen-per-dag-simpele-richtlijn-na-maagverkleining /blog/eiwit-doelen-per-dag-simpele-richtlijn-na-maagverkleining
-Redirect 301 /kennisbank/plateaus-wat-is-het-en-wanneer-is-het-echt-een-plateau /blog/plateaus-wat-is-het-en-wanneer-is-het-echt-een-plateau
-Redirect 301 /kennisbank/volheidssignalen-waarom-je-lichaam-anders-praat /blog/volheidssignalen-waarom-je-lichaam-anders-praat
-Redirect 301 /kennisbank/uit-eten-na-maagverkleining-zo-hou-je-regie /blog/uit-eten-na-maagverkleining-zo-hou-je-regie
-Redirect 301 /kennisbank/boodschappen-na-maagverkleining-snelle-keuzes-in-de-supermarkt /blog/boodschappen-na-maagverkleining-snelle-keuzes-in-de-supermarkt
-Redirect 301 /kennisbank/alcohol-na-maagverkleining-waarom-het-harder-aankomt /blog/alcohol-na-maagverkleining-waarom-het-harder-aankomt
-Redirect 301 /kennisbank/emotie-eten-na-operatie-wat-helpt-wel /blog/emotie-eten-na-operatie-wat-helpt-wel
-Redirect 301 /kennisbank/darmgeluiden-en-rommel-normaal-of-niet /blog/darmgeluiden-en-rommel-normaal-of-niet
-Redirect 301 /kennisbank/vezels-na-maagverkleining-hoe-bouw-je-op /blog/vezels-na-maagverkleining-hoe-bouw-je-op
-Redirect 301 /kennisbank/eiwitrepen-waar-let-je-op /blog/eiwitrepen-waar-let-je-op
-Redirect 301 /kennisbank/proteine-pudding-en-kwark-zo-vergelijk-je-labels /blog/proteine-pudding-en-kwark-zo-vergelijk-je-labels
-Redirect 301 /kennisbank/voeding-op-werk-meal-prep-zonder-gedoe /blog/voeding-op-werk-meal-prep-zonder-gedoe
-Redirect 301 /kennisbank/slaap-en-afvallen-waarom-het-uitmaakt /blog/slaap-en-afvallen-waarom-het-uitmaakt
-Redirect 301 /kennisbank/bewegen-zonder-sportschool-neat-in-je-dag /blog/bewegen-zonder-sportschool-neat-in-je-dag
-Redirect 301 /kennisbank/losse-huid-wat-kun-je-doen-en-wat-niet /blog/losse-huid-wat-kun-je-doen-en-wat-niet
-Redirect 301 /kennisbank/complimenten-en-zelfbeeld-waarom-het-dubbel-kan-voelen /blog/complimenten-en-zelfbeeld-waarom-het-dubbel-kan-voelen
-Redirect 301 /kennisbank/social-life-en-grenzen-omgaan-met-mensen-die-raar-doen /blog/social-life-en-grenzen-omgaan-met-mensen-die-raar-doen
-Redirect 301 /kennisbank/reisdag-na-maagverkleining-eten-en-drinken-onderweg /blog/reisdag-na-maagverkleining-eten-en-drinken-onderweg
-Redirect 301 /kennisbank/supplementen-en-bloedwaarden-hoe-je-uitslagen-leest-na-maagverkleining /blog/supplementen-en-bloedwaarden-hoe-je-uitslagen-leest-na-maagverkleining
-Redirect 301 /kennisbank/haaruitval-na-maagverkleining-oorzaak-en-aanpak /blog/haaruitval-na-maagverkleining-oorzaak-en-aanpak
-Redirect 301 /kennisbank/vitamines-na-maagverkleining-wat-heb-je-nodig /blog/vitamines-na-maagverkleining-wat-heb-je-nodig
+Redirect 301 /kennisbank/hoofdhonger-vs-buikhonger-na-maagverkleining /blog/hoofdhonger-vs-buikhonger-na-maagverkleining.html
+Redirect 301 /kennisbank/dumping-vroeg-en-laat-zo-herken-je-het-na-maagverkleining /blog/dumping-vroeg-en-laat-zo-herken-je-het-na-maagverkleining.html
+Redirect 301 /kennisbank/altijd-koud-na-afvallen-wat-gebeurt-er /blog/altijd-koud-na-afvallen-wat-gebeurt-er.html
+Redirect 301 /kennisbank/eten-zit-vast-stappenplan-zonder-paniek /blog/eten-zit-vast-stappenplan-zonder-paniek.html
+Redirect 301 /kennisbank/eten-en-drinken-scheiden-zo-maak-je-het-haalbaar /blog/eten-en-drinken-scheiden-zo-maak-je-het-haalbaar.html
+Redirect 301 /kennisbank/eiwit-doelen-per-dag-simpele-richtlijn-na-maagverkleining /blog/eiwit-doelen-per-dag-simpele-richtlijn-na-maagverkleining.html
+Redirect 301 /kennisbank/plateaus-wat-is-het-en-wanneer-is-het-echt-een-plateau /blog/plateaus-wat-is-het-en-wanneer-is-het-echt-een-plateau.html
+Redirect 301 /kennisbank/volheidssignalen-waarom-je-lichaam-anders-praat /blog/volheidssignalen-waarom-je-lichaam-anders-praat.html
+Redirect 301 /kennisbank/uit-eten-na-maagverkleining-zo-hou-je-regie /blog/uit-eten-na-maagverkleining-zo-hou-je-regie.html
+Redirect 301 /kennisbank/boodschappen-na-maagverkleining-snelle-keuzes-in-de-supermarkt /blog/boodschappen-na-maagverkleining-snelle-keuzes-in-de-supermarkt.html
+Redirect 301 /kennisbank/alcohol-na-maagverkleining-waarom-het-harder-aankomt /blog/alcohol-na-maagverkleining-waarom-het-harder-aankomt.html
+Redirect 301 /kennisbank/emotie-eten-na-operatie-wat-helpt-wel /blog/emotie-eten-na-operatie-wat-helpt-wel.html
+Redirect 301 /kennisbank/darmgeluiden-en-rommel-normaal-of-niet /blog/darmgeluiden-en-rommel-normaal-of-niet.html
+Redirect 301 /kennisbank/vezels-na-maagverkleining-hoe-bouw-je-op /blog/vezels-na-maagverkleining-hoe-bouw-je-op.html
+Redirect 301 /kennisbank/eiwitrepen-waar-let-je-op /blog/eiwitrepen-waar-let-je-op.html
+Redirect 301 /kennisbank/proteine-pudding-en-kwark-zo-vergelijk-je-labels /blog/proteine-pudding-en-kwark-zo-vergelijk-je-labels.html
+Redirect 301 /kennisbank/voeding-op-werk-meal-prep-zonder-gedoe /blog/voeding-op-werk-meal-prep-zonder-gedoe.html
+Redirect 301 /kennisbank/slaap-en-afvallen-waarom-het-uitmaakt /blog/slaap-en-afvallen-waarom-het-uitmaakt.html
+Redirect 301 /kennisbank/bewegen-zonder-sportschool-neat-in-je-dag /blog/bewegen-zonder-sportschool-neat-in-je-dag.html
+Redirect 301 /kennisbank/losse-huid-wat-kun-je-doen-en-wat-niet /blog/losse-huid-wat-kun-je-doen-en-wat-niet.html
+Redirect 301 /kennisbank/complimenten-en-zelfbeeld-waarom-het-dubbel-kan-voelen /blog/complimenten-en-zelfbeeld-waarom-het-dubbel-kan-voelen.html
+Redirect 301 /kennisbank/social-life-en-grenzen-omgaan-met-mensen-die-raar-doen /blog/social-life-en-grenzen-omgaan-met-mensen-die-raar-doen.html
+Redirect 301 /kennisbank/reisdag-na-maagverkleining-eten-en-drinken-onderweg /blog/reisdag-na-maagverkleining-eten-en-drinken-onderweg.html
+Redirect 301 /kennisbank/supplementen-en-bloedwaarden-hoe-je-uitslagen-leest-na-maagverkleining /blog/supplementen-en-bloedwaarden-hoe-je-uitslagen-leest-na-maagverkleining.html
+Redirect 301 /kennisbank/haaruitval-na-maagverkleining-oorzaak-en-aanpak /blog/haaruitval-na-maagverkleining-oorzaak-en-aanpak.html
+Redirect 301 /kennisbank/vitamines-na-maagverkleining-wat-heb-je-nodig /blog/vitamines-na-maagverkleining-wat-heb-je-nodig.html
 # Redirect verwijderde pagina
-Redirect 301 /starter-kits /deals
+Redirect 301 /starter-kits /deals.html
 Redirect 301 /starter-kits.html /deals.html
