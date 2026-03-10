@@ -1,13 +1,5 @@
-Options -Indexes -MultiViews
+Options -Indexes
 RewriteEngine On
-
-# Canonical homepage URL
-RewriteRule ^index\.html$ / [R=301,L]
-
-# Redirect extensionless requests to the real .html page when that file exists
-RewriteCond %{REQUEST_URI} !\.[A-Za-z0-9]{2,8}$
-RewriteCond %{DOCUMENT_ROOT}/$1.html -f
-RewriteRule ^(.+?)/?$ /$1.html [R=301,L]
 
 # Redirect kennisbank overzicht naar blog
 Redirect 301 /kennisbank /blog.html
