@@ -376,18 +376,7 @@ nav{align-items:flex-start;gap:.6rem;padding:.75rem 5vw 1rem}
   </div>
 <script>(async function(){try{const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:80,tools:[{"type":"web_search_20250305","name":"web_search"}],messages:[{role:'user',content:'How many followers does TikTok @dutchgoose_weightloss have? Reply with ONLY the number e.g. 7541'}]})});const d=await r.json();const t=(d.content||[]).filter(b=>b.type==='text').map(b=>b.text).join('');const n=parseInt(t.replace(/[^0-9]/g,''));if(n>500){const el=document.getElementById('tt-followers');if(el)el.textContent=n>=1000?(n/1000).toFixed(1).replace(/\.0$/,'')+'K':String(n);}}catch(e){}})();</script>
 </section>
-<section style="background:var(--tp);padding:2.5rem 5vw">
-  <div class="si">
-    <div style="background:white;border:2px solid var(--tm);border-radius:22px;padding:2rem 2.5rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;max-width:860px;margin:0 auto" class="rv">
-      <div style="flex:1;min-width:220px">
-        <div class="sl" style="margin-bottom:.4rem">💊 Vitamines vergelijken</div>
-        <h3 style="font-size:1.1rem;font-weight:900;margin-bottom:.55rem;font-family:'Nunito',sans-serif">Vergelijk WLS vitamines — Welk merk past bij jou?</h3>
-        <p style="font-size:.88rem;color:var(--md);line-height:1.6">Vergelijk prijzen, vormen en voordelen van alle WLS vitamines op maagverkleiningvitaminen.nl</p>
-      </div>
-      <a href="https://maagverkleiningvitaminen.nl" target="_blank" style="background:var(--t);color:white;font-family:'Nunito',sans-serif;font-weight:800;padding:.8rem 1.8rem;border-radius:100px;font-size:.88rem;display:inline-flex;align-items:center;gap:.4rem;white-space:nowrap;flex-shrink:0">Vergelijk vitamines &rarr;</a>
-    </div>
-  </div>
-</section>
+<section style="background:var(--tp);padding:2rem 5vw"><div class="si"><div style="background:white;border:2px solid var(--tm);border-radius:18px;padding:1.6rem 2rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;max-width:860px;margin:0 auto" class="rv"><span style="font-size:2rem;flex-shrink:0">💊</span><div style="flex:1;min-width:200px"><div class="sl" style="margin-bottom:.25rem">Merken vergelijken</div><p style="font-size:.9rem;color:var(--tx);font-weight:700;margin-bottom:.2rem">Nog niet zeker welk merk?</p><p style="font-size:.85rem;color:var(--md)">Vergelijk alle WLS vitamines op prijs, vorm en voordelen op maagverkleiningvitaminen.nl</p></div><a href="https://maagverkleiningvitaminen.nl" target="_blank" style="background:var(--t);color:white;font-family:'Nunito',sans-serif;font-weight:800;padding:.75rem 1.5rem;border-radius:100px;font-size:.86rem;display:inline-flex;align-items:center;gap:.4rem;white-space:nowrap;flex-shrink:0">Bekijk vergelijking &rarr;</a></div></div></section>
 <section style="background:var(--cr)">
   <div class="si">
     <div style="display:flex;align-items:flex-end;justify-content:space-between;
