@@ -288,4 +288,28 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <!-- RECEPTEN -->
+  <url><loc>https://dutchgoose.nl/recepten/</loc><lastmod>2026-03-18</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://dutchgoose.nl/recepten/vloeibaar/</loc><lastmod>2026-03-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://dutchgoose.nl/recepten/gepureerd/</loc><lastmod>2026-03-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://dutchgoose.nl/recepten/vloeibaar/eiwitrijke-kippensoep-na-maagverkleining.html</loc><lastmod>2026-03-18</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://dutchgoose.nl/recepten/vloeibaar/proteine-yoghurtshake-maagverkleining.html</loc><lastmod>2026-03-18</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://dutchgoose.nl/recepten/vloeibaar/romige-bloemkoolsoep-kwark-maagverkleining.html</loc><lastmod>2026-03-18</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://dutchgoose.nl/recepten/vloeibaar/warme-proteine-chocolademelk-maagverkleining.html</loc><lastmod>2026-03-18</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://dutchgoose.nl/recepten/vloeibaar/groentebouillon-ei-maagverkleining.html</loc><lastmod>2026-03-18</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://dutchgoose.nl/recepten/gepureerd/kip-aardappelpuree-courgette-maagverkleining.html</loc><lastmod>2026-03-18</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://dutchgoose.nl/recepten/gepureerd/zalmpuree-ricotta-maagverkleining.html</loc><lastmod>2026-03-18</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://dutchgoose.nl/recepten/gepureerd/hummus-zachte-groente-maagverkleining.html</loc><lastmod>2026-03-18</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://dutchgoose.nl/recepten/gepureerd/zoete-aardappelpuree-kip-maagverkleining.html</loc><lastmod>2026-03-18</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://dutchgoose.nl/recepten/gepureerd/cottage-cheese-fruit-maagverkleining.html</loc><lastmod>2026-03-18</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://dutchgoose.nl/recepten/proteine-pannenkoeken-na-maagverkleining.html</loc><lastmod>2026-03-18</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://dutchgoose.nl/recepten/kipgehaktballetjes-tomatensaus-maagverkleining.html</loc><lastmod>2026-03-18</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://dutchgoose.nl/recepten/griekse-kwark-bowl-maagverkleining.html</loc><lastmod>2026-03-18</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://dutchgoose.nl/recepten/courgettini-avocadopesto-kip-maagverkleining.html</loc><lastmod>2026-03-18</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://dutchgoose.nl/recepten/eiwitrijke-kippensoep-maagverkleining.html</loc><lastmod>2026-03-18</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://dutchgoose.nl/recepten/gevulde-paprika-cottage-cheese-tonijn-maagverkleining.html</loc><lastmod>2026-03-18</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://dutchgoose.nl/recepten/zalm-spinazie-ricotta-maagverkleining.html</loc><lastmod>2026-03-18</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://dutchgoose.nl/recepten/high-protein-overnight-oats-maagverkleining.html</loc><lastmod>2026-03-18</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://dutchgoose.nl/recepten/kip-tikka-masala-maagverkleining.html</loc><lastmod>2026-03-18</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://dutchgoose.nl/recepten/eiwitrijke-brownie-kidneybonen-maagverkleining.html</loc><lastmod>2026-03-18</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>
