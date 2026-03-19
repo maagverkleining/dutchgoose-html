@@ -125,6 +125,8 @@ footer{background:var(--tx);color:white;padding:3.5rem 5vw 2rem}
 @media(max-width:560px){nav{align-items:flex-start;gap:.6rem;padding:.75rem 5vw 1rem}.logo{align-items:flex-start;flex:1}.logo img{width:38px!important;height:38px!important}.logo-copy{display:flex;flex-direction:column;justify-content:center;padding-top:.08rem}.lt{font-size:.94rem}.ls{max-width:14ch;white-space:normal;font-size:.54rem}.nav-actions{padding-top:.02rem;margin-left:.25rem}.nc{padding:.34rem .54rem;font-size:.58rem;gap:.14rem}.fg{grid-template-columns:1fr;gap:1.1rem}.fbot{flex-direction:column;align-items:flex-start;gap:.5rem}.fdis,.fbot{max-width:none}}
 img{max-width:100%;height:auto}
 @media(max-width:768px){.kl-tbl{font-size:13px}.kl-tbl td,.kl-tbl thead th{padding:8px 6px}.kl-tbl td:first-child,.kl-tbl thead th:first-child{min-width:130px;width:130px}}
+.th-more-btn{display:inline-block;margin-top:6px;padding:3px 10px;background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.4);border-radius:20px;font-size:.72rem;font-weight:500;text-decoration:none;letter-spacing:.02em;white-space:nowrap}
+.th-more-btn:hover{background:rgba(255,255,255,.28)}
 </style>
 </head>
 <body>
@@ -161,12 +163,12 @@ img{max-width:100%;height:auto}
   <thead>
     <tr>
       <th></th>
-      <th class="nok"><a href="/klinieken/nok/" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">NOK</a> <span class="nok-badge">Grootst netwerk</span></th>
-      <th><a href="/klinieken/vitalys/" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">Vitalys</a></th>
-      <th><a href="/klinieken/weightworks/" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">WeightWorks</a></th>
-      <th><a href="/klinieken/oca/" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">OCA (OLVG)</a></th>
-      <th><a href="/klinieken/con/" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">CON (Frisius MC)</a></th>
-      <th><a href="/klinieken/baria-nederland/" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">Baria Nederland</a><br/><small style="font-weight:600;opacity:.85">(Spaarne Gasthuis)</small></th>
+      <th class="nok">NOK <span class="nok-badge">Grootst netwerk</span><br><a href="/klinieken/nok/" class="th-more-btn">Meer info →</a></th>
+      <th>Vitalys<br><a href="/klinieken/vitalys/" class="th-more-btn">Meer info →</a></th>
+      <th>WeightWorks<br><a href="/klinieken/weightworks/" class="th-more-btn">Meer info →</a></th>
+      <th>OCA (OLVG)<br><a href="/klinieken/oca/" class="th-more-btn">Meer info →</a></th>
+      <th>CON (Frisius MC)<br><a href="/klinieken/con/" class="th-more-btn">Meer info →</a></th>
+      <th>Baria Nederland<br/><small style="font-weight:600;opacity:.85">(Spaarne Gasthuis)</small><br><a href="/klinieken/baria-nederland/" class="th-more-btn">Meer info →</a></th>
     </tr>
   </thead>
   <tbody>
