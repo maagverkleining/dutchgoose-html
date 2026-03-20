@@ -1,9 +1,13 @@
 Options -Indexes
 RewriteEngine On
 
-# Redirect kennisbank overzicht naar blog
-Redirect 301 /kennisbank /blog
-Redirect 301 /kennisbank/ /blog/
+# Nieuw kennisbank artikel: direct serveren, geen redirect
+RewriteRule ^kennisbank/maagverkleining-buitenland\.html$ - [L]
+
+# Redirect overige kennisbank URLs naar blog
+RewriteRule ^kennisbank/?$ /blog/ [R=301,L]
+RewriteCond %{REQUEST_URI} !^/kennisbank/maagverkleining-buitenland
+RewriteRule ^kennisbank/(.+)$ /blog/$1 [R=301,L]
 
 # Redirect individuele kennisbank artikelen naar blog
 Redirect 301 /kennisbank/hoofdhonger-vs-buikhonger-na-maagverkleining /blog/hoofdhonger-vs-buikhonger-na-maagverkleining
