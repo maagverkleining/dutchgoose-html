@@ -49,7 +49,7 @@ footer{background:var(--tx);color:white;padding:3.5rem 5vw 2rem}
 .qbtn-icon{font-size:1.4rem;flex-shrink:0}
 .qbtn-label{font-family:'Nunito',sans-serif;font-weight:800;font-size:.88rem;color:white;display:block;line-height:1.1}
 .qbtn-sub{font-size:.72rem;color:rgba(255,255,255,.65)}
-.qbtn-arr{margin-left:auto;color:rgba(255,255,255,.5);font-size:1rem}
+.qbtn-arr{margin-left:auto;color:rgba(255,255,255,.5);font-size:1rem}.qbtn-multi{cursor:default}.qbtn-multi-links{display:flex;flex-direction:column;gap:4px}.qbtn-sublink{display:block;font-size:.85rem;color:var(--tm,#1a7c6b);text-decoration:none;font-weight:500;padding:2px 0}.qbtn-sublink:hover{text-decoration:underline}
 .social-pills{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.5rem}
 .sp{display:inline-flex;align-items:center;gap:.4rem;border-radius:100px;padding:.35rem .75rem;font-size:.72rem;font-weight:700;font-family:'Nunito',sans-serif;transition:opacity .2s,transform .15s}.sp:hover{opacity:.9;transform:translateY(-1px)}
 .sp.tt{background:#000;color:white}
@@ -303,11 +303,14 @@ nav{align-items:flex-start;gap:.6rem;padding:.75rem 5vw 1rem}
         <div><span class="qbtn-label">Recepten</span><span class="qbtn-sub">Eiwitrijke recepten voor elke fase</span></div>
         <span class="qbtn-arr">→</span>
       </a>
-      <a href="/klinieken/" class="qbtn">
-        <span class="qbtn-icon">🏥</span>
-        <div><span class="qbtn-label">Klinieken vergelijker</span><span class="qbtn-sub">NOK, Vitalys, WeightWorks en meer eerlijk naast elkaar</span></div>
-        <span class="qbtn-arr">→</span>
-      </a>
+      <div class="qbtn qbtn-multi">
+        <span class="qbtn-icon">🔍</span>
+        <div class="qbtn-multi-links">
+          <span class="qbtn-label">Oriënteren</span>
+          <a href="/klinieken/" class="qbtn-sublink">🏥 Klinieken vergelijker →</a>
+          <a href="/maagverkleining-buitenland.html" class="qbtn-sublink">🌍 Maagverkleining buitenland →</a>
+        </div>
+      </div>
       <div class="social-pills">
         <a href="https://www.tiktok.com/@dutchgoose_weightloss" target="_blank" class="sp tt">TikTok @dutchgoose_weightloss</a>
         <a href="https://www.instagram.com/dutchgoosejourney" target="_blank" class="sp ig">Instagram @dutchgoosejourney</a>
