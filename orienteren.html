@@ -1,0 +1,136 @@
+<!-- SHARED STYLES - ingesloten in elke preview -->
+<style>:root{--t:#1a7c6b;--tl:#2a9d87;--tp:#e8f5f2;--tm:#c5e8e1;--cr:#faf8f4;--w:#fff;--tx:#1a2b28;--md:#4a6b64;--sf:#7a9b94;--bd:#d8ede8;--sh:0 2px 16px rgba(26,124,107,.08);--sl:0 8px 40px rgba(26,124,107,.14)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{background:var(--cr);color:var(--tx);font-family:'Inter',sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Nunito',sans-serif;line-height:1.2}a{color:inherit;text-decoration:none}
+nav{position:sticky;top:0;z-index:100;background:var(--w);border-bottom:2px solid var(--tm);padding:.75rem 5vw;display:flex;align-items:center;justify-content:space-between;min-height:68px;height:auto;box-shadow:0 2px 12px rgba(26,124,107,.07)}
+.logo{display:flex;align-items:center;gap:.6rem;min-width:0}.lt{font-size:1.2rem;font-weight:900;color:var(--t);letter-spacing:-.02em;font-family:'Nunito',sans-serif}
+.logo-copy{min-width:0}
+.ls{font-size:.62rem;color:#52766f;font-weight:700;display:block;letter-spacing:.08em;text-transform:uppercase;line-height:1.2;margin-top:2px}
+.nl{display:flex;gap:.2rem;list-style:none}.nl a{font-size:.83rem;font-weight:600;color:var(--md);padding:.4rem .75rem;border-radius:8px;transition:background .15s,color .15s}
+.nl a:hover,.nl a.on{background:var(--tp);color:var(--t)}.ns{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--md);transition:background .15s,color .15s}.ns:hover{background:var(--tp);color:var(--t)}
+.nc{background:var(--t);color:white;font-family:'Nunito',sans-serif;font-weight:800;font-size:.83rem;padding:.48rem 1.1rem;border-radius:100px;margin-left:.35rem;transition:background .2s;display:inline-flex;align-items:center;gap:.3rem}.nc:hover{background:var(--tl)}
+.nav-actions{display:flex;align-items:center;gap:.3rem;flex-shrink:0}
+.bc{font-size:.77rem;color:var(--sf);padding:.6rem 5vw;background:var(--w);border-bottom:1px solid var(--bd)}.bc a{color:var(--t)}.bc span{margin:0 .35rem;color:var(--bd)}
+section{padding:4rem 5vw}.si{max-width:1160px;margin:0 auto}
+.sl{font-size:.69rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--t);margin-bottom:.35rem;font-family:'Nunito',sans-serif}
+.st{font-size:clamp(1.5rem,2.4vw,2.1rem);font-weight:900;letter-spacing:-.025em;margin-bottom:.5rem}
+.ss{font-size:.92rem;color:var(--md);max-width:500px;margin-bottom:2rem;line-height:1.6}
+.btn{font-family:'Nunito',sans-serif;font-weight:800;padding:.75rem 1.7rem;border-radius:100px;font-size:.88rem;display:inline-flex;align-items:center;gap:.4rem;border:none;cursor:pointer;transition:transform .15s,opacity .15s}.btn:hover{transform:translateY(-2px)}
+.bt{background:var(--t);color:white}.bt:hover{opacity:.9}
+.rv{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}.rv.vis{opacity:1;transform:translateY(0)}
+.tag{display:inline-flex;align-items:center;background:var(--tp);color:var(--t);border:1px solid var(--tm);border-radius:100px;font-size:.69rem;font-weight:700;padding:.16rem .58rem;font-family:'Nunito',sans-serif}
+footer{background:var(--tx);color:white;padding:3.5rem 5vw 2rem}
+.fg{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:2.5rem;margin-bottom:2rem;max-width:1160px}.flo{font-size:1.1rem;font-weight:900;color:#2a9d87;margin-bottom:.55rem;font-family:'Nunito',sans-serif}
+.fbr p{font-size:.8rem;color:rgba(255,255,255,.5);line-height:1.55;max-width:200px}
+.fc h4{font-size:.67rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.37);margin-bottom:.75rem;font-family:'Nunito',sans-serif}
+.fc ul{list-style:none;display:flex;flex-direction:column;gap:.48rem}.fc a{font-size:.82rem;color:rgba(255,255,255,.58);transition:color .2s}.fc a:hover{color:white}
+.fdis{font-size:.72rem;color:rgba(255,255,255,.37);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:7px;padding:.6rem .9rem;margin-top:1.4rem;max-width:1160px}
+.fbot{display:flex;justify-content:space-between;align-items:center;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.07);font-size:.75rem;color:rgba(255,255,255,.37);max-width:1160px}
+/* Dropdown nav */
+.nd{position:relative}.nd-menu{display:none;position:absolute;top:calc(100% + 8px);left:0;background:var(--w);border:2px solid var(--bd);border-radius:14px;padding:.4rem;min-width:240px;box-shadow:var(--sl);z-index:200;list-style:none}
+.nd:hover .nd-menu{display:flex;flex-direction:column}.nd-menu li a{display:block;padding:.5rem .9rem;font-size:.82rem;font-weight:600;color:var(--md);border-radius:9px;transition:background .15s,color .15s}.nd-menu li a:hover{background:var(--tp);color:var(--t)}
+/* Hero */
+.hero{background:linear-gradient(150deg,var(--t) 0%,#1e9080 50%,#27bfa3 100%);padding:5rem 5vw 4rem;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:60px;background:var(--cr);clip-path:ellipse(55% 100% at 50% 100%)}
+.hero-inner{max-width:700px;margin:0 auto;text-align:center;position:relative;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:.4rem;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:white;font-size:.72rem;font-weight:700;padding:.28rem .8rem;border-radius:100px;margin-bottom:1rem;letter-spacing:.05em;text-transform:uppercase;font-family:'Nunito',sans-serif}
+.hero h1{font-size:clamp(2rem,3.5vw,2.8rem);font-weight:900;color:white;letter-spacing:-.03em;line-height:1.1;margin-bottom:1rem}
+.hero p{font-size:.97rem;color:rgba(255,255,255,.85);line-height:1.65;max-width:560px;margin:0 auto}
+/* Cards grid */
+.ori-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.ori-card{background:var(--w);border:2px solid var(--bd);border-radius:20px;padding:1.75rem 1.5rem;display:flex;flex-direction:column;gap:.75rem;transition:transform .2s,box-shadow .2s,border-color .2s}
+.ori-card:hover{transform:translateY(-4px);box-shadow:var(--sl);border-color:var(--tm)}
+.ori-icon{font-size:2rem}
+.ori-card h3{font-size:1.05rem;font-weight:900;color:var(--tx)}
+.ori-card p{font-size:.85rem;color:var(--md);line-height:1.55;flex:1}
+.ori-link{display:inline-flex;align-items:center;gap:.35rem;font-family:'Nunito',sans-serif;font-weight:800;font-size:.83rem;color:var(--t);margin-top:.25rem}
+.ori-link:hover{text-decoration:underline}
+/* Disclaimer */
+.dis-box{background:var(--tp);border:1.5px solid var(--tm);border-radius:14px;padding:1.2rem 1.5rem;font-size:.82rem;color:var(--md);line-height:1.55;max-width:1160px;margin:0 auto}
+@media(max-width:900px){nav .nl{display:none}.fg{grid-template-columns:1fr 1fr;gap:1.5rem}.ori-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.ori-grid{grid-template-columns:1fr}}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Nunito:wght@700;800;900&display=swap">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Oriënteren voor je maagverkleining | Dutch Goose</title>
+<meta name="description" content="Alles wat je moet weten voordat je de stap zet. Van operatietypes tot klinieken en vergoeding.">
+<link rel="canonical" href="https://dutchgoose.nl/orienteren.html">
+<body>
+<nav><a href="/" class="logo"><img src="assets/dutch-goose-logo-cropped.png" alt="Dutch Goose logo" style="width:48px;height:48px;flex-shrink:0;border-radius:12px;display:block"/><div class="logo-copy"><div class="lt">Dutch Goose</div><span class="ls">Portal na maagverkleining</span></div></a><ul class="nl"><li><a href="deals.html">🏷️ Deals</a></li><li><a href="vitamines.html">💊 Vitamines</a></li><li><a href="blog.html">📚 Kennisbank</a></li><li><a href="recepten/">🍽️ Recepten</a></li><li><a href="tools.html">🔧 Tools</a></li><li class="nd"><a href="/orienteren.html" class="nd-t on">🔍 Oriënteren ▾</a><ul class="nd-menu"><li><a href="/klinieken/">🏥 Klinieken vergelijker</a></li><li><a href="gastric-bypass.html">🥝 Gastric bypass</a></li><li><a href="gastric-sleeve.html">🍌 Gastric sleeve</a></li><li><a href="criteria.html">✅ Kom ik in aanmerking?</a></li><li><a href="vergoeding.html">💶 Vergoeding &amp; verzekering</a></li><li><a href="/maagverkleining-buitenland.html">🌍 Maagverkleining buitenland</a></li></ul></li><li><a href="community.html">👥 Community</a></li></ul><div class="nav-actions"><a href="https://www.tiktok.com/@dutchgoose_weightloss" target="_blank" class="ns"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.19 8.19 0 004.79 1.53V6.77a4.85 4.85 0 01-1.02-.08z"/></svg></a><a href="https://www.instagram.com/dutchgoosejourney" target="_blank" class="ns"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a><a href="https://www.youtube.com/@Dutch_Goose" target="_blank" class="ns"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a><a href="community.html#join-baribuddies" class="nc">🥝 Join BariBuddies</a></div></nav>
+
+<div class="bc"><a href="/">Dutch Goose</a><span>›</span>Oriënteren</div>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">🔍 ORIËNTEREN</div>
+    <h1>Oriënteren voor je maagverkleining</h1>
+    <p>Alles wat je moet weten voordat je de stap zet. Van operatietypes tot klinieken en vergoeding.</p>
+  </div>
+</div>
+
+<section>
+  <div class="si">
+    <div class="ori-grid">
+
+      <a href="/gastric-bypass.html" class="ori-card rv">
+        <div class="ori-icon">🥝</div>
+        <h3>Gastric bypass</h3>
+        <p>Hoe werkt een gastric bypass, wat zijn de resultaten en voor wie is het geschikt?</p>
+        <span class="ori-link">Lees meer →</span>
+      </a>
+
+      <a href="/gastric-sleeve.html" class="ori-card rv">
+        <div class="ori-icon">🍌</div>
+        <h3>Gastric sleeve</h3>
+        <p>Alles over de sleeve gastrectomy: de ingreep, herstel en wat je kunt verwachten.</p>
+        <span class="ori-link">Lees meer →</span>
+      </a>
+
+      <a href="/criteria.html" class="ori-card rv">
+        <div class="ori-icon">✅</div>
+        <h3>Kom ik in aanmerking?</h3>
+        <p>Wat zijn de criteria voor een maagverkleining in Nederland? BMI, voorwaarden en het traject.</p>
+        <span class="ori-link">Lees meer →</span>
+      </a>
+
+      <a href="/vergoeding.html" class="ori-card rv">
+        <div class="ori-icon">💶</div>
+        <h3>Vergoeding &amp; verzekering</h3>
+        <p>Wordt een maagverkleining vergoed? Wat betaal je zelf en hoe zit het met het eigen risico?</p>
+        <span class="ori-link">Lees meer →</span>
+      </a>
+
+      <a href="/klinieken/" class="ori-card rv">
+        <div class="ori-icon">🏥</div>
+        <h3>Klinieken vergelijker</h3>
+        <p>NOK, Vitalys, WeightWorks, OCA, CON en Baria Nederland eerlijk naast elkaar.</p>
+        <span class="ori-link">Lees meer →</span>
+      </a>
+
+      <a href="/maagverkleining-buitenland.html" class="ori-card rv">
+        <div class="ori-icon">🌍</div>
+        <h3>Maagverkleining in het buitenland</h3>
+        <p>Turkije of België? Eerlijk antwoord over kosten, risico's en nazorg bij een buitenlandse operatie.</p>
+        <span class="ori-link">Lees meer →</span>
+      </a>
+
+    </div>
+
+    <div class="dis-box" style="margin-top:2.5rem">
+      <strong>Geen medisch advies.</strong> Dutch Goose is een ervaringsplatform. De informatie op deze pagina is bedoeld ter oriëntatie en vervangt geen advies van je arts of behandelend team. Raadpleeg altijd een medisch professional voor persoonlijk advies over een operatie.
+    </div>
+  </div>
+</section>
+
+<footer><div class="fg"><div class="fbr"><div class="flo">🪿 Dutch Goose</div><p>Portal voor leven na maagverkleining. Praktisch, eerlijk, community first.</p></div><div class="fc"><h4>Platform</h4><ul><li><a href="/deals.html">Deals</a></li><li><a href="/vitamines.html">Vitamines</a></li><li><a href="/blog.html">Kennisbank</a></li><li><a href="/recepten/">Recepten</a></li><li><a href="/tools.html">Tools</a></li></ul></div><div class="fc"><h4>Oriënteren</h4><ul><li><a href="/gastric-bypass.html">🥝 Gastric bypass</a></li><li><a href="/gastric-sleeve.html">🍌 Gastric sleeve</a></li><li><a href="/criteria.html">✅ Kom ik in aanmerking?</a></li><li><a href="/vergoeding.html">💶 Vergoeding &amp; verzekering</a></li><li><a href="/klinieken/">🏥 Klinieken vergelijker</a></li><li><a href="/maagverkleining-buitenland.html">🌍 Maagverkleining buitenland</a></li></ul></div><div class="fc"><h4>Community</h4><ul><li><a href="/community.html">BariBuddies</a></li><li><a href="/over-david.html">Over David</a></li></ul></div><div class="fc"><h4>Juridisch</h4><ul><li><a href="/disclosure.html">Disclosure</a></li><li><a href="/privacy.html">Privacy</a></li><li><a href="/contact.html">Contact</a></li></ul></div></div><div class="fdis"><strong>Geen medisch advies.</strong> Dutch Goose is een ervaringsplatform. Raadpleeg altijd je arts of je behandelend team voor persoonlijk advies.</div><div class="fbot"><span>&copy; 2026 Dutch Goose &middot; David Gans &middot; Amsterdam</span><span>🥝 bypass &middot; 🍌 sleeve</span></div></footer>
+
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis')}})},{threshold:0.1});
+  document.querySelectorAll('.rv').forEach(function(el){obs.observe(el)});
+});
+</script>
+</body></html>
