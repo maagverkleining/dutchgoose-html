@@ -125,7 +125,7 @@ footer{background:var(--tx);color:white;padding:3.5rem 5vw 2rem}
 .div-lbl{font-family:'Nunito',sans-serif;font-weight:800;font-size:.8rem;color:var(--md);display:flex;align-items:center;gap:.5rem;white-space:nowrap}
 .vb{background:var(--tp);border:2px solid var(--tm);border-radius:18px;padding:1.8rem 2.2rem;display:flex;align-items:center;gap:1.75rem;max-width:860px;margin:2rem auto 0}
 .vb-icon{font-size:2.8rem;flex-shrink:0}
-@media(max-width:900px){.phi{grid-template-columns:1fr}.pht{display:none}.dg{grid-template-columns:1fr 1fr}.vb{flex-direction:column;text-align:center}}
+@media(max-width:900px){.phi{grid-template-columns:1fr !important}.pht{display:none}.dg{grid-template-columns:1fr 1fr}.vb{flex-direction:column;text-align:center}}@media(max-width:768px){.phi{grid-template-columns:1fr !important}.pht{display:none}}
 @media(max-width:500px){.dg{grid-template-columns:1fr}}
 
 .dc:hover{transform:translateY(-4px);box-shadow:0 8px 40px rgba(26,124,107,.14);border-color:var(--tm)}
@@ -148,7 +148,7 @@ footer{background:var(--tx);color:white;padding:3.5rem 5vw 2rem}
 <div style="background:linear-gradient(135deg,#1a7c6b 0%,#1e9680 45%,#27bfa3 100%);padding:4rem 5vw 3rem;text-align:center;position:relative;overflow:hidden">
   <div style="display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:white;font-size:.72rem;font-weight:700;padding:.28rem .85rem;border-radius:100px;margin-bottom:1rem;font-family:Nunito,sans-serif;text-transform:uppercase;letter-spacing:.05em">Exclusieve deals</div>
   <h1 style="font-size:clamp(1.9rem,3.5vw,3rem);font-weight:900;color:white;letter-spacing:-.03em;margin-bottom:.65rem;font-family:Nunito,sans-serif">Bespaar op producten die ideaal zijn na een maagverkleining</h1>
-  <p style="font-size:.97rem;color:rgba(255,255,255,.85);max-width:520px;margin:0 auto 2rem">Curated deals voor mensen na een maagverkleining: van eiwitrijke snacks en maaltijden tot WLS vitamines, een gratis proefpakket via Dutch Goose en 3 maanden calcium cadeau bij een normale bestelling.</p>
+  <p style="font-size:.97rem;color:rgba(255,255,255,.85);max-width:520px;margin:0 auto 2rem">Curated deals voor mensen na een maagverkleining: van eiwitrijke snacks en maaltijden tot WLS vitamines, een gratis proefpakket via Dutch Goose en 3 maanden calcium cadeau (alleen bij je eerste bestelling).</p>
   <div style="display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap">
     <a href="#ahead" style="background:linear-gradient(90deg,#e8723a,#f0a040);color:white;font-family:Nunito,sans-serif;font-weight:900;padding:.7rem 1.6rem;border-radius:100px;font-size:.88rem;display:inline-flex;align-items:center;gap:.4rem;box-shadow:0 4px 14px rgba(232,114,58,.4)">Ahead Nutrition &darr;</a>
     <a href="#vitaminenspecialist" style="background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.3);color:white;font-family:Nunito,sans-serif;font-weight:800;padding:.7rem 1.6rem;border-radius:100px;font-size:.88rem;display:inline-flex;align-items:center;gap:.4rem">Vitaminenspecialist &darr;</a>
@@ -178,7 +178,7 @@ footer{background:var(--tx);color:white;padding:3.5rem 5vw 2rem}
 ====================================== -->
 <div id="ahead" style="border-radius:24px;overflow:hidden;margin-bottom:2.5rem;box-shadow:0 8px 40px rgba(26,124,107,.14)" class="rv">
   <div style="background:linear-gradient(135deg,#0d3b2e 0%,#1a7c6b 55%,#2aab90 100%)">
-    <div style="display:grid;grid-template-columns:1fr 1fr;min-height:320px">
+    <div class="phi" style="display:grid;grid-template-columns:1fr 1fr;min-height:320px">
 
       <!-- Links: tekst -->
       <div style="padding:2.8rem 3rem;display:flex;flex-direction:column;justify-content:center">
@@ -274,15 +274,16 @@ footer{background:var(--tx);color:white;padding:3.5rem 5vw 2rem}
      VITAMINENSPECIALIST
 ====================================== -->
 <div id="vitaminenspecialist" style="border-radius:24px;overflow:hidden;margin-bottom:2.5rem;box-shadow:0 8px 40px rgba(36,87,181,.12)" class="rv">
-  <div style="background:linear-gradient(135deg,#0d3320 0%,#1a7c6b 55%,#27b89e 100%)">
+  <div style="background:linear-gradient(135deg,#0d1f3c 0%,#1b4e8c 55%,#2d7dd2 100%)">
     <div style="display:grid;grid-template-columns:1fr 1fr;min-height:320px">
 
       <div style="padding:2.8rem 3rem;display:flex;flex-direction:column;justify-content:center">
         <div style="display:inline-flex;align-items:center;gap:.55rem;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);border-radius:100px;padding:.34rem .8rem;width:fit-content;margin-bottom:1rem">
           <span style="font-size:.72rem;font-weight:800;color:white;font-family:Nunito,sans-serif;letter-spacing:.04em;text-transform:uppercase">💊 Vitaminenspecialist</span>
         </div>
+        <img src="https://www.vitaminenspecialist.nl/skin/frontend/enterprise/vitaminespecialist/images/logo.svg" style="height:36px;filter:brightness(0) invert(1);margin-bottom:1rem;display:block;" alt="Vitaminenspecialist" onerror="this.style.display='none'">
         <h2 style="font-size:clamp(1.4rem,2.2vw,2rem);font-weight:900;color:white;letter-spacing:-.025em;margin-bottom:.65rem;font-family:Nunito,sans-serif">Gratis proefpakket of direct bestellen met 3 maanden calcium cadeau</h2>
-        <p style="font-size:.88rem;color:rgba(255,255,255,.86);line-height:1.65;margin-bottom:1rem;max-width:400px">Voor bariatrische vitamines is <strong style="color:white">Vitaminenspecialist</strong> nu gekoppeld aan Dutch Goose. Kies je voor het gratis proefpakket, dan gebruik je de code <strong style="color:white">DUTCHGOOSE</strong>, maar nog makkelijker is direct de speciale link. Doe je liever meteen een normale bestelling, dan krijg je via David's homepagina-link <strong style="color:white">3 maanden calcium cadeau</strong>.</p>
+        <p style="font-size:.88rem;color:rgba(255,255,255,.86);line-height:1.65;margin-bottom:1rem;max-width:400px">Voor bariatrische vitamines is <strong style="color:white">Vitaminenspecialist</strong> nu gekoppeld aan Dutch Goose. Kies je voor het gratis proefpakket, dan gebruik je de code <strong style="color:white">DUTCHGOOSE</strong>, maar nog makkelijker is direct de speciale link. Doe je liever meteen een normale bestelling, dan krijg je via David's homepagina-link <strong style="color:white">3 maanden calcium cadeau</strong> (alleen bij je eerste bestelling).</p>
         <div style="display:flex;align-items:center;gap:.75rem;background:rgba(255,255,255,.1);border:2px dashed rgba(255,255,255,.24);border-radius:14px;padding:.8rem 1.1rem;margin-bottom:1rem;max-width:320px">
           <div>
             <div style="font-size:.6rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.58);font-family:Nunito,sans-serif;margin-bottom:.15rem">Proefpakket code</div>
@@ -321,58 +322,6 @@ footer{background:var(--tx);color:white;padding:3.5rem 5vw 2rem}
         </div>
       </div>
 
-    </div>
-  </div>
-</div>
-
-<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-bottom:3rem">
-  <div class="dc rv" style="border-radius:18px;overflow:hidden;background:white;border:2px solid var(--bd);transition:transform .2s,box-shadow .2s,border-color .2s">
-    <div style="height:140px;overflow:hidden;position:relative;background:linear-gradient(135deg,#f4f8ff 0%,#dfeaff 100%);display:flex;align-items:center;justify-content:center;padding:1rem">
-      <div style="text-align:center">
-        <div style="font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:#1a7c6b;font-family:Nunito,sans-serif;margin-bottom:.45rem">Gratis</div>
-        <div style="font-family:Nunito,sans-serif;font-weight:900;font-size:1.5rem;color:#102952">Gratis</div>
-        <div style="font-size:.86rem;color:#486178;font-weight:700">WLS proefpakket</div>
-      </div>
-      <span style="position:absolute;top:.6rem;left:.6rem;background:#2457b5;color:white;font-size:.62rem;font-weight:800;padding:.18rem .55rem;border-radius:100px;font-family:Nunito,sans-serif;text-transform:uppercase">Nieuw</span>
-    </div>
-    <div style="padding:1.15rem">
-      <div style="font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--sf);font-family:Nunito,sans-serif;margin-bottom:.22rem">Vitaminenspecialist</div>
-      <h3 style="font-size:.95rem;font-weight:800;margin-bottom:.32rem">Proefpakket WLS vitamines</h3>
-      <p style="font-size:.8rem;color:var(--md);margin-bottom:.8rem;line-height:1.42">Start met een lage instap. Via David's speciale link claim je het gratis proefpakket meteen goed.</p>
-      <div style="display:flex;align-items:center;background:#eef3ff;border:1.5px dashed #c8dafd;border-radius:8px;padding:.38rem .65rem;margin-bottom:.8rem;gap:.4rem"><span style="font-family:Nunito,sans-serif;font-weight:900;font-size:.83rem;color:#2457b5;letter-spacing:.06em">DUTCHGOOSE</span><button onclick="cp('DUTCHGOOSE',this)" style="margin-left:auto;background:#2457b5;color:white;border:none;cursor:pointer;font-size:.67rem;font-weight:800;font-family:Nunito,sans-serif;padding:.2rem .55rem;border-radius:6px">Kopieer</button></div>
-      <a href="https://www.vitaminenspecialist.nl/dgproefpakket" target="_blank" rel="sponsored noopener" style="display:block;text-align:center;font-family:Nunito,sans-serif;font-weight:800;font-size:.84rem;padding:.65rem;border-radius:10px;color:white;background:linear-gradient(90deg,#2457b5,#5ea4ff)">Open proefpakket &rarr;</a>
-    </div>
-  </div>
-
-  <div class="dc rv" style="border-radius:18px;overflow:hidden;background:white;border:2px solid var(--bd);transition:transform .2s,box-shadow .2s,border-color .2s">
-    <div style="height:140px;overflow:hidden;position:relative;background:linear-gradient(135deg,#f4f8ff 0%,#dce9ff 100%);display:flex;align-items:center;justify-content:center;padding:1rem">
-      <div style="text-align:center">
-        <div style="font-family:Nunito,sans-serif;font-weight:900;font-size:1.15rem;color:#102952;margin-bottom:.25rem">Normale bestelling</div>
-        <div style="font-size:.82rem;color:#486178">via homepagina-link van Dutch Goose</div>
-      </div>
-      <span style="position:absolute;top:.6rem;left:.6rem;background:#ff8d3a;color:white;font-size:.62rem;font-weight:800;padding:.18rem .55rem;border-radius:100px;font-family:Nunito,sans-serif;text-transform:uppercase">Via Dutch Goose link</span>
-    </div>
-    <div style="padding:1.15rem">
-      <div style="font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--sf);font-family:Nunito,sans-serif;margin-bottom:.22rem">Vitaminenspecialist</div>
-      <h3 style="font-size:.95rem;font-weight:800;margin-bottom:.32rem">Vitaminenspecialist homepagina -- 3 maanden calcium cadeau</h3>
-      <p style="font-size:.8rem;color:var(--md);margin-bottom:.8rem;line-height:1.42">Gebruik deze route als je meteen normaal wilt bestellen via David's link. Je krijgt dan 3 maanden calcium cadeau.</p>
-      <a href="https://www.vitaminenspecialist.nl/?vsa=2" target="_blank" rel="sponsored noopener" style="display:block;text-align:center;font-family:Nunito,sans-serif;font-weight:800;font-size:.84rem;padding:.65rem;border-radius:10px;color:white;background:linear-gradient(90deg,#2457b5,#5ea4ff)">Vitaminenspecialist homepagina &rarr; 3 maanden calcium cadeau</a>
-    </div>
-  </div>
-
-  <div class="dc rv" style="border-radius:18px;overflow:hidden;background:white;border:2px solid var(--bd);transition:transform .2s,box-shadow .2s,border-color .2s">
-    <div style="height:140px;overflow:hidden;position:relative;background:linear-gradient(135deg,#f4f8ff 0%,#dce9ff 100%);display:flex;align-items:center;justify-content:center;padding:1rem">
-      <div style="text-align:center">
-        <div style="font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:#1a7c6b;font-family:Nunito,sans-serif;margin-bottom:.4rem">Exclusief via Dutch Goose</div>
-        <div style="font-family:Nunito,sans-serif;font-weight:900;font-size:1.15rem;color:#102952">1e bestelling</div>
-        <div style="font-size:.82rem;color:#486178">3 maanden calcium cadeau</div>
-      </div>
-    </div>
-    <div style="padding:1.15rem">
-      <div style="font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--sf);font-family:Nunito,sans-serif;margin-bottom:.22rem">Vitaminenspecialist</div>
-      <h3 style="font-size:.95rem;font-weight:800;margin-bottom:.32rem">3 maanden calcium cadeau</h3>
-      <p style="font-size:.8rem;color:var(--md);margin-bottom:.8rem;line-height:1.42">Plaats je eerste normale bestelling via David's link, dan krijg je alleen via Dutch Goose 3 maanden calcium cadeau.</p>
-      <a href="https://www.vitaminenspecialist.nl/?vsa=2" target="_blank" rel="sponsored noopener" style="display:block;text-align:center;font-family:Nunito,sans-serif;font-weight:800;font-size:.84rem;padding:.65rem;border-radius:10px;color:white;background:linear-gradient(90deg,#2457b5,#5ea4ff)">Bestel via Dutch Goose &rarr;</a>
     </div>
   </div>
 </div>
