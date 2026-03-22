@@ -41,5 +41,3 @@ Redirect 301 /alcohol-na-maagverkleining-waarom-het-harder-aankomt.html /blog/al
 Redirect 301 /starter-kits /deals.html
 Redirect 301 /starter-kits.html /deals.html
 
-# Redirect index.html naar root
-RedirectMatch 301 ^/index\.html$ /
