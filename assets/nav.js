@@ -77,6 +77,53 @@
     document.body.insertAdjacentHTML('afterbegin', nav);
   }
 
+  // Injecteer mobiele nav CSS
+  const style = document.createElement('style');
+  style.textContent = `
+    @media(max-width:900px) {
+      nav .nl.mob-open {
+        display: flex !important;
+        flex-direction: column !important;
+        position: absolute !important;
+        top: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
+        background: white !important;
+        border-bottom: 2px solid var(--tm) !important;
+        padding: .5rem 5vw 1rem !important;
+        box-shadow: 0 8px 24px rgba(26,124,107,.12) !important;
+        z-index: 99 !important;
+        gap: .15rem !important;
+      }
+      nav .nl.mob-open li {
+        width: 100% !important;
+      }
+      nav .nl.mob-open li a {
+        display: block !important;
+        padding: .65rem .75rem !important;
+        font-size: .95rem !important;
+        border-radius: 8px !important;
+      }
+      nav .nl.mob-open .nd-menu {
+        display: flex !important;
+        flex-direction: column !important;
+        position: static !important;
+        box-shadow: none !important;
+        border: none !important;
+        padding: 0 0 0 1rem !important;
+        background: var(--tp) !important;
+        border-radius: 8px !important;
+        margin: .2rem 0 .4rem !important;
+      }
+      nav .nl.mob-open .nd-menu a {
+        font-size: .85rem !important;
+        padding: .45rem .75rem !important;
+        color: var(--t) !important;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+
   // Markeer actieve pagina
   const path = window.location.pathname;
   document.querySelectorAll('nav .nl a').forEach(a => {
