@@ -105,6 +105,9 @@
         border-radius: 8px !important;
       }
       nav .nl.mob-open .nd-menu {
+        display: none !important;
+      }
+      nav .nl.mob-open .nd.open .nd-menu {
         display: flex !important;
         flex-direction: column !important;
         position: static !important;
@@ -123,6 +126,19 @@
     }
   `;
   document.head.appendChild(style);
+
+  // Mobiele submenu toggle
+  document.querySelector('nav').addEventListener('click', function(e) {
+    if (window.innerWidth > 900) return;
+    const nd = e.target.closest('.nd');
+    if (!nd) return;
+    const link = e.target.closest('a');
+    if (link && link.parentElement === nd) {
+      // Klik op het hoofditem — toggle submenu
+      e.preventDefault();
+      nd.classList.toggle('open');
+    }
+  });
 
   // Markeer actieve pagina
   const path = window.location.pathname;
