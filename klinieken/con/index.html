@@ -90,6 +90,12 @@ p:last-child{margin-bottom:0}
 .btn-outline{background:var(--w);color:var(--t);border:2px solid var(--t)}
 /* DISCLAIMER */
 .disclaimer{background:var(--w);border-left:4px solid var(--sf);border-radius:0 12px 12px 0;padding:1rem 1.2rem;font-size:.82rem;color:var(--md);margin-top:1.5rem}
+/* FAQ */
+.faq-section{padding:3rem 0;border-top:1px solid var(--bd)}
+.faq-section h2{font-size:1.6rem;color:var(--tx);margin-bottom:1.5rem}
+.faq-item{background:var(--w);border-radius:14px;padding:1.4rem 1.6rem;border:1.5px solid var(--bd);margin-bottom:1rem}
+.faq-question{font-size:1rem;color:var(--tx);margin-bottom:.5rem}
+.faq-answer{color:var(--md);font-size:.92rem;line-height:1.7;margin:0}
 /* FOOTER */
 footer{background:var(--tx);color:rgba(255,255,255,.75);padding:2.5rem 5vw 1.5rem;margin-top:0}
 .fg{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:2rem;margin-bottom:1.5rem}
@@ -118,6 +124,78 @@ footer{background:var(--tx);color:rgba(255,255,255,.75);padding:2.5rem 5vw 1.5re
   .fbot{flex-direction:column;gap:.3rem}
 }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": [
+    "MedicalOrganization",
+    "LocalBusiness"
+  ],
+  "name": "CON / Frisius MC",
+  "url": "https://www.frisiusmc.nl",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Leeuwarden",
+    "addressCountry": "NL"
+  },
+  "description": "IFSO-gecertificeerd centrum voor maagverkleining in Leeuwarden, de enige volwaardige kliniek in Noord-Nederland.",
+  "medicalSpecialty": "Bariatric Surgery",
+  "availableService": [
+    {
+      "@type": "MedicalProcedure",
+      "name": "Gastric bypass"
+    },
+    {
+      "@type": "MedicalProcedure",
+      "name": "Mini bypass"
+    },
+    {
+      "@type": "MedicalProcedure",
+      "name": "Gastric sleeve"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is CON de enige bariatrische kliniek in Noord-Nederland?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, CON is de enige volwaardige kliniek voor maagverkleining in Noord-Nederland."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hoe lang duurt het traject bij CON?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Operatie 6-12 weken na eerste bijeenkomst, nazorg 5 jaar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Werkt CON met dagbehandeling?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, als je voor 12 uur geopereerd bent en iemand thuis hebt die voor je zorgt."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Welke verzekeraars werken samen met CON?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Alle verzekeraars, met uitzondering van Caresq."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <nav id="nav-placeholder"></nav>
@@ -171,6 +249,27 @@ footer{background:var(--tx);color:rgba(255,255,255,.75);padding:2.5rem 5vw 1.5re
     <h2>Is dit de juiste kliniek voor jou?</h2>
     <ul class="vw-list"><li>Je woont in Noord-Nederland (Friesland, Groningen of Drenthe) en wil niet ver reizen voor je behandeling.</li><li>Je hecht waarde aan een IFSO-gecertificeerd centrum met bewezen uitstekende DATO-resultaten.</li><li>Je wil dagbehandeling overwegen als je daarvoor in aanmerking komt.</li><li>Je wil een traject met groepsbegeleiding maar in een overzichtelijke regio-kliniek.</li></ul>
   </section>
+
+<section class="faq-section">
+  <div class="section-label">Veelgestelde vragen</div>
+  <h2>Veelgestelde vragen over CON / Frisius MC</h2>
+  <div class="faq-item">
+    <h3 class="faq-question">Is CON de enige bariatrische kliniek in Noord-Nederland?</h3>
+    <p class="faq-answer">Ja. CON is de enige volwaardige kliniek voor maagverkleining in Noord-Nederland, met patiënten uit Friesland, Groningen en Drenthe.</p>
+  </div>
+  <div class="faq-item">
+    <h3 class="faq-question">Hoe lang duurt het traject bij CON?</h3>
+    <p class="faq-answer">De operatie wordt ingepland 6 tot 12 weken na de eerste leefstijlbijeenkomst. Medische nazorg loopt door voor 5 jaar.</p>
+  </div>
+  <div class="faq-item">
+    <h3 class="faq-question">Werkt CON met dagbehandeling?</h3>
+    <p class="faq-answer">Ja. CON heeft een voorkeur voor dagbehandeling als je voor 12 uur geopereerd bent en iemand thuis hebt die voor je zorgt. Anders blijf je 1 nacht.</p>
+  </div>
+  <div class="faq-item">
+    <h3 class="faq-question">Welke verzekeraars werken samen met CON?</h3>
+    <p class="faq-answer">Alle zorgverzekeraars, met uitzondering van Caresq.</p>
+  </div>
+</section>
 
   <!-- LINKS -->
   <section>

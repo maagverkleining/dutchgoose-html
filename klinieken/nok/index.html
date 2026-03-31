@@ -90,6 +90,12 @@ p:last-child{margin-bottom:0}
 .btn-outline{background:var(--w);color:var(--t);border:2px solid var(--t)}
 /* DISCLAIMER */
 .disclaimer{background:var(--w);border-left:4px solid var(--sf);border-radius:0 12px 12px 0;padding:1rem 1.2rem;font-size:.82rem;color:var(--md);margin-top:1.5rem}
+/* FAQ */
+.faq-section{padding:3rem 0;border-top:1px solid var(--bd)}
+.faq-section h2{font-size:1.6rem;color:var(--tx);margin-bottom:1.5rem}
+.faq-item{background:var(--w);border-radius:14px;padding:1.4rem 1.6rem;border:1.5px solid var(--bd);margin-bottom:1rem}
+.faq-question{font-size:1rem;color:var(--tx);margin-bottom:.5rem}
+.faq-answer{color:var(--md);font-size:.92rem;line-height:1.7;margin:0}
 /* FOOTER */
 footer{background:var(--tx);color:rgba(255,255,255,.75);padding:2.5rem 5vw 1.5rem;margin-top:0}
 .fg{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:2rem;margin-bottom:1.5rem}
@@ -118,6 +124,82 @@ footer{background:var(--tx);color:rgba(255,255,255,.75);padding:2.5rem 5vw 1.5re
   .fbot{flex-direction:column;gap:.3rem}
 }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": [
+    "MedicalOrganization",
+    "LocalBusiness"
+  ],
+  "name": "NOK (Nationaal Obesitas Centrum)",
+  "url": "https://www.nok.nl",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "meerdere locaties",
+    "addressCountry": "NL"
+  },
+  "description": "Grootste netwerk voor maagverkleining in Nederland met 11 locaties, groepsaanpak en meer dan 30 jaar ervaring.",
+  "medicalSpecialty": "Bariatric Surgery",
+  "availableService": [
+    {
+      "@type": "MedicalProcedure",
+      "name": "Gastric bypass"
+    },
+    {
+      "@type": "MedicalProcedure",
+      "name": "Gastric sleeve"
+    },
+    {
+      "@type": "MedicalProcedure",
+      "name": "SADI-S"
+    },
+    {
+      "@type": "MedicalProcedure",
+      "name": "Revisie-operaties"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Hoeveel locaties heeft NOK?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "NOK heeft 11 locaties door heel Nederland."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is het traject bij NOK verplicht in groep?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, 4 sessies voor en 12 sessies na de operatie in vaste groep."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hoe lang duurt de nazorg bij NOK?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "5 jaar, daarna overdracht naar de huisarts."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Voert NOK ook revisie-operaties uit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <nav id="nav-placeholder"></nav>
@@ -171,6 +253,27 @@ footer{background:var(--tx);color:rgba(255,255,255,.75);padding:2.5rem 5vw 1.5re
     <h2>Is dit de juiste kliniek voor jou?</h2>
     <ul class="vw-list"><li>Je woont in of nabij een van de 11 NOK-regio's (Amsterdam, Arnhem, Den Haag, Gouda, Heerlen, etc.).</li><li>Je vindt het prettig om je traject samen met een vaste groep lotgenoten te doorlopen.</li><li>Je wil een bewezen, groot netwerk met 30 jaar ervaring en brede verzekeringsdekking.</li><li>Je BMI is boven 40, of boven 35 met ernstige aandoeningen zoals diabetes type 2 of slaapapneu.</li></ul>
   </section>
+
+<section class="faq-section">
+  <div class="section-label">Veelgestelde vragen</div>
+  <h2>Veelgestelde vragen over NOK</h2>
+  <div class="faq-item">
+    <h3 class="faq-question">Hoeveel locaties heeft NOK?</h3>
+    <p class="faq-answer">NOK heeft 11 locaties: Amsterdam, Arnhem/Velp, Beverwijk, Den Haag, Dordrecht, Gouda, Hoogeveen, Heerlen, Nieuwegein, Terneuzen en Venlo.</p>
+  </div>
+  <div class="faq-item">
+    <h3 class="faq-question">Is het traject bij NOK verplicht in groep?</h3>
+    <p class="faq-answer">Ja, het traject bij NOK is verplicht groepsgericht: 4 sessies voor de operatie en 12 sessies erna, over een periode van 1,5 jaar.</p>
+  </div>
+  <div class="faq-item">
+    <h3 class="faq-question">Hoe lang duurt de nazorg bij NOK?</h3>
+    <p class="faq-answer">5 jaar. Daarna draagt NOK over aan de huisarts. Er zijn geen levenslange nacontroles.</p>
+  </div>
+  <div class="faq-item">
+    <h3 class="faq-question">Voert NOK ook revisie-operaties uit?</h3>
+    <p class="faq-answer">Ja. NOK voert revisies uit bij mensen die eerder een sleeve of bypass hebben gehad met onvoldoende resultaat.</p>
+  </div>
+</section>
 
   <!-- LINKS -->
   <section>

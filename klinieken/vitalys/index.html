@@ -90,6 +90,12 @@ p:last-child{margin-bottom:0}
 .btn-outline{background:var(--w);color:var(--t);border:2px solid var(--t)}
 /* DISCLAIMER */
 .disclaimer{background:var(--w);border-left:4px solid var(--sf);border-radius:0 12px 12px 0;padding:1rem 1.2rem;font-size:.82rem;color:var(--md);margin-top:1.5rem}
+/* FAQ */
+.faq-section{padding:3rem 0;border-top:1px solid var(--bd)}
+.faq-section h2{font-size:1.6rem;color:var(--tx);margin-bottom:1.5rem}
+.faq-item{background:var(--w);border-radius:14px;padding:1.4rem 1.6rem;border:1.5px solid var(--bd);margin-bottom:1rem}
+.faq-question{font-size:1rem;color:var(--tx);margin-bottom:.5rem}
+.faq-answer{color:var(--md);font-size:.92rem;line-height:1.7;margin:0}
 /* FOOTER */
 footer{background:var(--tx);color:rgba(255,255,255,.75);padding:2.5rem 5vw 1.5rem;margin-top:0}
 .fg{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:2rem;margin-bottom:1.5rem}
@@ -118,6 +124,82 @@ footer{background:var(--tx);color:rgba(255,255,255,.75);padding:2.5rem 5vw 1.5re
   .fbot{flex-direction:column;gap:.3rem}
 }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": [
+    "MedicalOrganization",
+    "LocalBusiness"
+  ],
+  "name": "Vitalys",
+  "url": "https://www.vitalys.nl",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Arnhem",
+    "addressCountry": "NL"
+  },
+  "description": "IFSO-gecertificeerd centrum voor maagverkleining binnen Rijnstate ziekenhuis in Arnhem, zonder wachttijd en met vaste groepsaanpak.",
+  "medicalSpecialty": "Bariatric Surgery",
+  "availableService": [
+    {
+      "@type": "MedicalProcedure",
+      "name": "Gastric bypass"
+    },
+    {
+      "@type": "MedicalProcedure",
+      "name": "Gastric sleeve"
+    },
+    {
+      "@type": "MedicalProcedure",
+      "name": "SADI-S"
+    },
+    {
+      "@type": "MedicalProcedure",
+      "name": "Revisie-operaties"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Heeft Vitalys een wachttijd?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nee, geen wachttijd."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Werkt Vitalys met een vaste groep?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, dezelfde vaste groep door het hele traject."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Welke operaties voert Vitalys uit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Gastric bypass, gastric sleeve, SADI-S en revisies."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Heeft Vitalys een eigen app?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, de Vitalys-app."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <nav id="nav-placeholder"></nav>
@@ -171,6 +253,27 @@ footer{background:var(--tx);color:rgba(255,255,255,.75);padding:2.5rem 5vw 1.5re
     <h2>Is dit de juiste kliniek voor jou?</h2>
     <ul class="vw-list"><li>Je woont in de regio Gelderland of Utrecht en wil geholpen worden zonder wachttijd.</li><li>Je hecht waarde aan een vaste groep lotgenoten die je van begin tot eind begeleidt.</li><li>Je wil opereren in een topklinisch ziekenhuis met alle medische faciliteiten direct beschikbaar.</li><li>Je zoekt een IFSO-gecertificeerd centrum met wetenschappelijke onderbouwing.</li></ul>
   </section>
+
+<section class="faq-section">
+  <div class="section-label">Veelgestelde vragen</div>
+  <h2>Veelgestelde vragen over Vitalys</h2>
+  <div class="faq-item">
+    <h3 class="faq-question">Heeft Vitalys een wachttijd?</h3>
+    <p class="faq-answer">Nee. Vitalys vermeldt expliciet op hun website dat er geen wachttijd is. Dat maakt het een aantrekkelijke optie voor mensen die snel willen starten.</p>
+  </div>
+  <div class="faq-item">
+    <h3 class="faq-question">Werkt Vitalys met een vaste groep?</h3>
+    <p class="faq-answer">Ja. Van de eerste informatiesessie tot de laatste natrajectbijeenkomst work je met dezelfde vaste groep mensen. Dat is het kenmerk van het Vitalys-traject.</p>
+  </div>
+  <div class="faq-item">
+    <h3 class="faq-question">Welke operaties voert Vitalys uit?</h3>
+    <p class="faq-answer">Gastric bypass, gastric sleeve, SADI-S en revisie-operaties.</p>
+  </div>
+  <div class="faq-item">
+    <h3 class="faq-question">Heeft Vitalys een eigen app?</h3>
+    <p class="faq-answer">Ja, de Vitalys-app met modules, vragen en monitoring. Via de app kun je informatie ophalen en vragen stellen aan je begeleiders.</p>
+  </div>
+</section>
 
   <!-- LINKS -->
   <section>
