@@ -2,7 +2,7 @@
   const nav = `
 <nav>
   <a href="/" class="logo">
-    <img src="/assets/dutch-goose-logo-cropped.png" alt="Dutch Goose logo" width="46" height="46">
+    <img src="/assets/dutch-goose-logo-cropped.png" alt="Dutch Goose logo" width="46" height="46" style="filter:drop-shadow(0 0 4px rgba(26,61,43,0.6))">
     <div class="logo-copy">
       <span class="lt">Dutch Goose</span>
       <span class="ls">JOUW GIDS VOOR MAAGVERKLEINING</span>
