@@ -52,6 +52,7 @@
         <a href="/criteria.html">✅ Kom ik in aanmerking?</a>
         <a href="/vergoeding.html">💶 Vergoeding &amp; verzekering</a>
         <a href="/maagverkleining-buitenland.html">🌍 Maagverkleining buitenland</a>
+        <a href="/blog/kosten-maagverkleining-wat-kost-het-echt.html">💶 Kosten maagverkleining</a>
       </div>
     </li>
     <li class="nd"><a href="/community.html">👥 Community ▾</a>
