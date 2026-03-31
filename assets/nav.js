@@ -47,6 +47,7 @@
     <li class="nd"><a href="/orienteren.html">🔍 Oriënteren ▾</a>
       <div class="nd-menu">
         <a href="/klinieken/">🏥 Klinieken vergelijker</a>
+        <a href="/klinieken/profielen/">🏥 Kliniekprofielen</a>
         <a href="/gastric-bypass.html">🥝 Gastric bypass</a>
         <a href="/gastric-sleeve.html">🍌 Gastric sleeve</a>
         <a href="/criteria.html">✅ Kom ik in aanmerking?</a>
