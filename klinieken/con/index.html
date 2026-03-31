@@ -127,71 +127,85 @@ footer{background:var(--tx);color:rgba(255,255,255,.75);padding:2.5rem 5vw 1.5re
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": [
-    "MedicalOrganization",
-    "LocalBusiness"
-  ],
-  "name": "CON / Frisius MC",
-  "url": "https://www.frisiusmc.nl",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Leeuwarden",
-    "addressCountry": "NL"
-  },
-  "description": "IFSO-gecertificeerd centrum voor maagverkleining in Leeuwarden, de enige volwaardige kliniek in Noord-Nederland.",
-  "medicalSpecialty": "Bariatric Surgery",
-  "availableService": [
+  "@graph": [
     {
-      "@type": "MedicalProcedure",
-      "name": "Gastric bypass"
-    },
-    {
-      "@type": "MedicalProcedure",
-      "name": "Mini bypass"
-    },
-    {
-      "@type": "MedicalProcedure",
-      "name": "Gastric sleeve"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Is CON de enige bariatrische kliniek in Noord-Nederland?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja, CON is de enige volwaardige kliniek voor maagverkleining in Noord-Nederland."
+      "@type": [
+        "MedicalOrganization",
+        "LocalBusiness"
+      ],
+      "name": "CON / Frisius MC",
+      "url": "https://www.frisiusmc.nl",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Leeuwarden",
+        "addressCountry": "NL"
+      },
+      "description": "CON is het IFSO-gecertificeerde centrum voor maagverkleining van Frisius MC in Leeuwarden. Het is de enige volwaardige kliniek voor maagverkleining in Noord-Nederland, met uitstekende DATO-resultaten.",
+      "medicalSpecialty": "Bariatric Surgery",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Ingrepen",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "MedicalProcedure",
+              "name": "Gastric bypass"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "MedicalProcedure",
+              "name": "Mini bypass"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "MedicalProcedure",
+              "name": "Gastric sleeve"
+            }
+          }
+        ]
       }
     },
     {
-      "@type": "Question",
-      "name": "Hoe lang duurt het traject bij CON?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Operatie 6-12 weken na eerste bijeenkomst, nazorg 5 jaar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Werkt CON met dagbehandeling?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja, als je voor 12 uur geopereerd bent en iemand thuis hebt die voor je zorgt."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Welke verzekeraars werken samen met CON?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Alle verzekeraars, met uitzondering van Caresq."
-      }
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is CON de enige bariatrische kliniek in Noord-Nederland?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. CON is de enige volwaardige kliniek voor maagverkleining in Noord-Nederland, met patiënten uit Friesland, Groningen en Drenthe."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hoe lang duurt het traject bij CON?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "De operatie wordt ingepland 6 tot 12 weken na de eerste leefstijlbijeenkomst. Medische nazorg loopt door voor 5 jaar."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Werkt CON met dagbehandeling?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. CON heeft een voorkeur voor dagbehandeling als je voor 12 uur geopereerd bent en iemand thuis hebt die voor je zorgt. Anders blijf je 1 nacht."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Welke verzekeraars werken samen met CON?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Alle zorgverzekeraars, met uitzondering van Caresq."
+          }
+        }
+      ]
     }
   ]
 }

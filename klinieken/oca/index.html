@@ -127,79 +127,99 @@ footer{background:var(--tx);color:rgba(255,255,255,.75);padding:2.5rem 5vw 1.5re
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": [
-    "MedicalOrganization",
-    "LocalBusiness"
-  ],
-  "name": "OCA / OLVG",
-  "url": "https://www.olvg.nl",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Amsterdam",
-    "addressCountry": "NL"
-  },
-  "description": "Obesitas Centrum Amsterdam bij OLVG, de enige kliniek in Nederland met dagbehandeling als standaard optie en specialist in complexe revisies.",
-  "medicalSpecialty": "Bariatric Surgery",
-  "availableService": [
+  "@graph": [
     {
-      "@type": "MedicalProcedure",
-      "name": "Gastric bypass"
-    },
-    {
-      "@type": "MedicalProcedure",
-      "name": "Mini bypass"
-    },
-    {
-      "@type": "MedicalProcedure",
-      "name": "Gastric sleeve"
-    },
-    {
-      "@type": "MedicalProcedure",
-      "name": "SADI-S"
-    },
-    {
-      "@type": "MedicalProcedure",
-      "name": "Revisie-operaties"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Kan ik bij OCA dezelfde dag naar huis na de operatie?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja, ~40% van patiënten gaat dezelfde dag naar huis (dagbehandeling)."
+      "@type": [
+        "MedicalOrganization",
+        "LocalBusiness"
+      ],
+      "name": "OCA / OLVG",
+      "url": "https://www.olvg.nl",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Amsterdam",
+        "addressCountry": "NL"
+      },
+      "description": "Het Obesitas Centrum Amsterdam (OCA) is het centrum voor maagverkleining van OLVG in Amsterdam. OCA is de enige kliniek in Nederland die dagbehandeling standaard aanbiedt en is specialist in complexe revisie-operaties.",
+      "medicalSpecialty": "Bariatric Surgery",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Ingrepen",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "MedicalProcedure",
+              "name": "Gastric bypass"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "MedicalProcedure",
+              "name": "Mini bypass"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "MedicalProcedure",
+              "name": "Gastric sleeve"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "MedicalProcedure",
+              "name": "SADI-S"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "MedicalProcedure",
+              "name": "Revisie-operaties"
+            }
+          }
+        ]
       }
     },
     {
-      "@type": "Question",
-      "name": "Is OCA specialist in revisie-operaties?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja, complexe revisies zijn een specialisme van OCA."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Wie verzorgt de begeleiding bij OCA?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Voor- en natraject via NOK-begeleiders."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Heeft OCA een wachttijd?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Nee."
-      }
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Kan ik bij OCA dezelfde dag naar huis na de operatie?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. OCA is de enige kliniek in Nederland die dagbehandeling standaard aanbiedt. Ongeveer 40% van de patiënten gaat dezelfde dag naar huis, als de operatie voor 12 uur plaatsvond en er thuis iemand is om voor je te zorgen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is OCA specialist in revisie-operaties?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. OCA is specialist in complexe revisies. Patiënten die eerder een sleeve, bypass of ring hebben gehad worden hier routinematig geholpen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie verzorgt de begeleiding bij OCA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Het voor- en natraject loopt via NOK-begeleiders. OCA heeft dit uitbesteed aan NOK, dat ook groepsbijeenkomsten en psychologische screening verzorgt."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Heeft OCA een wachttijd?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nee. OCA heeft expliciet geen wachttijd vermeld op hun website."
+          }
+        }
+      ]
     }
   ]
 }

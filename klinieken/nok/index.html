@@ -127,75 +127,92 @@ footer{background:var(--tx);color:rgba(255,255,255,.75);padding:2.5rem 5vw 1.5re
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": [
-    "MedicalOrganization",
-    "LocalBusiness"
-  ],
-  "name": "NOK (Nationaal Obesitas Centrum)",
-  "url": "https://www.nok.nl",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "meerdere locaties",
-    "addressCountry": "NL"
-  },
-  "description": "Grootste netwerk voor maagverkleining in Nederland met 11 locaties, groepsaanpak en meer dan 30 jaar ervaring.",
-  "medicalSpecialty": "Bariatric Surgery",
-  "availableService": [
+  "@graph": [
     {
-      "@type": "MedicalProcedure",
-      "name": "Gastric bypass"
-    },
-    {
-      "@type": "MedicalProcedure",
-      "name": "Gastric sleeve"
-    },
-    {
-      "@type": "MedicalProcedure",
-      "name": "SADI-S"
-    },
-    {
-      "@type": "MedicalProcedure",
-      "name": "Revisie-operaties"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Hoeveel locaties heeft NOK?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "NOK heeft 11 locaties door heel Nederland."
+      "@type": [
+        "MedicalOrganization",
+        "LocalBusiness"
+      ],
+      "name": "NOK (Nationaal Obesitas Centrum)",
+      "url": "https://www.obesitaskliniek.nl",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "meerdere vestigingen",
+        "addressCountry": "NL"
+      },
+      "description": "Het Nationaal Obesitas Centrum (NOK) is de grootste aanbieder van maagverkleiningsbehandelingen in Nederland met 11 locaties, groepsaanpak en meer dan 30 jaar ervaring.",
+      "medicalSpecialty": "Bariatric Surgery",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Ingrepen",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "MedicalProcedure",
+              "name": "Gastric bypass"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "MedicalProcedure",
+              "name": "Gastric sleeve"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "MedicalProcedure",
+              "name": "SADI-S"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "MedicalProcedure",
+              "name": "Revisie-operaties"
+            }
+          }
+        ]
       }
     },
     {
-      "@type": "Question",
-      "name": "Is het traject bij NOK verplicht in groep?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja, 4 sessies voor en 12 sessies na de operatie in vaste groep."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Hoe lang duurt de nazorg bij NOK?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "5 jaar, daarna overdracht naar de huisarts."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Voert NOK ook revisie-operaties uit?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja."
-      }
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Hoeveel locaties heeft NOK?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "NOK heeft 11 locaties: Amsterdam, Arnhem/Velp, Beverwijk, Den Haag, Dordrecht, Gouda, Hoogeveen, Heerlen, Nieuwegein, Terneuzen en Venlo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is het traject bij NOK verplicht in groep?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja, het traject bij NOK is verplicht groepsgericht: 4 sessies voor de operatie en 12 sessies erna, over een periode van 1,5 jaar."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hoe lang duurt de nazorg bij NOK?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "5 jaar. Daarna draagt NOK over aan de huisarts. Er zijn geen levenslange nacontroles."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Voert NOK ook revisie-operaties uit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. NOK voert revisies uit bij mensen die eerder een sleeve of bypass hebben gehad met onvoldoende resultaat."
+          }
+        }
+      ]
     }
   ]
 }

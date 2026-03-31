@@ -127,75 +127,92 @@ footer{background:var(--tx);color:rgba(255,255,255,.75);padding:2.5rem 5vw 1.5re
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": [
-    "MedicalOrganization",
-    "LocalBusiness"
-  ],
-  "name": "WeightWorks",
-  "url": "https://www.weightworks.nl",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Amersfoort",
-    "addressCountry": "NL"
-  },
-  "description": "Zelfstandige privékliniek in Amersfoort met volledig individueel traject, 0 weken wachttijd en 13 screeninglocaties.",
-  "medicalSpecialty": "Bariatric Surgery",
-  "availableService": [
+  "@graph": [
     {
-      "@type": "MedicalProcedure",
-      "name": "Mini bypass"
-    },
-    {
-      "@type": "MedicalProcedure",
-      "name": "Gastric bypass"
-    },
-    {
-      "@type": "MedicalProcedure",
-      "name": "Gastric sleeve"
-    },
-    {
-      "@type": "MedicalProcedure",
-      "name": "Revisie-operaties"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Heeft WeightWorks echt 0 weken wachttijd?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja, wachttijd is 0 weken, elke 2 weken bijgewerkt op de website."
+      "@type": [
+        "MedicalOrganization",
+        "LocalBusiness"
+      ],
+      "name": "WeightWorks",
+      "url": "https://www.weightworks.nl",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Amersfoort",
+        "addressCountry": "NL"
+      },
+      "description": "WeightWorks is een zelfstandige privékliniek in Amersfoort gespecialiseerd in maagverkleining. Het centrale onderscheid is het volledig individuele traject zonder groepssessies, 0 weken wachttijd en 13 screeninglocaties door Nederland.",
+      "medicalSpecialty": "Bariatric Surgery",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Ingrepen",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "MedicalProcedure",
+              "name": "Mini bypass"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "MedicalProcedure",
+              "name": "Gastric bypass"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "MedicalProcedure",
+              "name": "Gastric sleeve"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "MedicalProcedure",
+              "name": "Revisie-operaties"
+            }
+          }
+        ]
       }
     },
     {
-      "@type": "Question",
-      "name": "Is het traject bij WeightWorks individueel?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja, volledig individueel, geen groepssessies."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Welke ingreep is de meest uitgevoerde bij WeightWorks?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "De mini bypass."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Hoe zit het met de nazorg bij WeightWorks?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Controles na 6 weken, 6 maanden en 1 jaar. Overige controles via telefoon of video."
-      }
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Heeft WeightWorks echt 0 weken wachttijd?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. WeightWorks vermeldt actief dat de wachttijd 0 weken is en werkt die informatie elke 2 weken bij op hun website."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is het traject bij WeightWorks individueel?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja, volledig individueel. Er zijn geen verplichte groepssessies. Alles gaat op jouw tempo en jouw planning. Dit is het centrale onderscheid van WeightWorks."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Welke ingreep is de meest uitgevoerde bij WeightWorks?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "De mini bypass. Dit is de meest uitgevoerde ingreep bij WeightWorks. WeightWorks claimt ook het grootste operatievolume van Nederland."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hoe zit het met de nazorg bij WeightWorks?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Controles na 6 weken, 6 maanden en 1 jaar op locatie in Amersfoort. Overige tussencontroles via telefoon of videogesprek. Geen verplichte groepsbijeenkomsten."
+          }
+        }
+      ]
     }
   ]
 }

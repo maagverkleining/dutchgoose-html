@@ -127,67 +127,78 @@ footer{background:var(--tx);color:rgba(255,255,255,.75);padding:2.5rem 5vw 1.5re
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": [
-    "MedicalOrganization",
-    "LocalBusiness"
-  ],
-  "name": "Baria Nederland",
-  "url": "https://www.barianederland.nl",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Hoofddorp",
-    "addressCountry": "NL"
-  },
-  "description": "Centrum voor maagverkleining binnen Spaarne Gasthuis in Hoofddorp, zonder wachttijd en met levenslange nazorg.",
-  "medicalSpecialty": "Bariatric Surgery",
-  "availableService": [
+  "@graph": [
     {
-      "@type": "MedicalProcedure",
-      "name": "Gastric bypass"
-    },
-    {
-      "@type": "MedicalProcedure",
-      "name": "Gastric sleeve"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Heeft Baria Nederland een wachttijd?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Nee. Binnen 5 werkdagen na aanmelding is de eerste afspraak gepland. Er is geen wachttijd voor de operatie."
+      "@type": [
+        "MedicalOrganization",
+        "LocalBusiness"
+      ],
+      "name": "Baria Nederland",
+      "url": "https://www.barianederland.nl",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Hoofddorp",
+        "addressCountry": "NL"
+      },
+      "description": "Baria Nederland is het centrum voor maagverkleining van het Spaarne Gasthuis in Hoofddorp. Het team heeft zijn roots in MC Slotervaart Amsterdam en biedt een volledig individueel traject zonder wachttijd en met levenslange nazorg.",
+      "medicalSpecialty": "Bariatric Surgery",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Ingrepen",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "MedicalProcedure",
+              "name": "Gastric bypass"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "MedicalProcedure",
+              "name": "Gastric sleeve"
+            }
+          }
+        ]
       }
     },
     {
-      "@type": "Question",
-      "name": "Is het traject bij Baria Nederland individueel of in groep?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Volledig individueel. Geen verplichte groepsgesprekken."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Welke operaties worden uitgevoerd bij Baria Nederland?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Gastric bypass en gastric sleeve."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Hoe lang duurt de nazorg bij Baria Nederland?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "De eerste 5 jaar jaarlijkse controles, daarna levenslang terecht bij klachten."
-      }
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Heeft Baria Nederland een wachttijd?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nee. Binnen 5 werkdagen na aanmelding is de eerste afspraak gepland. Er is geen wachttijd voor de operatie zelf."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is het traject bij Baria Nederland individueel of in groep?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Volledig individueel. Er zijn geen verplichte groepsgesprekken. Alle afspraken — met chirurg, diëtist en psycholoog — zijn 1-op-1."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Welke operaties worden uitgevoerd bij Baria Nederland?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Gastric bypass en gastric sleeve. In 2024 werden 463 bypasses en 256 sleeves uitgevoerd met uitstekende DATO-resultaten."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hoe lang duurt de nazorg bij Baria Nederland?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "De eerste 5 jaar zijn er jaarlijkse controles. Daarna kun je levenslang terecht bij klachten. 24 uur per dag, 7 dagen per week is er een bariatrisch chirurg bereikbaar."
+          }
+        }
+      ]
     }
   ]
 }
