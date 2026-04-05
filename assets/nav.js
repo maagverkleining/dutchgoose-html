@@ -66,7 +66,6 @@
     </li>
   </ul>
   <div class="nav-actions">
-    <a href="/community.html#join-baribuddies" class="nc">🥝 Join BariBuddies</a>
     <button class="ham" onclick="document.querySelector('nav .nl').classList.toggle('mob-open')" aria-label="Menu openen"><span></span><span></span><span></span><em>Menu</em></button>
   </div>
 </nav>`;

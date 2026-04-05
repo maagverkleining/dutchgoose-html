@@ -65,7 +65,7 @@ footer{background:var(--tx);color:white;padding:3.5rem 5vw 2rem}
 .sp.ig{background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:white}
 .sp.yt{background:#ff0000;color:white}
 .stats-bar{background:var(--t);padding:1.8rem 5vw}
-.stats-inner{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.stats-inner{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
 .stat-item{text-align:center;transition:transform .15s,opacity .15s}
 .stat-item:hover{transform:translateY(-3px);opacity:.85}
 .stat-num{font-family:'Nunito',sans-serif;font-size:2rem;font-weight:900;color:white;display:block}
@@ -303,9 +303,9 @@ nav{align-items:flex-start;gap:.6rem;padding:.75rem 5vw 1rem}
         <div><span class="qbtn-label">Kennisbank</span><span class="qbtn-sub">Artikelen over voeding, herstel, vitamines en mentaal</span></div>
         <span class="qbtn-arr">→</span>
       </a>
-      <a href="community.html" class="qbtn" style="background:rgba(120,80,200,.35)">
-        <span class="qbtn-icon">🥝</span>
-        <div><span class="qbtn-label">Join BariBuddies</span><span class="qbtn-sub">WhatsApp · Facebook · Discord. Gratis</span></div>
+      <a href="community.html" class="qbtn" style="background:rgba(255,255,255,.15)">
+        <span class="qbtn-icon">👥</span>
+        <div><span class="qbtn-label">Community</span><span class="qbtn-sub">Lotgenoten &amp; ervaringen delen</span></div>
         <span class="qbtn-arr">→</span>
       </a>
       <a href="recepten/" class="qbtn" style="background:rgba(255,255,255,.13)">
@@ -330,7 +330,6 @@ nav{align-items:flex-start;gap:.6rem;padding:.75rem 5vw 1rem}
 <div class="stats-bar">
   <div class="stats-inner">
     <a href="over-david.html" class="stat-item" style="text-decoration:none;cursor:pointer"><span class="stat-num">−105 kg</span><span class="stat-lbl">David's resultaat · GBP jan '24</span></a>
-    <a href="community.html" class="stat-item" style="text-decoration:none;cursor:pointer"><span class="stat-num">4+</span><span class="stat-lbl">BariBuddies platforms (WA · FB · Discord · TikTok)</span></a>
     <a href="deals.html#ahead" class="stat-item" style="text-decoration:none;cursor:pointer"><span class="stat-num">15%</span><span class="stat-lbl">Korting via code DUTCHGOOSE</span></a>
     <a href="vitamines.html" class="stat-item" style="text-decoration:none;cursor:pointer"><span class="stat-num">💊 Gids</span><span class="stat-lbl">Vitamines, timing en bloedwaarden</span></a>
   </div>
@@ -384,7 +383,7 @@ nav{align-items:flex-start;gap:.6rem;padding:.75rem 5vw 1rem}
         <span style="font-size:.8rem;opacity:.8;margin-top:.3rem;display:block">WhatsApp groepen</span>
       </a>
       <div style="background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:18px;padding:1.5rem;text-align:center;color:white">
-        <span style="font-size:2.2rem;font-weight:900;font-family:Nunito,sans-serif;display:block;line-height:1">2.400+</span>
+        <span style="font-size:2.2rem;font-weight:900;font-family:Nunito,sans-serif;display:block;line-height:1">450+</span>
         <span style="font-size:.8rem;opacity:.8;margin-top:.3rem;display:block">Leden totaal</span>
       </div>
       <div style="background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:18px;padding:1.5rem;text-align:center;color:white">
@@ -751,5 +750,6 @@ const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.targe
 document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
 function tf(b){const it=b.closest('.fq');const op=it.classList.contains('op');document.querySelectorAll('.fq').forEach(i=>i.classList.remove('op'));if(!op)it.classList.add('op')}
 function cp(c,b){navigator.clipboard.writeText(c).then(()=>{const o=b.textContent;b.textContent='✓ Gekopieerd';setTimeout(()=>b.textContent=o,2000)})}
-</script></body></html
+</script><script src="/assets/tracking.js" defer></script>
+</body></html
 >
