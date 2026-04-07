@@ -335,66 +335,112 @@ nav{align-items:flex-start;gap:.6rem;padding:.75rem 5vw 1rem}
   </div>
 </div>
 
-<section class="comm-bg-wrap">
-<div class="comm-emoji-bg">
+<section class="ob-section">
+<style>
+.ob-section{background:#faf8f4;padding:56px 0 48px}
+.ob-inner{max-width:1100px;margin:0 auto;padding:0 32px}
+.ob-label{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.09em;color:#0f6e56;background:#e1f5ee;padding:4px 14px;border-radius:100px;text-transform:uppercase;margin-bottom:14px}
+.ob-heading{font-size:26px;font-weight:700;color:#1a2b28;margin:0 0 6px}
+.ob-sub{font-size:15px;color:#4e6b67;margin:0 0 32px}
+.ob-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.ob-card{background:#fff;border:1.5px solid #d6e8e4;border-radius:20px;padding:24px 20px 20px;display:flex;flex-direction:column}
+.ob-card.featured{border-color:#1a7c6b}
+.ob-badge{display:inline-block;font-size:10px;font-weight:600;background:#1a7c6b;color:#fff;padding:3px 10px;border-radius:100px;margin-bottom:12px;align-self:flex-start}
+.ob-icon{font-size:26px;margin-bottom:10px}
+.ob-title{font-size:15px;font-weight:700;color:#1a2b28;margin:0 0 6px}
+.ob-desc{font-size:13px;color:#5a7370;line-height:1.55;margin:0 0 14px;flex:1}
+.ob-group{border-top:1px solid #eaf2f0;padding-top:12px;margin-bottom:12px}
+.ob-group-label{font-size:10px;font-weight:600;color:#9dbbb6;text-transform:uppercase;letter-spacing:.07em;margin-bottom:7px}
+.ob-link{display:flex;align-items:flex-start;gap:5px;font-size:12.5px;color:#1a7c6b;line-height:1.4;margin-bottom:5px;text-decoration:none}
+.ob-link::before{content:"\2192";font-size:10px;margin-top:2px;flex-shrink:0}
+.ob-cta{display:inline-block;background:#1a7c6b;color:#fff;font-size:13px;font-weight:600;padding:9px 20px;border-radius:100px;text-decoration:none;margin-top:auto;align-self:flex-start}
+@media(max-width:768px){.ob-grid{grid-template-columns:1fr}.ob-section{padding:40px 0 32px}}
+</style>
+<div class="ob-inner">
+  <span class="ob-label">Nieuw hier?</span>
+  <h2 class="ob-heading">Waar ben jij nu in je traject?</h2>
+  <p class="ob-sub">Kies je situatie en ik wijs je direct de weg.</p>
+  <div class="ob-grid">
 
-  <!-- Grote semi-transparante achtergrond fruit: de "sfeer" laag -->
-  <span class="ce-big" style="font-size:14rem;opacity:.045;top:-3rem;left:-3rem;animation:float-a 12s ease-in-out infinite;filter:blur(1px)">🥝</span>
-  <span class="ce-big" style="font-size:18rem;opacity:.035;top:-5rem;right:-4rem;animation:float-b 15s ease-in-out infinite;filter:blur(2px)">🍌</span>
-  <span class="ce-big" style="font-size:12rem;opacity:.04;bottom:-2rem;left:25%;animation:float-c 11s ease-in-out infinite;filter:blur(1.5px)">🥝</span>
-  <span class="ce-big" style="font-size:16rem;opacity:.03;bottom:-4rem;right:15%;animation:float-d 14s ease-in-out infinite;filter:blur(2px)">🍌</span>
-
-  <!-- Middelgrote emojis: zichtbaar maar subtiel -->
-  <span class="ce-float" style="font-size:3.2rem;opacity:.22;top:8%;left:6%;animation:float-a 9s ease-in-out infinite">🥝</span>
-  <span class="ce-float" style="font-size:2.8rem;opacity:.20;top:14%;left:18%;animation:float-c 11s ease-in-out infinite 1s">🍌</span>
-  <span class="ce-float" style="font-size:3.5rem;opacity:.18;top:6%;left:42%;animation:float-b 8s ease-in-out infinite 2s">🥝</span>
-  <span class="ce-float" style="font-size:2.4rem;opacity:.22;top:10%;left:62%;animation:float-e 10s ease-in-out infinite">🍌</span>
-  <span class="ce-float" style="font-size:3rem;opacity:.19;top:8%;left:80%;animation:float-d 12s ease-in-out infinite 1.5s">🥝</span>
-  <span class="ce-float" style="font-size:2.6rem;opacity:.17;top:18%;left:92%;animation:float-f 9s ease-in-out infinite 3s">🍌</span>
-
-  <span class="ce-float" style="font-size:2.8rem;opacity:.20;bottom:12%;left:4%;animation:float-c 10s ease-in-out infinite 2s">🍌</span>
-  <span class="ce-float" style="font-size:3.2rem;opacity:.22;bottom:8%;left:20%;animation:float-a 8.5s ease-in-out infinite">🥝</span>
-  <span class="ce-float" style="font-size:2.4rem;opacity:.18;bottom:15%;left:38%;animation:float-b 11.5s ease-in-out infinite 1s">🍌</span>
-  <span class="ce-float" style="font-size:3rem;opacity:.21;bottom:6%;left:58%;animation:float-e 9.5s ease-in-out infinite 2.5s">🥝</span>
-  <span class="ce-float" style="font-size:2.8rem;opacity:.19;bottom:10%;left:75%;animation:float-d 10.5s ease-in-out infinite">🍌</span>
-  <span class="ce-float" style="font-size:3.4rem;opacity:.22;bottom:8%;left:90%;animation:float-f 8s ease-in-out infinite 1s">🥝</span>
-
-  <!-- Accent emojis: hartjes en community symbols -->
-  <span class="ce-float" style="font-size:1.8rem;opacity:.25;top:38%;left:2%;animation:float-b 7s ease-in-out infinite 0.5s">💚</span>
-  <span class="ce-float" style="font-size:2rem;opacity:.20;top:45%;left:95%;animation:float-c 8s ease-in-out infinite 1s">💛</span>
-  <span class="ce-float" style="font-size:1.6rem;opacity:.22;top:55%;left:48%;animation:float-a 6.5s ease-in-out infinite 2s">✨</span>
-
-</div>
-<div class="comm-content">
-    <div style="color:white">
-      <div style="display:inline-flex;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:100px;padding:.3rem .9rem;font-size:.72rem;font-weight:800;font-family:Nunito,sans-serif;letter-spacing:.05em;text-transform:uppercase;margin-bottom:1rem">👥 BariBuddies Community</div>
-      <h2 style="font-family:Nunito,sans-serif;font-weight:900;font-size:clamp(1.7rem,3vw,2.5rem);letter-spacing:-.03em;line-height:1.15;margin-bottom:.9rem;color:white">Je staat er<br/>niet alleen voor</h2>
-      <p style="color:rgba(255,255,255,.82);font-size:.93rem;line-height:1.75;margin-bottom:1.6rem">BariBuddies is de grootste Nederlandstalige community voor mensen met een maagverkleining. Duizenden mensen, dagelijks actief. WhatsApp, Facebook en Discord. Gratis, voor altijd.</p>
-      <div style="display:flex;gap:.7rem;flex-wrap:wrap">
-        <a href="community.html#whatsapp" style="background:white;color:var(--t);font-family:Nunito,sans-serif;font-weight:900;font-size:.88rem;padding:.65rem 1.4rem;border-radius:100px;display:inline-flex;align-items:center;gap:.4rem;text-decoration:none">💬 WhatsApp groepen</a>
-        <a href="community.html#facebook" style="background:rgba(255,255,255,.15);color:white;border:1.5px solid rgba(255,255,255,.35);font-family:Nunito,sans-serif;font-weight:800;font-size:.88rem;padding:.65rem 1.4rem;border-radius:100px;display:inline-flex;align-items:center;gap:.4rem;text-decoration:none">👥 Facebook</a>
-        <a href="community.html#discord" style="background:rgba(255,255,255,.15);color:white;border:1.5px solid rgba(255,255,255,.35);font-family:Nunito,sans-serif;font-weight:800;font-size:.88rem;padding:.65rem 1.4rem;border-radius:100px;display:inline-flex;align-items:center;gap:.4rem;text-decoration:none">🎮 Discord</a>
-        <a href="https://www.tiktok.com/@dutchgoose_weightloss" target="_blank" rel="noopener" style="background:rgba(255,255,255,.15);color:white;border:1.5px solid rgba(255,255,255,.35);font-family:Nunito,sans-serif;font-weight:800;font-size:.88rem;padding:.65rem 1.4rem;border-radius:100px;display:inline-flex;align-items:center;gap:.4rem;text-decoration:none">🎵 TikTok</a>
+    <div class="ob-card">
+      <div class="ob-icon">&#128269;</div>
+      <p class="ob-title">Ik overweeg een operatie</p>
+      <p class="ob-desc">Je bent aan het oriënteren. Welke ingreep past bij jou, kom je in aanmerking, wat kost het en welke kliniek kies je?</p>
+      <div class="ob-group">
+        <div class="ob-group-label">Operatietypes</div>
+        <a class="ob-link" href="gastric-bypass.html">Gastric bypass: hoe werkt het?</a>
+        <a class="ob-link" href="gastric-sleeve.html">Gastric sleeve: hoe werkt het?</a>
+        <a class="ob-link" href="tools/bypass-vs-sleeve.html">Bypass of sleeve: vergelijk de twee</a>
       </div>
+      <div class="ob-group">
+        <div class="ob-group-label">Praktisch</div>
+        <a class="ob-link" href="criteria.html">Kom ik in aanmerking?</a>
+        <a class="ob-link" href="vergoeding.html">Vergoeding &amp; verzekering</a>
+        <a class="ob-link" href="kosten-maagverkleining.html">Wat kost een maagverkleining?</a>
+        <a class="ob-link" href="maagverkleining-buitenland.html">Operatie in het buitenland</a>
+      </div>
+      <div class="ob-group">
+        <div class="ob-group-label">Klinieken</div>
+        <a class="ob-link" href="klinieken/">Klinieken vergelijker</a>
+        <a class="ob-link" href="klinieken/profielen/">Kliniekprofielen (6 klinieken)</a>
+      </div>
+      <a class="ob-cta" href="gastric-bypass.html">Start hier &#8594;</a>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
-      <a href="community.html#whatsapp" style="background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:18px;padding:1.5rem;text-align:center;color:white;text-decoration:none;display:block">
-        <span style="font-size:2.2rem;font-weight:900;font-family:Nunito,sans-serif;display:block;line-height:1">18</span>
-        <span style="font-size:.8rem;opacity:.8;margin-top:.3rem;display:block">WhatsApp groepen</span>
-      </a>
-      <div style="background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:18px;padding:1.5rem;text-align:center;color:white">
-        <span style="font-size:2.2rem;font-weight:900;font-family:Nunito,sans-serif;display:block;line-height:1">450+</span>
-        <span style="font-size:.8rem;opacity:.8;margin-top:.3rem;display:block">Leden totaal</span>
+
+    <div class="ob-card featured">
+      <span class="ob-badge">Meest bezocht</span>
+      <div class="ob-icon">&#127956;</div>
+      <p class="ob-title">Ik ben net geopereerd</p>
+      <p class="ob-desc">Eerste weken tot maanden. Voeding per fase, vitamines regelen, herstel begrijpen en de juiste tools gebruiken.</p>
+      <div class="ob-group">
+        <div class="ob-group-label">Voeding &amp; recepten</div>
+        <a class="ob-link" href="voeding-na-maagverkleining.html">Voeding na maagverkleining</a>
+        <a class="ob-link" href="recepten/vloeibaar/">Vloeibare recepten</a>
+        <a class="ob-link" href="recepten/gepureerd/">Gepureerde recepten</a>
+        <a class="ob-link" href="recepten/vaste-voeding/">Vaste voeding recepten</a>
       </div>
-      <div style="background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:18px;padding:1.5rem;text-align:center;color:white">
-        <span style="font-size:2rem;display:block;line-height:1">🥝🍌</span>
-        <span style="font-size:.8rem;opacity:.8;margin-top:.3rem;display:block">Bypass & sleeve</span>
+      <div class="ob-group">
+        <div class="ob-group-label">Vitamines &amp; herstel</div>
+        <a class="ob-link" href="vitamines-na-maagverkleining.html">Welke vitamines heb je nodig?</a>
+        <a class="ob-link" href="vitamines.html">Vitamines gids &amp; merken vergelijken</a>
+        <a class="ob-link" href="herstel-na-maagverkleining.html">Herstel: wat te verwachten</a>
       </div>
-      <a href="https://www.tiktok.com/@dutchgoose_weightloss" target="_blank" rel="noopener" style="background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:18px;padding:1.5rem;text-align:center;color:white;text-decoration:none;display:block"><span id="tt-followers" style="font-size:2.2rem;font-weight:900;font-family:Nunito,sans-serif;display:block;line-height:1">7.5K</span><span style="font-size:.8rem;opacity:.8;margin-top:.3rem;display:block">🎵 TikTok volgers</span></a>
+      <div class="ob-group">
+        <div class="ob-group-label">Tools</div>
+        <a class="ob-link" href="tools/fase-checker.html">Fase checker</a>
+        <a class="ob-link" href="tools/eet-timer.html">Eet timer (30 min)</a>
+        <a class="ob-link" href="tools/eiwit-calculator.html">Eiwit calculator</a>
+      </div>
+      <a class="ob-cta" href="voeding-na-maagverkleining.html">Start hier &#8594;</a>
     </div>
+
+    <div class="ob-card">
+      <div class="ob-icon">&#128170;</div>
+      <p class="ob-title">Ik ben al een tijdje verder</p>
+      <p class="ob-desc">Je bent er al even in. Plateaus, mentale kant, sport, bloedwaarden, deals en de community om je heen.</p>
+      <div class="ob-group">
+        <div class="ob-group-label">Mentaal &amp; motivatie</div>
+        <a class="ob-link" href="mentaal-na-maagverkleining.html">Mentale kant na de operatie</a>
+        <a class="ob-link" href="blog/plateaus-na-maagverkleining-wanneer-is-stilstand-echt-een-plateau.html">Plateaus herkennen &amp; doorbreken</a>
+        <a class="ob-link" href="blog.html">Alle kennisbank artikelen</a>
+      </div>
+      <div class="ob-group">
+        <div class="ob-group-label">Gezondheid bijhouden</div>
+        <a class="ob-link" href="tools/bloedwaarden.html">Bloedwaarden checklist</a>
+        <a class="ob-link" href="tools/bypass-vs-sleeve.html">Bypass vs sleeve vergelijker</a>
+      </div>
+      <div class="ob-group">
+        <div class="ob-group-label">Aanbiedingen &amp; community</div>
+        <a class="ob-link" href="deals.html">Deals &amp; kortingscodes</a>
+        <a class="ob-link" href="community.html">Community: WhatsApp, Facebook, Discord</a>
+      </div>
+      <a class="ob-cta" href="mentaal-na-maagverkleining.html">Start hier &#8594;</a>
+    </div>
+
   </div>
-<script>(async function(){try{const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:80,tools:[{"type":"web_search_20250305","name":"web_search"}],messages:[{role:'user',content:'How many followers does TikTok @dutchgoose_weightloss have? Reply with ONLY the number e.g. 7541'}]})});const d=await r.json();const t=(d.content||[]).filter(b=>b.type==='text').map(b=>b.text).join('');const n=parseInt(t.replace(/[^0-9]/g,''));if(n>500){const el=document.getElementById('tt-followers');if(el)el.textContent=n>=1000?(n/1000).toFixed(1).replace(/\.0$/,'')+'K':String(n);}}catch(e){}})();</script>
+</div>
 </section>
+
 <section style="background:var(--tp);padding:2rem 5vw"><div class="si"><div style="background:white;border:2px solid var(--tm);border-radius:18px;padding:1.6rem 2rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;max-width:860px;margin:0 auto" class="rv"><span style="font-size:2rem;flex-shrink:0">💊</span><div style="flex:1;min-width:200px"><div class="sl" style="margin-bottom:.25rem">Merken vergelijken</div><p style="font-size:.9rem;color:var(--tx);font-weight:700;margin-bottom:.2rem">Nog niet zeker welk merk?</p><p style="font-size:.85rem;color:var(--md)">Vergelijk alle WLS vitamines op prijs, vorm en voordelen   onafhankelijk en gratis.</p></div><a href="https://www.wlsvitaminen.nl" target="_blank" style="background:#EF9F27;color:#412402;font-size:.88rem;font-weight:800;font-family:'Nunito',sans-serif;padding:.75rem 1.5rem;border-radius:100px;text-decoration:none;display:block;text-align:center;width:100%;max-width:320px;">Bekijk vergelijking &rarr;</a></div></div></section>
 <section style="background:var(--cr)">
   <div class="si">
@@ -730,6 +776,67 @@ nav{align-items:flex-start;gap:.6rem;padding:.75rem 5vw 1rem}
   </a>
 </div>
 </div></section>
+<section class="comm-bg-wrap">
+<div class="comm-emoji-bg">
+
+  <!-- Grote semi-transparante achtergrond fruit: de "sfeer" laag -->
+  <span class="ce-big" style="font-size:14rem;opacity:.045;top:-3rem;left:-3rem;animation:float-a 12s ease-in-out infinite;filter:blur(1px)">🥝</span>
+  <span class="ce-big" style="font-size:18rem;opacity:.035;top:-5rem;right:-4rem;animation:float-b 15s ease-in-out infinite;filter:blur(2px)">🍌</span>
+  <span class="ce-big" style="font-size:12rem;opacity:.04;bottom:-2rem;left:25%;animation:float-c 11s ease-in-out infinite;filter:blur(1.5px)">🥝</span>
+  <span class="ce-big" style="font-size:16rem;opacity:.03;bottom:-4rem;right:15%;animation:float-d 14s ease-in-out infinite;filter:blur(2px)">🍌</span>
+
+  <!-- Middelgrote emojis: zichtbaar maar subtiel -->
+  <span class="ce-float" style="font-size:3.2rem;opacity:.22;top:8%;left:6%;animation:float-a 9s ease-in-out infinite">🥝</span>
+  <span class="ce-float" style="font-size:2.8rem;opacity:.20;top:14%;left:18%;animation:float-c 11s ease-in-out infinite 1s">🍌</span>
+  <span class="ce-float" style="font-size:3.5rem;opacity:.18;top:6%;left:42%;animation:float-b 8s ease-in-out infinite 2s">🥝</span>
+  <span class="ce-float" style="font-size:2.4rem;opacity:.22;top:10%;left:62%;animation:float-e 10s ease-in-out infinite">🍌</span>
+  <span class="ce-float" style="font-size:3rem;opacity:.19;top:8%;left:80%;animation:float-d 12s ease-in-out infinite 1.5s">🥝</span>
+  <span class="ce-float" style="font-size:2.6rem;opacity:.17;top:18%;left:92%;animation:float-f 9s ease-in-out infinite 3s">🍌</span>
+
+  <span class="ce-float" style="font-size:2.8rem;opacity:.20;bottom:12%;left:4%;animation:float-c 10s ease-in-out infinite 2s">🍌</span>
+  <span class="ce-float" style="font-size:3.2rem;opacity:.22;bottom:8%;left:20%;animation:float-a 8.5s ease-in-out infinite">🥝</span>
+  <span class="ce-float" style="font-size:2.4rem;opacity:.18;bottom:15%;left:38%;animation:float-b 11.5s ease-in-out infinite 1s">🍌</span>
+  <span class="ce-float" style="font-size:3rem;opacity:.21;bottom:6%;left:58%;animation:float-e 9.5s ease-in-out infinite 2.5s">🥝</span>
+  <span class="ce-float" style="font-size:2.8rem;opacity:.19;bottom:10%;left:75%;animation:float-d 10.5s ease-in-out infinite">🍌</span>
+  <span class="ce-float" style="font-size:3.4rem;opacity:.22;bottom:8%;left:90%;animation:float-f 8s ease-in-out infinite 1s">🥝</span>
+
+  <!-- Accent emojis: hartjes en community symbols -->
+  <span class="ce-float" style="font-size:1.8rem;opacity:.25;top:38%;left:2%;animation:float-b 7s ease-in-out infinite 0.5s">💚</span>
+  <span class="ce-float" style="font-size:2rem;opacity:.20;top:45%;left:95%;animation:float-c 8s ease-in-out infinite 1s">💛</span>
+  <span class="ce-float" style="font-size:1.6rem;opacity:.22;top:55%;left:48%;animation:float-a 6.5s ease-in-out infinite 2s">✨</span>
+
+</div>
+<div class="comm-content">
+    <div style="color:white">
+      <div style="display:inline-flex;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:100px;padding:.3rem .9rem;font-size:.72rem;font-weight:800;font-family:Nunito,sans-serif;letter-spacing:.05em;text-transform:uppercase;margin-bottom:1rem">👥 BariBuddies Community</div>
+      <h2 style="font-family:Nunito,sans-serif;font-weight:900;font-size:clamp(1.7rem,3vw,2.5rem);letter-spacing:-.03em;line-height:1.15;margin-bottom:.9rem;color:white">Je staat er<br/>niet alleen voor</h2>
+      <p style="color:rgba(255,255,255,.82);font-size:.93rem;line-height:1.75;margin-bottom:1.6rem">BariBuddies is de grootste Nederlandstalige community voor mensen met een maagverkleining. Duizenden mensen, dagelijks actief. WhatsApp, Facebook en Discord. Gratis, voor altijd.</p>
+      <div style="display:flex;gap:.7rem;flex-wrap:wrap">
+        <a href="community.html#whatsapp" style="background:white;color:var(--t);font-family:Nunito,sans-serif;font-weight:900;font-size:.88rem;padding:.65rem 1.4rem;border-radius:100px;display:inline-flex;align-items:center;gap:.4rem;text-decoration:none">💬 WhatsApp groepen</a>
+        <a href="community.html#facebook" style="background:rgba(255,255,255,.15);color:white;border:1.5px solid rgba(255,255,255,.35);font-family:Nunito,sans-serif;font-weight:800;font-size:.88rem;padding:.65rem 1.4rem;border-radius:100px;display:inline-flex;align-items:center;gap:.4rem;text-decoration:none">👥 Facebook</a>
+        <a href="community.html#discord" style="background:rgba(255,255,255,.15);color:white;border:1.5px solid rgba(255,255,255,.35);font-family:Nunito,sans-serif;font-weight:800;font-size:.88rem;padding:.65rem 1.4rem;border-radius:100px;display:inline-flex;align-items:center;gap:.4rem;text-decoration:none">🎮 Discord</a>
+        <a href="https://www.tiktok.com/@dutchgoose_weightloss" target="_blank" rel="noopener" style="background:rgba(255,255,255,.15);color:white;border:1.5px solid rgba(255,255,255,.35);font-family:Nunito,sans-serif;font-weight:800;font-size:.88rem;padding:.65rem 1.4rem;border-radius:100px;display:inline-flex;align-items:center;gap:.4rem;text-decoration:none">🎵 TikTok</a>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+      <a href="community.html#whatsapp" style="background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:18px;padding:1.5rem;text-align:center;color:white;text-decoration:none;display:block">
+        <span style="font-size:2.2rem;font-weight:900;font-family:Nunito,sans-serif;display:block;line-height:1">18</span>
+        <span style="font-size:.8rem;opacity:.8;margin-top:.3rem;display:block">WhatsApp groepen</span>
+      </a>
+      <div style="background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:18px;padding:1.5rem;text-align:center;color:white">
+        <span style="font-size:2.2rem;font-weight:900;font-family:Nunito,sans-serif;display:block;line-height:1">450+</span>
+        <span style="font-size:.8rem;opacity:.8;margin-top:.3rem;display:block">Leden totaal</span>
+      </div>
+      <div style="background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:18px;padding:1.5rem;text-align:center;color:white">
+        <span style="font-size:2rem;display:block;line-height:1">🥝🍌</span>
+        <span style="font-size:.8rem;opacity:.8;margin-top:.3rem;display:block">Bypass & sleeve</span>
+      </div>
+      <a href="https://www.tiktok.com/@dutchgoose_weightloss" target="_blank" rel="noopener" style="background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:18px;padding:1.5rem;text-align:center;color:white;text-decoration:none;display:block"><span id="tt-followers" style="font-size:2.2rem;font-weight:900;font-family:Nunito,sans-serif;display:block;line-height:1">7.5K</span><span style="font-size:.8rem;opacity:.8;margin-top:.3rem;display:block">🎵 TikTok volgers</span></a>
+    </div>
+  </div>
+<script>(async function(){try{const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:80,tools:[{"type":"web_search_20250305","name":"web_search"}],messages:[{role:'user',content:'How many followers does TikTok @dutchgoose_weightloss have? Reply with ONLY the number e.g. 7541'}]})});const d=await r.json();const t=(d.content||[]).filter(b=>b.type==='text').map(b=>b.text).join('');const n=parseInt(t.replace(/[^0-9]/g,''));if(n>500){const el=document.getElementById('tt-followers');if(el)el.textContent=n>=1000?(n/1000).toFixed(1).replace(/\.0$/,'')+'K':String(n);}}catch(e){}})();</script>
+</section>
+
 <section style="background:var(--cr)">
   <div class="si">
     <div style="text-align:center;margin-bottom:2.5rem"><div class="sl" style="display:inline-block">Veelgestelde vragen</div><h2 class="st">Over Dutch Goose</h2></div>
