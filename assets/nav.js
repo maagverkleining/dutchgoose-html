@@ -60,7 +60,6 @@
       <div class="nd-menu">
         <a href="/community.html#whatsapp">💬 WhatsApp</a>
         <a href="/community.html#facebook">👥 Facebook</a>
-        <a href="/community.html#discord">🎮 Discord</a>
         <a href="/over-david.html">🦆 Over David</a>
       </div>
     </li>
@@ -92,7 +91,7 @@
         background: white !important;
         border-bottom: 2px solid var(--tm) !important;
         padding: .5rem 5vw 1rem !important;
-        box-shadow: 0 8px 24px rgba(26,124,107,.12) !important;
+        box-shadow: 0 8px 24px rgba(26,124,107.12) !important;
         z-index: 99 !important;
         gap: .15rem !important;
       }
