@@ -58,6 +58,7 @@
     </li>
     <li class="nd"><a href="/community.html">👥 Community ▾</a>
       <div class="nd-menu">
+        <a href="/community.html" style="font-weight:900;color:var(--t);border-bottom:1px solid var(--bd);margin-bottom:.2rem;padding-bottom:.5rem;">👥 Bari Community overzicht</a>
         <a href="/community.html#whatsapp">💬 WhatsApp</a>
         <a href="/community.html#facebook">👥 Facebook</a>
         <a href="/over-david.html">🦆 Over David</a>
