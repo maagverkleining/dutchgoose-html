@@ -558,6 +558,8 @@ img{max-width:100%;height:auto}
 <script src="/assets/footer.js"></script>
 
 <script>
+history.scrollRestoration = 'manual';
+window.scrollTo(0, 0);
 function tf(b){const q=b.closest('.fq');q.classList.toggle('op');b.querySelector('.fqi').textContent=q.classList.contains('op')?'\u00d7':'+'}
 const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('vis');io.unobserve(x.target)}}),{threshold:.1});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
