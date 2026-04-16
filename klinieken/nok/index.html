@@ -336,6 +336,6 @@ footer{background:var(--tx);color:rgba(255,255,255,.75);padding:2.5rem 5vw 1.5re
 const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('vis');io.unobserve(x.target)}}),{threshold:.1});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 </script>
-<script src="/assets/tracking.js" defer></script>
+<script src="/assets/tracking.js?v=2" defer></script>
 </body>
 </html>
