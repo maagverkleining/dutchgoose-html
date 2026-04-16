@@ -359,116 +359,88 @@ footer{background:var(--tx);color:white;padding:3.5rem 5vw 2rem}
 <div class="fq"><button class="fqb" onclick="tf(this)">Kan ik de suikervrije drop en Smint ook gewoon in de winkel kopen?<span class="fqi">▾</span></button><div class="fqa"><div class="fqa-inner"><p>Ja, maar Dropwinkel heeft het grootste suikervrije assortiment online en levert snel aan huis. De Smint-tip voor bij dumpingklachten en de Klene zoute drop bij lage bloeddruk zijn insider-tips uit de community die je niet overal leest.</p></div></div></div>
 </div>
 </section>
+
 <style id="favorieten-css">
-.favorieten-sectie{padding:48px 0 60px}
-.favorieten-intro{text-align:center;max-width:600px;margin:0 auto 40px}
-.favorieten-intro h2{font-size:1.85rem;margin:0 0 10px}
-.favorieten-intro p{font-size:1rem;color:#555;margin:0}
-.favorieten-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:24px}
-.favoriet-card{border-radius:14px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.09);display:flex;flex-direction:column;background:#fff;position:relative}
-.favoriet-badge{position:absolute;top:12px;left:12px;padding:4px 11px;border-radius:20px;font-size:.72rem;font-weight:700;color:#fff;z-index:1}
-.favoriet-img-wrap{width:100%;height:190px;display:flex;align-items:center;justify-content:center;padding:20px;box-sizing:border-box}
-.favoriet-img{max-width:100%;max-height:150px;object-fit:contain}
-.favoriet-body{padding:18px 20px 12px;flex:1;display:flex;flex-direction:column;gap:6px}
-.favoriet-naam{font-size:1.05rem;font-weight:700;color:#1a1a1a;margin:0}
-.favoriet-pitch{font-size:.82rem;font-weight:600;color:#666;margin:0}
-.favoriet-beschr{font-size:.85rem;color:#444;margin:0;line-height:1.55}
-.favoriet-david{margin:6px 0 0;padding:9px 13px;border-left:3px solid #ddd;font-size:.82rem;font-style:italic;color:#555;background:#fafafa;border-radius:0 6px 6px 0}
-.favoriet-code{display:inline-block;margin-top:4px;font-size:.78rem;color:#333;background:rgba(0,0,0,.06);padding:2px 9px;border-radius:4px;font-family:monospace;letter-spacing:.06em;width:fit-content}
-.favoriet-footer{padding:14px 20px 18px;display:flex;flex-direction:column;gap:7px;border-top:1px solid #eee}
-.favoriet-detail{font-size:.76rem;color:#999;text-align:center}
-.favoriet-btn{display:block;text-align:center;padding:12px 20px;border-radius:9px;font-weight:700;font-size:.88rem;color:#fff!important;text-decoration:none!important}
-.favoriet-btn:hover{opacity:.88}
-@media(max-width:480px){.favorieten-grid{grid-template-columns:1fr}.favoriet-img-wrap{height:160px}}
+.favorieten-sectie{padding:48px 0 60px}.favorieten-intro{text-align:center;max-width:600px;margin:0 auto 40px}.favorieten-intro h2{font-size:1.85rem;margin:0 0 10px}.favorieten-intro p{font-size:1rem;color:#555;margin:0}.favorieten-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:24px}.favoriet-card{border-radius:14px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.09);display:flex;flex-direction:column;background:#fff;position:relative}.favoriet-badge{position:absolute;top:12px;left:12px;padding:4px 11px;border-radius:20px;font-size:.72rem;font-weight:700;color:#fff;z-index:1}.favoriet-img-wrap{width:100%;height:190px;display:flex;align-items:center;justify-content:center;padding:20px;box-sizing:border-box}.favoriet-img{max-width:100%;max-height:150px;object-fit:contain}.favoriet-body{padding:18px 20px 12px;flex:1;display:flex;flex-direction:column;gap:6px}.favoriet-naam{font-size:1.05rem;font-weight:700;color:#1a1a1a;margin:0}.favoriet-pitch{font-size:.82rem;font-weight:600;color:#666;margin:0}.favoriet-beschr{font-size:.85rem;color:#444;margin:0;line-height:1.55}.favoriet-david{margin:6px 0 0;padding:9px 13px;border-left:3px solid #ddd;font-size:.82rem;font-style:italic;color:#555;background:#fafafa;border-radius:0 6px 6px 0}.favoriet-code{display:inline-block;margin-top:4px;font-size:.78rem;color:#333;background:rgba(0,0,0,.06);padding:2px 9px;border-radius:4px;font-family:monospace;letter-spacing:.06em;width:fit-content}.favoriet-footer{padding:14px 20px 18px;display:flex;flex-direction:column;gap:7px;border-top:1px solid #eee}.favoriet-detail{font-size:.76rem;color:#999;text-align:center}.favoriet-btn{display:block;text-align:center;padding:12px 20px;border-radius:9px;font-weight:700;font-size:.88rem;color:#fff!important;text-decoration:none!important}.favoriet-btn:hover{opacity:.88}@media(max-width:480px){.favorieten-grid{grid-template-columns:1fr}.favoriet-img-wrap{height:160px}}
 </style>
-<section class="favorieten-sectie container" id="davids-favorieten">
-<div class="favorieten-intro">
-<h2>🪿 David's favorieten</h2>
-<p>De producten en diensten die ik zelf gebruik of aanbeveel na mijn gastric bypass in januari 2024. Eerlijk, geen reclame zonder reden.</p>
-</div>
-<div class="favorieten-grid">
-<div class="favoriet-card" id="favoriet-vitaminenspecialist">
-<span class="favoriet-badge" style="background:#2e7d32;">Gratis proefpakket</span>
-<div class="favoriet-img-wrap" style="background:#e8f5e9;">
-<img alt="WLS Multivitamine Vitaminenspecialist pot" class="favoriet-img" loading="lazy" src="https://www.vitaminenspecialist.nl/wp-content/uploads/yootheme/cache/f9/1STUK_WLS-f900bc07.png"/>
-</div>
-<div class="favoriet-body">
-<h3 class="favoriet-naam">Vitaminenspecialist</h3>
-<p class="favoriet-pitch">De goedkoopste WLS vitamines van Nederland</p>
-<p class="favoriet-beschr">Na een maagverkleining heb je elke dag de juiste vitamines nodig. Vitaminenspecialist heeft de meest complete WLS capsule voor slechts €49 per 340 stuks. Dat is minder dan 15 cent per dag.</p>
-<blockquote class="favoriet-david">"Dit gebruik ik zelf al meer dan een jaar. Één capsule per dag en de prijs is echt onverslaanbaar."</blockquote>
-</div>
-<div class="favoriet-footer">
-<a class="favoriet-btn" href="https://vitaminenspecialist.nl/dgproefpakket?vsa=2" rel="noopener nofollow" style="background:#2e7d32;" target="_blank">Vraag gratis proefpakket aan</a>
-<span class="favoriet-detail">14-daags proefpakket, geen verplichtingen</span>
-</div>
-</div>
-<div class="favoriet-card" id="favoriet-ahead">
-<span class="favoriet-badge" style="background:#e67e00;">15% korting</span>
-<div class="favoriet-img-wrap" style="background:#fff8e1;">
-<img alt="Ahead Protein Bar Fudge Brownie eiwitreep" class="favoriet-img" loading="lazy" src="https://drive.google.com/thumbnail?id=1RPLwPlwsW1VtH1GvjoxxDggb8t5CYNfb&amp;sz=w400"/>
-</div>
-<div class="favoriet-body">
-<h3 class="favoriet-naam">Ahead Nutrition</h3>
-<p class="favoriet-pitch">Eiwitrijke snacks zonder toegevoegde suikers</p>
-<p class="favoriet-beschr">Snacken zonder schuldgevoel na een maagverkleining. Ahead maakt eiwitrepen, gummies en cookies die echt lekker smaken en passen bij je nieuwe levensstijl.</p>
-<blockquote class="favoriet-david">"De Fudge Brownie eiwitreep is mijn dagelijkse snack. 12 gram eiwit en geen toegevoegde suikers. Met code DUTCHGOOSE krijg je 15% korting."</blockquote>
-<span class="favoriet-code">Code: <strong>DUTCHGOOSE</strong></span>
-</div>
-<div class="favoriet-footer">
-<a class="favoriet-btn" href="https://serv.linkster.co/r/a4vXjsEQV2" rel="noopener nofollow" style="background:#e67e00;" target="_blank">Bekijk Ahead</a>
-<span class="favoriet-detail">Gebruik kortingscode DUTCHGOOSE voor 15% korting</span>
-</div>
-</div>
-<div class="favoriet-card" id="favoriet-foliactive">
-<span class="favoriet-badge" style="background:#6a1b9a;">Populair na maagverkleining</span>
-<div class="favoriet-img-wrap" style="background:#f3e5f5;">
-<img alt="Foliactive capsules haaruitval supplement" class="favoriet-img" loading="lazy" src="https://prod.cdn.plein.nl/producten/300x300/1102439.jpg"/>
-</div>
-<div class="favoriet-body">
-<h3 class="favoriet-naam">Foliactive (via Plein.nl)</h3>
-<p class="favoriet-pitch">Supplement tegen haaruitval door voedingstekorten</p>
-<p class="favoriet-beschr">Haaruitval is een van de meest voorkomende klachten na een maagverkleining. Foliactive capsules zijn speciaal samengesteld voor haaruitval door tekorten aan vitamines en mineralen.</p>
-<blockquote class="favoriet-david">"Na mijn bypass verloor ik flink wat haar. Foliactive heeft écht geholpen. Bestel ik via Plein.nl vanwege de snelle levering."</blockquote>
-</div>
-<div class="favoriet-footer">
-<a class="favoriet-btn" href="https://fr135.net/c/?si=3366&amp;li=1161224&amp;wi=419645&amp;ws=&amp;dl=foliactive-capsules-60-capsules" rel="noopener nofollow" style="background:#6a1b9a;" target="_blank">Bekijk Foliactive</a>
-<span class="favoriet-detail">Verkrijgbaar via Plein.nl</span>
-</div>
-</div>
-<div class="favoriet-card" id="favoriet-dropwinkel">
-<span class="favoriet-badge" style="background:#1a237e;">28+ suikervrije soorten</span>
-<div class="favoriet-img-wrap" style="background:#e8eaf6;">
-<img alt="Klene suikervrije drop Dropwinkel" class="favoriet-img" loading="lazy" src="https://www.dropwinkel.eu/media/cache/sylius_shop_product_thumbnail/product/1926/klene-mildzoete-muntdrop-suikervrij-12-x-100-gram.jpg"/>
-</div>
-<div class="favoriet-body">
-<h3 class="favoriet-naam">Dropwinkel</h3>
-<p class="favoriet-pitch">Het grootste aanbod suikervrije drop en snoep</p>
-<p class="favoriet-beschr">Toch zin in iets zoets? Dropwinkel heeft 28+ soorten suikervrije drop en snoep. Van zachte Klene drop tot zoute Oldtimers. Zoute drop helpt ook bij een lage bloeddruk.</p>
-<blockquote class="favoriet-david">"Bij een dip of lage bloeddruk pak ik zoute Klene drop. Dropwinkel heeft veruit de grootste keuze in suikervrij snoep van Nederland."</blockquote>
-</div>
-<div class="favoriet-footer">
-<a class="favoriet-btn" href="https://bdt9.net/c/?si=18019&amp;li=1779885&amp;wi=419645&amp;ws=&amp;dl=c%2Fsuikervrij-snoep%2Fsuikervrije-drop" rel="noopener nofollow" style="background:#1a237e;" target="_blank">Bekijk suikervrij snoep</a>
-<span class="favoriet-detail">Gratis verzending vanaf €45</span>
-</div>
-</div>
-<div class="favoriet-card" id="favoriet-outlet">
-<span class="favoriet-badge" style="background:#c62828;">Tot 70% korting</span>
-<div class="favoriet-img-wrap" style="background:#ffebee;">
-<img alt="Adidas sportkleding De Goedkoopste Outlet" class="favoriet-img" loading="lazy" src="https://degoedkoopsteoutlet.nl/cdn/shop/files/adi-hq8707-a_602x602.png?v=1760507310"/>
-</div>
-<div class="favoriet-body">
-<h3 class="favoriet-naam">De Goedkoopste Outlet</h3>
-<p class="favoriet-pitch">Topmerken sportkleding voor bodemprijzen</p>
-<p class="favoriet-beschr">Na een grote afval heb je een nieuwe garderobe nodig. De Goedkoopste Outlet verkoopt restvoorraden van Adidas, Nike, Björn Borg en meer. Tot 70% onder de winkelprijs.</p>
-<blockquote class="favoriet-david">"Ik ben meer dan 100 kilo afgevallen en moest écht alles nieuw kopen. Bij de outlet koop ik topmerken voor een fractie van de prijs."</blockquote>
-</div>
-<div class="favoriet-footer">
-<a class="favoriet-btn" href="https://glp8.net/c/?si=19859&amp;li=1846103&amp;wi=419645&amp;ws=&amp;dl=" rel="noopener nofollow" style="background:#c62828;" target="_blank">Bekijk de outlet</a>
-<span class="favoriet-detail">Adidas, Nike, Björn Borg en meer</span>
-</div>
-</div>
-</div>
+<section id="davids-favorieten" class="favorieten-sectie container">
+  <div class="favorieten-intro">
+    <h2>🪿 David's favorieten</h2>
+    <p>De producten en diensten die ik zelf gebruik of aanbeveel na mijn gastric bypass in januari 2024. Eerlijk, geen reclame zonder reden.</p>
+  </div>
+  <div class="favorieten-grid">
+    <div class="favoriet-card" id="favoriet-vitaminenspecialist">
+      <span class="favoriet-badge" style="background:#2e7d32;">Gratis proefpakket</span>
+      <div class="favoriet-img-wrap" style="background:#e8f5e9;"><img src="https://www.vitaminenspecialist.nl/wp-content/uploads/yootheme/cache/f9/1STUK_WLS-f900bc07.png" alt="WLS Multivitamine Vitaminenspecialist pot" class="favoriet-img" loading="lazy"></div>
+      <div class="favoriet-body">
+        <h3 class="favoriet-naam">Vitaminenspecialist</h3>
+        <p class="favoriet-pitch">De goedkoopste WLS vitamines van Nederland</p>
+        <p class="favoriet-beschr">Na een maagverkleining heb je elke dag de juiste vitamines nodig. Vitaminenspecialist heeft de meest complete WLS capsule voor slechts €49 per 340 stuks. Dat is minder dan 15 cent per dag.</p>
+        <blockquote class="favoriet-david">"Dit gebruik ik zelf al meer dan een jaar. Één capsule per dag en de prijs is echt onverslaanbaar."</blockquote>
+      </div>
+      <div class="favoriet-footer">
+        <a href="https://vitaminenspecialist.nl/dgproefpakket?vsa=2" target="_blank" rel="noopener nofollow" class="favoriet-btn" style="background:#2e7d32;">Vraag gratis proefpakket aan</a>
+        <span class="favoriet-detail">14-daags proefpakket, geen verplichtingen</span>
+      </div>
+    </div>
+    <div class="favoriet-card" id="favoriet-ahead">
+      <span class="favoriet-badge" style="background:#e67e00;">15% korting</span>
+      <div class="favoriet-img-wrap" style="background:#fff8e1;"><img src="https://drive.google.com/thumbnail?id=1RPLwPlwsW1VtH1GvjoxxDggb8t5CYNfb&sz=w400" alt="Ahead Protein Bar Fudge Brownie eiwitreep" class="favoriet-img" loading="lazy"></div>
+      <div class="favoriet-body">
+        <h3 class="favoriet-naam">Ahead Nutrition</h3>
+        <p class="favoriet-pitch">Eiwitrijke snacks zonder toegevoegde suikers</p>
+        <p class="favoriet-beschr">Snacken zonder schuldgevoel na een maagverkleining. Ahead maakt eiwitrepen, gummies en cookies die echt lekker smaken en passen bij je nieuwe levensstijl.</p>
+        <blockquote class="favoriet-david">"De Fudge Brownie eiwitreep is mijn dagelijkse snack. 12 gram eiwit en geen toegevoegde suikers. Met code DUTCHGOOSE krijg je 15% korting."</blockquote>
+        <span class="favoriet-code">Code: <strong>DUTCHGOOSE</strong></span>
+      </div>
+      <div class="favoriet-footer">
+        <a href="https://serv.linkster.co/r/a4vXjsEQV2" target="_blank" rel="noopener nofollow" class="favoriet-btn" style="background:#e67e00;">Bekijk Ahead</a>
+        <span class="favoriet-detail">Gebruik kortingscode DUTCHGOOSE voor 15% korting</span>
+      </div>
+    </div>
+    <div class="favoriet-card" id="favoriet-foliactive">
+      <span class="favoriet-badge" style="background:#6a1b9a;">Populair na maagverkleining</span>
+      <div class="favoriet-img-wrap" style="background:#f3e5f5;"><img src="https://prod.cdn.plein.nl/producten/300x300/1102439.jpg" alt="Foliactive capsules haaruitval supplement" class="favoriet-img" loading="lazy"></div>
+      <div class="favoriet-body">
+        <h3 class="favoriet-naam">Foliactive (via Plein.nl)</h3>
+        <p class="favoriet-pitch">Supplement tegen haaruitval door voedingstekorten</p>
+        <p class="favoriet-beschr">Haaruitval is een van de meest voorkomende klachten na een maagverkleining. Foliactive capsules zijn speciaal samengesteld voor haaruitval door tekorten aan vitamines en mineralen.</p>
+        <blockquote class="favoriet-david">"Na mijn bypass verloor ik flink wat haar. Foliactive heeft écht geholpen. Bestel ik via Plein.nl vanwege de snelle levering."</blockquote>
+      </div>
+      <div class="favoriet-footer">
+        <a href="https://fr135.net/c/?si=3366&li=1161224&wi=419645&ws=&dl=foliactive-capsules-60-capsules" target="_blank" rel="noopener nofollow" class="favoriet-btn" style="background:#6a1b9a;">Bekijk Foliactive</a>
+        <span class="favoriet-detail">Verkrijgbaar via Plein.nl</span>
+      </div>
+    </div>
+    <div class="favoriet-card" id="favoriet-dropwinkel">
+      <span class="favoriet-badge" style="background:#1a237e;">28+ suikervrije soorten</span>
+      <div class="favoriet-img-wrap" style="background:#e8eaf6;"><img src="https://www.dropwinkel.eu/media/cache/sylius_shop_product_thumbnail/product/1926/klene-mildzoete-muntdrop-suikervrij-12-x-100-gram.jpg" alt="Klene suikervrije drop Dropwinkel" class="favoriet-img" loading="lazy"></div>
+      <div class="favoriet-body">
+        <h3 class="favoriet-naam">Dropwinkel</h3>
+        <p class="favoriet-pitch">Het grootste aanbod suikervrije drop en snoep</p>
+        <p class="favoriet-beschr">Toch zin in iets zoets? Dropwinkel heeft 28+ soorten suikervrije drop en snoep. Van zachte Klene drop tot zoute Oldtimers. Zoute drop helpt ook bij een lage bloeddruk.</p>
+        <blockquote class="favoriet-david">"Bij een dip of lage bloeddruk pak ik zoute Klene drop. Dropwinkel heeft veruit de grootste keuze in suikervrij snoep van Nederland."</blockquote>
+      </div>
+      <div class="favoriet-footer">
+        <a href="https://bdt9.net/c/?si=18019&li=1779885&wi=419645&ws=&dl=c%2Fsuikervrij-snoep%2Fsuikervrije-drop" target="_blank" rel="noopener nofollow" class="favoriet-btn" style="background:#1a237e;">Bekijk suikervrij snoep</a>
+        <span class="favoriet-detail">Gratis verzending vanaf €45</span>
+      </div>
+    </div>
+    <div class="favoriet-card" id="favoriet-outlet">
+      <span class="favoriet-badge" style="background:#c62828;">Tot 70% korting</span>
+      <div class="favoriet-img-wrap" style="background:#ffebee;"><img src="https://degoedkoopsteoutlet.nl/cdn/shop/files/adi-hq8707-a_602x602.png?v=1760507310" alt="Adidas sportkleding De Goedkoopste Outlet" class="favoriet-img" loading="lazy"></div>
+      <div class="favoriet-body">
+        <h3 class="favoriet-naam">De Goedkoopste Outlet</h3>
+        <p class="favoriet-pitch">Topmerken sportkleding voor bodemprijzen</p>
+        <p class="favoriet-beschr">Na een grote afval heb je een nieuwe garderobe nodig. De Goedkoopste Outlet verkoopt restvoorraden van Adidas, Nike, Björn Borg en meer. Tot 70% onder de winkelprijs.</p>
+        <blockquote class="favoriet-david">"Ik ben meer dan 100 kilo afgevallen en moest écht alles nieuw kopen. Bij de outlet koop ik topmerken voor een fractie van de prijs."</blockquote>
+      </div>
+      <div class="favoriet-footer">
+        <a href="https://glp8.net/c/?si=19859&li=1846103&wi=419645&ws=&dl=" target="_blank" rel="noopener nofollow" class="favoriet-btn" style="background:#c62828;">Bekijk de outlet</a>
+        <span class="favoriet-detail">Adidas, Nike, Björn Borg en meer</span>
+      </div>
+    </div>
+  </div>
 </section><footer id="footer-placeholder"></footer>
 <script src="/assets/footer.js"></script>
 <script>
