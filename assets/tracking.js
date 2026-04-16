@@ -1,31 +1,68 @@
-document.addEventListener('DOMContentLoaded', function() {
+(function() {
+  function getAdvertiser(href) {
+    if (href.includes('vitaminenspecialist.nl')) {
+      return { advertiser: 'vitaminenspecialist', type: href.includes('dgproefpakket') ? 'proefpakket' : 'regulier', network: 'direct' };
+    }
+    if (href.includes('serv.linkster.co')) {
+      return { advertiser: 'ahead', type: 'snacks', network: 'linkster' };
+    }
+    if (href.includes('fr135.net')) {
+      if (href.includes('si=3366'))  return { advertiser: 'foliactive', type: 'capsules', network: 'daisycon' };
+      if (href.includes('si=15237')) return { advertiser: 'nutribites', type: 'supplementen', network: 'daisycon' };
+    }
+    if (href.includes('bdt9.net') && href.includes('si=18019')) {
+      return { advertiser: 'dropwinkel', type: 'suikervrij', network: 'daisycon' };
+    }
+    if (href.includes('glp8.net')) {
+      if (href.includes('si=19859')) return { advertiser: 'de_goedkoopste_outlet', type: 'kleding', network: 'daisycon' };
+      if (href.includes('si=20150')) return { advertiser: 'internetslagerij', type: 'vlees', network: 'daisycon' };
+    }
+    if (href.includes('jdt8.net') && href.includes('si=17660')) {
+      return { advertiser: 'the_butchery', type: 'vlees', network: 'daisycon' };
+    }
+    if (href.includes('awin1.com') && href.includes('awinmid=117963')) {
+      return { advertiser: 'fitmeals', type: 'maaltijden', network: 'awin' };
+    }
+    if (href.includes('nutribites.nl'))        return { advertiser: 'nutribites', type: 'supplementen', network: 'direct' };
+    if (href.includes('butchery.nl'))          return { advertiser: 'the_butchery', type: 'vlees', network: 'direct' };
+    if (href.includes('internetslagerij.nl'))  return { advertiser: 'internetslagerij', type: 'vlees', network: 'direct' };
+    if (href.includes('fitmeals.nl'))          return { advertiser: 'fitmeals', type: 'maaltijden', network: 'direct' };
+    if (href.includes('dropwinkel.eu'))        return { advertiser: 'dropwinkel', type: 'suikervrij', network: 'direct' };
+    if (href.includes('plein.nl'))             return { advertiser: 'plein', type: 'supplementen', network: 'direct' };
+    return null;
+  }
 
-  // Track alle outbound link klikken
   document.addEventListener('click', function(e) {
-    const link = e.target.closest('a[href]');
+    var link = e.target.closest('a[href]');
     if (!link) return;
-    const href = link.href || '';
+    var href = link.href || '';
+    if (!href.startsWith('http')) return;
+    if (typeof gtag === 'undefined') return;
 
-    // BariBuddies / Community links
+    var affiliate = getAdvertiser(href);
+    if (affiliate) {
+      gtag('event', 'affiliate_click', {
+        affiliate_advertiser: affiliate.advertiser,
+        affiliate_type:       affiliate.type,
+        affiliate_network:    affiliate.network,
+        affiliate_url:        href,
+        page_location:        window.location.href,
+        page_title:           document.title
+      });
+      return;
+    }
+
     if (href.includes('chat.whatsapp.com') || href.includes('wa.me')) {
-      gtag('event', 'outbound_click', { link_category: 'baribuddies', link_type: 'whatsapp', link_url: href });
-    } else if (href.includes('facebook.com/groups')) {
-      gtag('event', 'outbound_click', { link_category: 'baribuddies', link_type: 'facebook', link_url: href });
-    } else if (href.includes('discord.gg') || href.includes('discord.com')) {
-      gtag('event', 'outbound_click', { link_category: 'baribuddies', link_type: 'discord', link_url: href });
+      gtag('event', 'community_click', { platform: 'whatsapp', link_url: href });
+      return;
+    }
+    if (href.includes('facebook.com/groups')) {
+      gtag('event', 'community_click', { platform: 'facebook', link_url: href });
+      return;
     }
 
-    // Affiliate links
-    else if (href.includes('vitaminenspecialist.nl') || href.includes('linkster.co')) {
-      const label = href.includes('dgproefpakket') ? 'proefpakket' : 'regulier';
-      gtag('event', 'outbound_click', { link_category: 'affiliate', link_advertiser: 'vitaminenspecialist', link_type: label, link_url: href });
-    } else if (href.includes('linkster.co')) {
-      gtag('event', 'outbound_click', { link_category: 'affiliate', link_advertiser: 'ahead', link_url: href });
+    if (!href.includes('dutchgoose.nl')) {
+      gtag('event', 'outbound_click', { link_url: href, page_location: window.location.href });
     }
-
-    // Overige externe links
-    else if (href.startsWith('http') && !href.includes('dutchgoose.nl')) {
-      gtag('event', 'outbound_click', { link_category: 'external', link_url: href });
-    }
-  });
-});
+  }, true);
+})();
