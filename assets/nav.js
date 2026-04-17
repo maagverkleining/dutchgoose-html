@@ -63,7 +63,7 @@
         <a href="/community.html#facebook">👥 Facebook</a>
         <a href="https://www.tiktok.com/@dutchgoose_weightloss" target="_blank" rel="noopener">🎵 TikTok</a>
         <a href="https://www.instagram.com/dutchgoosejourney" target="_blank" rel="noopener">📸 Instagram</a>
-        <a href="/over-david.html">🦆 Over David</a>
+        <a href="/over-david.html">🪿 Over David</a>
       </div>
     </li>
   </ul>
