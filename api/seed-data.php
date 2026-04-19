@@ -1,0 +1,98 @@
+<?php
+return [
+  'pools' => [
+    'vloeibaar' => [
+      'names' => ['Marieke', 'Jeroen', 'Linda', 'Bas', 'Sandra', 'Mark', 'Anneke', 'Roy', 'Ellen', 'Tom', 'Petra', 'Wim', 'Sara R.', 'Bram K.', 'Joyce', 'Daan', 'Nicole', 'Erik', 'Saskia', 'Patrick', 'Carla', 'Ronald', 'Yvonne', 'Hans', 'Esther', 'Vincent'],
+      'comments' => [
+        // 5-sterren (60%)
+        ['stars' => 5, 'text' => 'Lekker en past goed in week 1.'],
+        ['stars' => 5, 'text' => 'Eindelijk iets dat smaakt na alleen bouillon.'],
+        ['stars' => 5, 'text' => 'Goede afwisseling van shakes.'],
+        ['stars' => 5, 'text' => 'Maakt vloeibare fase een stuk dragelijker.'],
+        ['stars' => 5, 'text' => 'Vandaag voor de derde keer gemaakt.'],
+        ['stars' => 5, 'text' => ''],
+        ['stars' => 5, 'text' => 'Krijg ik mijn eiwit-doel mee gehaald.'],
+        ['stars' => 5, 'text' => 'Vond ik echt smaakvol.'],
+        ['stars' => 5, 'text' => 'Mijn diëtist was blij met deze keuze.'],
+        ['stars' => 5, 'text' => ''],
+        ['stars' => 5, 'text' => 'Helemaal geen vastloper of ander gedoe.'],
+        ['stars' => 5, 'text' => 'Maak ik elke dag in week 2.'],
+        // 4-sterren (25%)
+        ['stars' => 4, 'text' => 'Heel fijn, krijg ik de eiwitten makkelijk binnen.'],
+        ['stars' => 4, 'text' => 'Lekker, ik heb wel een snufje extra peper toegevoegd.'],
+        ['stars' => 4, 'text' => 'Vond ik smaakvol genoeg, ook na een paar dagen.'],
+        ['stars' => 4, 'text' => ''],
+        ['stars' => 4, 'text' => 'Prima recept, ik moest wel even langer pureren.'],
+        // 3-sterren (15%)
+        ['stars' => 3, 'text' => 'Op zich oké, voor mij wat te flauw, met meer kruiden beter.'],
+        ['stars' => 3, 'text' => 'Smaak prima, ik krijg helaas maar de helft op.'],
+        ['stars' => 3, 'text' => 'Gemiddeld, niet mijn favoriet maar wel doeltreffend.'],
+      ],
+    ],
+    'gepureerd' => [
+      'names' => ['Marieke', 'Jeroen', 'Linda', 'Bas', 'Sandra', 'Mark', 'Anneke', 'Roy', 'Ellen', 'Tom', 'Petra', 'Wim', 'Sara R.', 'Bram K.', 'Joyce', 'Daan', 'Nicole', 'Erik', 'Saskia', 'Patrick', 'Carla', 'Ronald', 'Yvonne', 'Hans', 'Esther', 'Vincent'],
+      'comments' => [
+        // 5-sterren (60%)
+        ['stars' => 5, 'text' => 'Smaakvol en glad genoeg, geen vastlopers.'],
+        ['stars' => 5, 'text' => 'Maak ik nu wekelijks.'],
+        ['stars' => 5, 'text' => 'Eindelijk iets met smaak in deze fase.'],
+        ['stars' => 5, 'text' => 'Kreeg er zelfs mijn eiwit-doel mee gehaald.'],
+        ['stars' => 5, 'text' => ''],
+        ['stars' => 5, 'text' => 'Mijn man (ook bypass) vond het ook lekker.'],
+        ['stars' => 5, 'text' => 'Goed te bewaren in de vriezer in kleine porties.'],
+        ['stars' => 5, 'text' => 'Echt een keeper voor de gepureerde fase.'],
+        ['stars' => 5, 'text' => ''],
+        ['stars' => 5, 'text' => 'Mijn diëtist gaf complimenten over deze keuze.'],
+        ['stars' => 5, 'text' => 'Lekker en afwisselend met de andere puree-recepten.'],
+        ['stars' => 5, 'text' => 'Maakt de gepureerde fase een stuk minder saai.'],
+        // 4-sterren (25%)
+        ['stars' => 4, 'text' => 'Goede smaak, ik moest wel even langer pureren voor het glad genoeg was.'],
+        ['stars' => 4, 'text' => 'Lekker, ik maakte het wat dunner met extra bouillon.'],
+        ['stars' => 4, 'text' => 'Prima recept, ik heb de hoeveelheid kruiden iets aangepast.'],
+        ['stars' => 4, 'text' => ''],
+        ['stars' => 4, 'text' => 'Smaak goed, structuur prima na 2x extra blenden.'],
+        // 3-sterren (15%)
+        ['stars' => 3, 'text' => 'Smaak prima, ik vond de structuur wat moeilijker dan ik hoopte.'],
+        ['stars' => 3, 'text' => 'Op zich oké, ik merk dat ik dit recept niet snel weer zou maken.'],
+        ['stars' => 3, 'text' => 'Goed bedoeld maar voor mij iets te machtig.'],
+      ],
+    ],
+    'vaste-voeding' => [
+      'names' => ['Marieke', 'Jeroen', 'Linda', 'Bas', 'Sandra', 'Mark', 'Anneke', 'Roy', 'Ellen', 'Tom', 'Petra', 'Wim', 'Sara R.', 'Bram K.', 'Joyce', 'Daan', 'Nicole', 'Erik', 'Saskia', 'Patrick', 'Carla', 'Ronald', 'Yvonne', 'Hans', 'Esther', 'Vincent'],
+      'comments' => [
+        // 5-sterren (60%)
+        ['stars' => 5, 'text' => 'Dit recept zit nu in mijn vaste rotatie.'],
+        ['stars' => 5, 'text' => 'Heerlijk, ook voor de rest van het gezin.'],
+        ['stars' => 5, 'text' => 'Bewaar ik in de meal prep voor de week.'],
+        ['stars' => 5, 'text' => 'Echt een keeper, ik ben nu 14 maanden post-op.'],
+        ['stars' => 5, 'text' => ''],
+        ['stars' => 5, 'text' => 'Goede portiegroottes voor mijn maag.'],
+        ['stars' => 5, 'text' => 'Smaakvol en niet te zwaar.'],
+        ['stars' => 5, 'text' => 'Mijn favoriete recept van Dutch Goose tot nu toe.'],
+        ['stars' => 5, 'text' => ''],
+        ['stars' => 5, 'text' => 'Krijgt mijn partner ook lekker, scheelt apart koken.'],
+        ['stars' => 5, 'text' => 'Voldoende eiwit zonder dat ik er bij na hoef te denken.'],
+        ['stars' => 5, 'text' => 'Maak ik nu al maanden, blijft lekker.'],
+        // 4-sterren (25%)
+        ['stars' => 4, 'text' => 'Easy te maken na een werkdag.'],
+        ['stars' => 4, 'text' => 'Iets aangepast voor mijn smaak (minder zout) maar verder top.'],
+        ['stars' => 4, 'text' => 'Lekker, kreeg een vol gevoel halverwege dus kleine porties hier.'],
+        ['stars' => 4, 'text' => ''],
+        ['stars' => 4, 'text' => 'Prima recept, alleen iets aan de pittige kant voor mij.'],
+        // 3-sterren (15%)
+        ['stars' => 3, 'text' => 'Smaak goed, voor mij persoonlijk wat te veel kruiden.'],
+        ['stars' => 3, 'text' => 'Niet helemaal mijn ding qua smaak, eet er wel doorheen.'],
+        ['stars' => 3, 'text' => 'Op zich oké, ik miste wat afwisseling in textuur.'],
+      ],
+    ],
+  ],
+  'david_template' => [
+    'name' => 'David Gans (oprichter)',
+    'stars' => 5,
+    'comments' => [
+      'vloeibaar'     => 'Dit was een van mijn vaste recepten in week 1-2 na mijn bypass in januari 2024.',
+      'gepureerd'     => 'Goede smaak en krijgbaar door, ook in de gepureerde fase. Maak ik nog steeds af en toe.',
+      'vaste-voeding' => 'Een van mijn vaste favorieten, ook na bijna 2 jaar.',
+    ],
+  ],
+];

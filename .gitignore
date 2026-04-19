@@ -16,3 +16,6 @@ MEMORY.md
 TOOLS.md
 USER.md
 MAIL-AGENDA-V1.md
+/api/config.php
+/api/data/ratings.db
+/api/data/email.log

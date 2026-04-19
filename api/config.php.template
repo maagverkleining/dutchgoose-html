@@ -1,0 +1,9 @@
+<?php
+define('DB_PATH', __DIR__ . '/data/ratings.db');
+define('IP_SALT', 'CHANGE_ME_TO_RANDOM_64_CHAR_STRING');
+define('NOTIFY_EMAIL', 'info@dutchgoose.nl');
+define('FROM_EMAIL', 'noreply@dutchgoose.nl');
+define('ADMIN_USER', 'admin');
+define('ADMIN_PASS_HASH', '');
+define('SEED_TOKEN', 'CHANGE_ME_TO_RANDOM_32_CHAR_STRING');
+define('MAX_RATINGS_PER_IP_PER_HOUR_PER_RECIPE', 3);
