@@ -26,13 +26,19 @@
     return out;
   }
 
-  function starsHalf(n) {
-    // fractional display with filled/half/empty
+  function starsHalfHTML(n) {
+    // Returns HTML string. Half star uses CSS overflow clip -- no exotic Unicode.
     var out = '';
     for (var i = 1; i <= 5; i++) {
-      if (n >= i) out += '\u2605';
-      else if (n >= i - 0.5) out += '\u2BD0';
-      else out += '\u2606';
+      if (n >= i) {
+        out += '<span style="color:#f59e0b">\u2605</span>';
+      } else if (n >= i - 0.5) {
+        out += '<span style="position:relative;display:inline-block;color:#ddd;">\u2605'
+             + '<span style="position:absolute;left:0;top:0;width:50%;overflow:hidden;color:#f59e0b;">\u2605</span>'
+             + '</span>';
+      } else {
+        out += '<span style="color:#ddd;">\u2605</span>';
+      }
     }
     return out;
   }
@@ -310,7 +316,7 @@
 
     var starsEl = el('div', {
       cls: 'rw-avg-stars',
-      text: starsHalf(average),
+      html: starsHalfHTML(average),
       'aria-label': average.toFixed(1) + ' gemiddeld'
     });
     wrap.appendChild(starsEl);

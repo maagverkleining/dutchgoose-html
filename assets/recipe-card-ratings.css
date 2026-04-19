@@ -1,0 +1,25 @@
+.recipe-card-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.35em;
+  font-size: 0.88em;
+  margin-top: 0.5em;
+}
+
+.recipe-card-stars {
+  color: #f5a623;
+  letter-spacing: 0.5px;
+  font-size: 1em;
+  line-height: 1;
+}
+
+.recipe-card-rating-value {
+  font-weight: 700;
+  color: #1a2b28;
+  font-size: 0.92em;
+}
+
+.recipe-card-rating-count {
+  color: #7a9b94;
+  font-size: 0.82em;
+}
