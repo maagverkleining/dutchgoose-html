@@ -23,48 +23,80 @@
     return out;
   }
 
+  function el(tag, cls) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    return e;
+  }
+
   function renderCard(phase, data) {
-    var card = document.createElement('a');
-    card.className = 'top-recipe-card';
+    var card = el('a', 'top-recipe-card');
     card.href = data.url;
     card.setAttribute('data-phase', phase.key);
 
-    var badge = document.createElement('div');
-    badge.className = 'top-recipe-badge';
-    badge.textContent = phase.label;
+    // Image
+    if (data.image) {
+      var img = document.createElement('img');
+      img.className = 'top-recipe-img';
+      img.src = data.image;
+      img.alt = data.short_title || data.title || '';
+      img.loading = 'lazy';
+      card.appendChild(img);
+    }
 
-    var title = document.createElement('h3');
-    title.className = 'top-recipe-title';
-    title.textContent = data.title;
+    var body = el('div', 'top-recipe-body');
 
-    var ratingDiv = document.createElement('div');
-    ratingDiv.className = 'top-recipe-rating';
+    // Category line (reuses badge styling from hub)
+    var cat = el('div', 'top-recipe-cat');
+    cat.textContent = data.cat || phase.label;
+    body.appendChild(cat);
 
-    var starsSpan = document.createElement('span');
-    starsSpan.className = 'top-recipe-stars';
+    // Title
+    var title = el('h3', 'top-recipe-title');
+    title.textContent = data.short_title || data.title || '';
+    body.appendChild(title);
+
+    // Description
+    if (data.description) {
+      var desc = el('p', 'top-recipe-desc');
+      desc.textContent = data.description;
+      body.appendChild(desc);
+    }
+
+    // Macros
+    if (data.macros && data.macros.length) {
+      var macrosDiv = el('div', 'top-recipe-macros');
+      data.macros.forEach(function (m) {
+        var pill = el('span', 'macro-pill');
+        pill.textContent = m;
+        macrosDiv.appendChild(pill);
+      });
+      body.appendChild(macrosDiv);
+    }
+
+    // Rating row
+    var ratingDiv = el('div', 'top-recipe-rating');
+
+    var starsSpan = el('span', 'top-recipe-stars');
     starsSpan.innerHTML = starsHTML(data.avg);
 
-    var valSpan = document.createElement('span');
-    valSpan.className = 'top-recipe-value';
+    var valSpan = el('span', 'top-recipe-value');
     valSpan.textContent = data.avg.toFixed(1);
 
-    var countSpan = document.createElement('span');
-    countSpan.className = 'top-recipe-count';
+    var countSpan = el('span', 'top-recipe-count');
     countSpan.textContent = '(' + data.count + ' beoordelingen)';
 
     ratingDiv.appendChild(starsSpan);
     ratingDiv.appendChild(valSpan);
     ratingDiv.appendChild(countSpan);
+    body.appendChild(ratingDiv);
 
-    var link = document.createElement('span');
-    link.className = 'top-recipe-link';
+    // Link label
+    var link = el('span', 'top-recipe-link');
     link.textContent = 'Bekijk recept \u2192';
+    body.appendChild(link);
 
-    card.appendChild(badge);
-    card.appendChild(title);
-    card.appendChild(ratingDiv);
-    card.appendChild(link);
-
+    card.appendChild(body);
     return card;
   }
 
