@@ -1,0 +1,339 @@
+/* Rating widget -- uses site design tokens already defined in each page's :root */
+
+.rw-section {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 0 5vw 2.5rem;
+}
+
+.rw-section h2 {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: var(--tx, #1a2b28);
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  border: none;
+  padding: 0;
+}
+
+.rw-container {
+  background: var(--w, #fff);
+  border: 1px solid var(--bd, #d8ede8);
+  border-radius: 14px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 16px rgba(26, 124, 107, .07);
+}
+
+/* ---- Header ---- */
+.rw-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: .25rem;
+}
+
+.rw-avg {
+  font-family: 'Nunito', sans-serif;
+  font-size: 2.6rem;
+  font-weight: 900;
+  color: var(--t, #1a7c6b);
+  line-height: 1;
+}
+
+.rw-avg-stars {
+  font-size: 1.5rem;
+  color: #f59e0b;
+  letter-spacing: 2px;
+  line-height: 1;
+}
+
+.rw-count {
+  font-size: .88rem;
+  color: var(--md, #4a6b64);
+}
+
+.rw-header-none {
+  font-size: .93rem;
+  color: var(--sf, #7a9b94);
+  font-style: italic;
+  margin: 0;
+}
+
+/* ---- Divider ---- */
+.rw-divider {
+  border: none;
+  border-top: 1px solid var(--bd, #d8ede8);
+  margin: 1.1rem 0;
+}
+
+/* ---- Form ---- */
+.rw-form-heading {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--tx, #1a2b28);
+  margin: 0 0 .6rem;
+}
+
+.rw-form-label {
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--md, #4a6b64);
+  margin: 0 0 .35rem;
+}
+
+/* Stars input */
+.rw-stars-input {
+  display: flex;
+  gap: 2px;
+  margin-bottom: .9rem;
+}
+
+.rw-star {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 2rem;
+  color: var(--bd, #d8ede8);
+  padding: 4px 6px;
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: color .12s, transform .1s;
+  border-radius: 6px;
+  line-height: 1;
+}
+
+.rw-star:hover,
+.rw-star--lit {
+  color: #f59e0b;
+}
+
+.rw-star:active {
+  transform: scale(.9);
+}
+
+/* Inputs */
+.rw-form input[type="text"],
+.rw-form textarea {
+  width: 100%;
+  padding: 9px 11px;
+  border: 1px solid var(--bd, #d8ede8);
+  border-radius: 8px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: .92rem;
+  color: var(--tx, #1a2b28);
+  background: var(--cr, #faf8f4);
+  box-sizing: border-box;
+  margin-bottom: .6rem;
+  transition: border-color .15s;
+  outline: none;
+}
+
+.rw-form input[type="text"]:focus,
+.rw-form textarea:focus {
+  border-color: var(--t, #1a7c6b);
+  background: #fff;
+}
+
+.rw-form textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+/* Honeypot */
+.rw-hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* Submit */
+.rw-submit {
+  background: var(--t, #1a7c6b);
+  color: #fff;
+  border: none;
+  border-radius: 100px;
+  padding: .6rem 1.4rem;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: .9rem;
+  cursor: pointer;
+  transition: background .15s, opacity .15s, transform .12s;
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  margin-top: .2rem;
+}
+
+.rw-submit:hover:not(:disabled) {
+  background: var(--tl, #2a9d87);
+  transform: translateY(-1px);
+}
+
+.rw-submit:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Messages */
+.rw-success {
+  background: var(--tp, #e8f5f2);
+  color: var(--t, #1a7c6b);
+  border: 1px solid var(--tm, #c5e8e1);
+  border-radius: 8px;
+  padding: .9rem 1rem;
+  font-size: .92rem;
+  font-weight: 600;
+}
+
+.rw-error {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fca5a5;
+  border-radius: 8px;
+  padding: .7rem 1rem;
+  font-size: .88rem;
+  margin-bottom: .75rem;
+}
+
+.rw-loading {
+  color: var(--sf, #7a9b94);
+  font-size: .9rem;
+  font-style: italic;
+  margin: 0;
+}
+
+/* ---- List ---- */
+.rw-list-heading {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--tx, #1a2b28);
+  margin: 0 0 .75rem;
+}
+
+.rw-item {
+  padding: .9rem 0;
+  border-bottom: 1px solid var(--bd, #d8ede8);
+}
+
+.rw-item:last-child {
+  border-bottom: none;
+}
+
+.rw-item--hidden {
+  display: none;
+}
+
+.rw-item-stars {
+  font-size: 1.05rem;
+  color: #f59e0b;
+  letter-spacing: 1px;
+  margin-bottom: .25rem;
+}
+
+.rw-item-meta {
+  font-size: .82rem;
+  color: var(--md, #4a6b64);
+  margin-bottom: .3rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .25rem;
+}
+
+.rw-item-name {
+  font-weight: 700;
+  color: var(--tx, #1a2b28);
+}
+
+.rw-founder-badge {
+  display: inline-block;
+  background: var(--tp, #e8f5f2);
+  color: var(--t, #1a7c6b);
+  border: 1px solid var(--tm, #c5e8e1);
+  font-size: .65rem;
+  font-weight: 800;
+  font-family: 'Nunito', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  padding: .1rem .4rem;
+  border-radius: 100px;
+}
+
+.rw-item-date {
+  font-size: .78rem;
+  color: var(--sf, #7a9b94);
+}
+
+.rw-item-comment {
+  font-size: .9rem;
+  color: var(--tx, #1a2b28);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.rw-empty {
+  font-style: italic;
+  color: var(--sf, #7a9b94);
+  font-size: .9rem;
+  padding: .5rem 0;
+  margin: 0;
+}
+
+/* Show more */
+.rw-show-more {
+  background: none;
+  border: 1px solid var(--bd, #d8ede8);
+  color: var(--t, #1a7c6b);
+  border-radius: 100px;
+  padding: .45rem 1rem;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: .82rem;
+  cursor: pointer;
+  margin-top: .75rem;
+  transition: background .15s, border-color .15s;
+}
+
+.rw-show-more:hover {
+  background: var(--tp, #e8f5f2);
+  border-color: var(--tm, #c5e8e1);
+}
+
+/* ---- Mobile ---- */
+@media (max-width: 480px) {
+  .rw-container {
+    padding: 1.1rem;
+    border-radius: 10px;
+  }
+
+  .rw-avg {
+    font-size: 2.1rem;
+  }
+
+  .rw-avg-stars {
+    font-size: 1.25rem;
+  }
+
+  .rw-star {
+    font-size: 1.8rem;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 6px 4px;
+  }
+
+  .rw-section {
+    padding: 0 4vw 2rem;
+  }
+}
