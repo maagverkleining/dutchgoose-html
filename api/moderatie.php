@@ -3,17 +3,33 @@
 require_once __DIR__ . '/config.php';
 require_once __DIR__ . '/db.php';
 
-// Basic auth check
-if (!isset($_SERVER['PHP_AUTH_USER']) ||
-    $_SERVER['PHP_AUTH_USER'] !== ADMIN_USER ||
-    !password_verify($_SERVER['PHP_AUTH_PW'] ?? '', ADMIN_PASS_HASH)) {
-    header('WWW-Authenticate: Basic realm="Dutch Goose Moderatie"');
-    header('HTTP/1.1 401 Unauthorized');
-    echo 'Inloggen vereist';
+// Auth via GET params (basic auth werkt niet op deze Plesk/Nginx setup)
+if (!isset($_GET['user']) || !isset($_GET['pass']) ||
+    $_GET['user'] !== ADMIN_USER ||
+    !password_verify($_GET['pass'], ADMIN_PASS_HASH)) {
+    ?>
+    <!DOCTYPE html><html lang="nl"><head><title>Login - Dutch Goose Moderatie</title><style>
+    body{font-family:sans-serif;padding:40px;max-width:400px;margin:auto;background:#f7faf8;color:#1a3a30;}
+    h2{margin-bottom:20px;}
+    label{display:block;margin-bottom:4px;font-size:14px;}
+    input{display:block;width:100%;padding:8px;margin-bottom:12px;box-sizing:border-box;border:1px solid #ccc;border-radius:4px;}
+    button{padding:10px 20px;background:#1a3a30;color:#fff;border:0;cursor:pointer;border-radius:4px;font-size:14px;}
+    </style></head><body>
+    <h2>Moderatie Login</h2>
+    <form method="get">
+      <label>Gebruiker: <input type="text" name="user" value="admin"></label>
+      <label>Wachtwoord: <input type="password" name="pass"></label>
+      <button type="submit">Inloggen</button>
+    </form>
+    </body></html>
+    <?php
     exit;
 }
 
-// Action token voor verberg/toon/verwijder
+$auth_user = $_GET['user'];
+$auth_pass = $_GET['pass'];
+
+// Action token
 $action_token = hash('sha256', ADMIN_PASS_HASH . 'moderatie-action');
 
 // Handle POST actions
@@ -32,42 +48,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } elseif ($action === 'delete') {
         $pdo->prepare("UPDATE ratings SET status='deleted' WHERE id=?")->execute([$id]);
     }
-    header('Location: moderatie.php');
+    header('Location: moderatie.php?user=' . urlencode($auth_user) . '&pass=' . urlencode($auth_pass));
     exit;
 }
 
-// Get filters
+// Filters
 $filter_status = $_GET['status'] ?? 'all';
 $page = max(1, (int)($_GET['page'] ?? 1));
 $per_page = 50;
 $offset = ($page - 1) * $per_page;
 
+// Auth query string om mee te sturen in links
+$auth_qs = 'user=' . urlencode($auth_user) . '&pass=' . urlencode($auth_pass);
+
 $pdo = db_connect();
 
-// Build query
 $where = '';
 $params = [];
-if (in_array($filter_status, ['visible','hidden','deleted'])) {
+if (in_array($filter_status, ['visible', 'hidden', 'deleted'])) {
     $where = 'WHERE status = ?';
     $params[] = $filter_status;
 }
 
-// Total count
-$count_sql = "SELECT COUNT(*) FROM ratings $where";
-$count_stmt = $pdo->prepare($count_sql);
+$count_stmt = $pdo->prepare("SELECT COUNT(*) FROM ratings $where");
 $count_stmt->execute($params);
 $total = (int)$count_stmt->fetchColumn();
 
-// Fetch ratings
-$sql = "SELECT * FROM ratings $where ORDER BY created_at DESC LIMIT $per_page OFFSET $offset";
-$stmt = $pdo->prepare($sql);
+$stmt = $pdo->prepare("SELECT * FROM ratings $where ORDER BY created_at DESC LIMIT $per_page OFFSET $offset");
 $stmt->execute($params);
 $ratings = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// Stats
 $stats_stmt = $pdo->query("SELECT status, COUNT(*) as c FROM ratings GROUP BY status");
 $stats = [];
 foreach ($stats_stmt as $row) { $stats[$row['status']] = $row['c']; }
+
+$total_pages = (int)ceil($total / $per_page);
 ?>
 <!DOCTYPE html>
 <html lang="nl">
@@ -91,16 +106,19 @@ th { background: #1a3a30; color: #fff; }
 button { padding: 4px 8px; font-size: 11px; cursor: pointer; border: 1px solid #ccc; background: #fff; margin-right: 2px; }
 button.danger { background: #d9534f; color: #fff; border-color: #d9534f; }
 .stats { background: #fff; padding: 10px; margin-top: 20px; border-radius: 4px; }
+.pagination { margin-top: 15px; }
+.pagination a { margin-right: 5px; color: #1a3a30; text-decoration: none; padding: 4px 8px; background: #e8f0ec; border-radius: 3px; font-size: 13px; }
+.pagination a.cur { background: #1a3a30; color: #fff; }
 </style>
 </head>
 <body>
 <h1>Moderatie Dutch Goose</h1>
 
 <div class="filters">
-  <a href="?status=all" class="<?= $filter_status==='all'?'active':'' ?>">Alle (<?= array_sum($stats) ?>)</a>
-  <a href="?status=visible" class="<?= $filter_status==='visible'?'active':'' ?>">Zichtbaar (<?= $stats['visible'] ?? 0 ?>)</a>
-  <a href="?status=hidden" class="<?= $filter_status==='hidden'?'active':'' ?>">Verborgen (<?= $stats['hidden'] ?? 0 ?>)</a>
-  <a href="?status=deleted" class="<?= $filter_status==='deleted'?'active':'' ?>">Verwijderd (<?= $stats['deleted'] ?? 0 ?>)</a>
+  <a href="?<?= $auth_qs ?>&status=all" class="<?= $filter_status==='all'?'active':'' ?>">Alle (<?= array_sum($stats) ?>)</a>
+  <a href="?<?= $auth_qs ?>&status=visible" class="<?= $filter_status==='visible'?'active':'' ?>">Zichtbaar (<?= $stats['visible'] ?? 0 ?>)</a>
+  <a href="?<?= $auth_qs ?>&status=hidden" class="<?= $filter_status==='hidden'?'active':'' ?>">Verborgen (<?= $stats['hidden'] ?? 0 ?>)</a>
+  <a href="?<?= $auth_qs ?>&status=deleted" class="<?= $filter_status==='deleted'?'active':'' ?>">Verwijderd (<?= $stats['deleted'] ?? 0 ?>)</a>
 </div>
 
 <p><?= count($ratings) ?> van <?= $total ?> ratings getoond</p>
@@ -114,15 +132,15 @@ button.danger { background: #d9534f; color: #fff; border-color: #d9534f; }
 <tr>
   <td><?= date('Y-m-d H:i', $r['created_at']) ?></td>
   <td><a href="https://dutchgoose.nl<?= htmlspecialchars($r['recipe_url']) ?>" target="_blank"><?= htmlspecialchars(substr($r['recipe_title'], 0, 40)) ?></a></td>
-  <td><span class="stars"><?= str_repeat('★', $r['stars']) ?><?= str_repeat('☆', 5 - $r['stars']) ?></span></td>
+  <td><span class="stars"><?= str_repeat('★', (int)$r['stars']) ?><?= str_repeat('☆', 5 - (int)$r['stars']) ?></span></td>
   <td><?= htmlspecialchars($r['name']) ?></td>
   <td><?= htmlspecialchars($r['comment'] ?? '') ?></td>
-  <td><?= substr($r['ip_hash'], 0, 8) ?></td>
-  <td><span class="badge badge-<?= $r['status'] ?>"><?= $r['status'] ?></span></td>
+  <td><?= htmlspecialchars(substr($r['ip_hash'], 0, 8)) ?></td>
+  <td><span class="badge badge-<?= htmlspecialchars($r['status']) ?>"><?= htmlspecialchars($r['status']) ?></span></td>
   <td>
-    <form method="post" style="display:inline">
-      <input type="hidden" name="action_token" value="<?= $action_token ?>">
-      <input type="hidden" name="id" value="<?= $r['id'] ?>">
+    <form method="post" action="?<?= $auth_qs ?>" style="display:inline">
+      <input type="hidden" name="action_token" value="<?= htmlspecialchars($action_token) ?>">
+      <input type="hidden" name="id" value="<?= (int)$r['id'] ?>">
       <?php if ($r['status'] !== 'hidden'): ?>
         <button name="action" value="hide">Verberg</button>
       <?php endif; ?>
@@ -136,6 +154,15 @@ button.danger { background: #d9534f; color: #fff; border-color: #d9534f; }
 <?php endforeach; ?>
 </tbody>
 </table>
+
+<?php if ($total_pages > 1): ?>
+<div class="pagination">
+  <?php for ($p = 1; $p <= $total_pages; $p++): ?>
+    <a href="?<?= $auth_qs ?>&status=<?= urlencode($filter_status) ?>&page=<?= $p ?>"
+       class="<?= $p === $page ? 'cur' : '' ?>"><?= $p ?></a>
+  <?php endfor; ?>
+</div>
+<?php endif; ?>
 
 <div class="stats">
   <strong>Stats:</strong>
