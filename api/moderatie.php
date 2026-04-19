@@ -1,347 +1,149 @@
 <?php
-ini_set('log_errors', '1');
-ini_set('error_log', __DIR__ . '/data/error.log');
-error_reporting(E_ALL);
-ini_set('display_errors', '0');
+// Geen sessions, geen output buffering, alles inline
+require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/db.php';
 
-register_shutdown_function(function () {
-    $err = error_get_last();
-    if ($err && in_array($err['type'], [E_ERROR, E_PARSE, E_CORE_ERROR, E_COMPILE_ERROR])) {
-        http_response_code(500);
-        echo '<pre>FATAL: ' . $err['message'] . ' in ' . $err['file'] . ' line ' . $err['line'] . '</pre>';
-    }
-});
-
-try {
-
-ini_set('session.use_cookies', '0');
-
-// Volgorde: config eerst, dan db (db heeft config nodig)
-$config_path = __DIR__ . '/config.php';
-$db_path     = __DIR__ . '/db.php';
-
-if (!file_exists($config_path)) {
-    throw new RuntimeException('config.php niet gevonden op: ' . $config_path);
-}
-if (!file_exists($db_path)) {
-    throw new RuntimeException('db.php niet gevonden op: ' . $db_path);
-}
-
-require_once $config_path;
-require_once $db_path;
-
-// Basic auth — volledig stateless, geen sessions
-$user = $_SERVER['PHP_AUTH_USER'] ?? '';
-$pass = $_SERVER['PHP_AUTH_PW']   ?? '';
-
-if ($user !== ADMIN_USER || !password_verify($pass, ADMIN_PASS_HASH)) {
+// Basic auth check
+if (!isset($_SERVER['PHP_AUTH_USER']) ||
+    $_SERVER['PHP_AUTH_USER'] !== ADMIN_USER ||
+    !password_verify($_SERVER['PHP_AUTH_PW'] ?? '', ADMIN_PASS_HASH)) {
     header('WWW-Authenticate: Basic realm="Dutch Goose Moderatie"');
-    http_response_code(401);
-    echo '<!DOCTYPE html><html lang="nl"><body><h2>Toegang geweigerd</h2></body></html>';
+    header('HTTP/1.1 401 Unauthorized');
+    echo 'Inloggen vereist';
     exit;
 }
 
-// Action token: sha256(ADMIN_PASS_HASH . 'moderatie-action')
+// Action token voor verberg/toon/verwijder
 $action_token = hash('sha256', ADMIN_PASS_HASH . 'moderatie-action');
-
-$pdo = db_connect();
 
 // Handle POST actions
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $post_token = $_POST['action_token'] ?? '';
-    if (!hash_equals($action_token, $post_token)) {
+    if (($_POST['action_token'] ?? '') !== $action_token) {
         http_response_code(403);
-        echo '<p>Ongeldige action token.</p>';
-        exit;
+        exit('Invalid token');
     }
-
     $action = $_POST['action'] ?? '';
-    $id     = (int) ($_POST['id'] ?? 0);
-
-    if ($id > 0) {
-        if ($action === 'hide') {
-            $pdo->prepare("UPDATE ratings SET status='hidden' WHERE id=?")->execute([$id]);
-        } elseif ($action === 'show') {
-            $pdo->prepare("UPDATE ratings SET status='visible' WHERE id=?")->execute([$id]);
-        } elseif ($action === 'delete') {
-            $pdo->prepare("UPDATE ratings SET status='deleted' WHERE id=?")->execute([$id]);
-        }
+    $id = (int)($_POST['id'] ?? 0);
+    $pdo = db_connect();
+    if ($action === 'hide') {
+        $pdo->prepare("UPDATE ratings SET status='hidden' WHERE id=?")->execute([$id]);
+    } elseif ($action === 'show') {
+        $pdo->prepare("UPDATE ratings SET status='visible' WHERE id=?")->execute([$id]);
+    } elseif ($action === 'delete') {
+        $pdo->prepare("UPDATE ratings SET status='deleted' WHERE id=?")->execute([$id]);
     }
-
-    header('Location: ' . $_SERVER['REQUEST_URI']);
+    header('Location: moderatie.php');
     exit;
 }
 
-// Filters
+// Get filters
 $filter_status = $_GET['status'] ?? 'all';
-$filter_recipe = $_GET['recipe'] ?? '';
-$filter_search = $_GET['q']      ?? '';
-$page          = max(1, (int) ($_GET['page'] ?? 1));
-$per_page      = 50;
-$offset        = ($page - 1) * $per_page;
+$page = max(1, (int)($_GET['page'] ?? 1));
+$per_page = 50;
+$offset = ($page - 1) * $per_page;
 
-$where  = [];
+$pdo = db_connect();
+
+// Build query
+$where = '';
 $params = [];
-
-if ($filter_status !== 'all' && in_array($filter_status, ['visible', 'hidden', 'deleted'])) {
-    $where[]  = 'status = ?';
+if (in_array($filter_status, ['visible','hidden','deleted'])) {
+    $where = 'WHERE status = ?';
     $params[] = $filter_status;
 }
-if ($filter_recipe !== '') {
-    $where[]  = 'recipe_url = ?';
-    $params[] = $filter_recipe;
-}
-if ($filter_search !== '') {
-    $where[]  = '(name LIKE ? OR comment LIKE ?)';
-    $params[] = '%' . $filter_search . '%';
-    $params[] = '%' . $filter_search . '%';
-}
 
-$where_sql = $where ? ('WHERE ' . implode(' AND ', $where)) : '';
-
-$count_stmt = $pdo->prepare("SELECT COUNT(*) FROM ratings $where_sql");
+// Total count
+$count_sql = "SELECT COUNT(*) FROM ratings $where";
+$count_stmt = $pdo->prepare($count_sql);
 $count_stmt->execute($params);
-$total = (int) $count_stmt->fetchColumn();
+$total = (int)$count_stmt->fetchColumn();
 
-$rows_stmt = $pdo->prepare("SELECT * FROM ratings $where_sql ORDER BY created_at DESC LIMIT $per_page OFFSET $offset");
-$rows_stmt->execute($params);
-$rows = $rows_stmt->fetchAll();
+// Fetch ratings
+$sql = "SELECT * FROM ratings $where ORDER BY created_at DESC LIMIT $per_page OFFSET $offset";
+$stmt = $pdo->prepare($sql);
+$stmt->execute($params);
+$ratings = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-$recipes_stmt = $pdo->query("SELECT DISTINCT recipe_url, recipe_title FROM ratings ORDER BY recipe_url");
-$recipes      = $recipes_stmt->fetchAll();
-
-$stats = $pdo->query("
-    SELECT
-        COUNT(*) as total,
-        ROUND(AVG(CASE WHEN status='visible' THEN stars END), 2) as avg_visible,
-        SUM(CASE WHEN stars=5 THEN 1 ELSE 0 END) as s5,
-        SUM(CASE WHEN stars=4 THEN 1 ELSE 0 END) as s4,
-        SUM(CASE WHEN stars=3 THEN 1 ELSE 0 END) as s3,
-        SUM(CASE WHEN stars=2 THEN 1 ELSE 0 END) as s2,
-        SUM(CASE WHEN stars=1 THEN 1 ELSE 0 END) as s1
-    FROM ratings
-")->fetch();
-
-$total_pages = (int) ceil($total / $per_page);
-
-function stars_html(int $n): string {
-    $out = '';
-    for ($i = 1; $i <= 5; $i++) {
-        $out .= $i <= $n
-            ? '<span style="color:#f59e0b">&#9733;</span>'
-            : '<span style="color:#d1d5db">&#9733;</span>';
-    }
-    return $out;
-}
-
-function status_badge(string $s): string {
-    $map = [
-        'visible' => ['background:#d1fae5;color:#065f46', 'Zichtbaar'],
-        'hidden'  => ['background:#fef3c7;color:#92400e', 'Verborgen'],
-        'deleted' => ['background:#fee2e2;color:#991b1b', 'Verwijderd'],
-    ];
-    [$style, $label] = $map[$s] ?? ['background:#f3f4f6;color:#374151', $s];
-    return "<span style=\"display:inline-block;padding:.15rem .5rem;border-radius:9999px;font-size:.72rem;font-weight:700;$style\">$label</span>";
-}
-
-function qp(array $extra = []): string {
-    $p = array_merge($_GET, $extra);
-    return '?' . http_build_query(array_filter($p, fn($v) => $v !== ''));
-}
-
-$base_url = strtok($_SERVER['REQUEST_URI'], '?');
-
+// Stats
+$stats_stmt = $pdo->query("SELECT status, COUNT(*) as c FROM ratings GROUP BY status");
+$stats = [];
+foreach ($stats_stmt as $row) { $stats[$row['status']] = $row['c']; }
 ?>
 <!DOCTYPE html>
 <html lang="nl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Dutch Goose Moderatie</title>
+<title>Moderatie - Dutch Goose</title>
 <style>
-  :root{--t:#1a7c6b;--tl:#2a9d87;--tp:#e8f5f2;--tm:#c5e8e1;--cr:#faf8f4;--w:#fff;--tx:#1a2b28;--md:#4a6b64;--sf:#7a9b94;--bd:#d8ede8}
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{background:var(--cr);color:var(--tx);font-family:'Inter',system-ui,sans-serif;font-size:14px;line-height:1.5}
-  header{background:var(--t);color:#fff;padding:.9rem 1.5rem;display:flex;align-items:center;gap:1rem}
-  header h1{font-family:'Nunito',sans-serif;font-size:1.2rem;font-weight:900}
-  header span{font-size:.8rem;opacity:.75}
-  .container{max-width:1300px;margin:0 auto;padding:1.5rem}
-  .stats-bar{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:.75rem;margin-bottom:1.5rem}
-  .stat-card{background:var(--w);border:1px solid var(--bd);border-radius:10px;padding:.9rem 1rem;text-align:center}
-  .stat-card .val{font-size:1.6rem;font-weight:800;color:var(--t);font-family:'Nunito',sans-serif}
-  .stat-card .lbl{font-size:.72rem;color:var(--sf);margin-top:.1rem}
-  .filters{background:var(--w);border:1px solid var(--bd);border-radius:10px;padding:1rem 1.2rem;margin-bottom:1rem;display:flex;flex-wrap:wrap;gap:.75rem;align-items:flex-end}
-  .filters label{display:flex;flex-direction:column;gap:.25rem;font-size:.75rem;font-weight:600;color:var(--md)}
-  .filters select,.filters input{border:1px solid var(--bd);border-radius:7px;padding:.4rem .7rem;font-size:.82rem;color:var(--tx);background:var(--cr);outline:none}
-  .filters select:focus,.filters input:focus{border-color:var(--t)}
-  .filters .btn-filter{background:var(--t);color:#fff;border:none;border-radius:7px;padding:.45rem 1rem;font-size:.82rem;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif}
-  table{width:100%;border-collapse:collapse;background:var(--w);border-radius:10px;overflow:hidden;border:1px solid var(--bd)}
-  th{background:var(--tp);color:var(--t);font-family:'Nunito',sans-serif;font-weight:800;font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;padding:.7rem 1rem;text-align:left;border-bottom:2px solid var(--tm)}
-  td{padding:.65rem 1rem;border-bottom:1px solid var(--bd);vertical-align:top;font-size:.82rem}
-  tr:last-child td{border-bottom:none}
-  tr:hover td{background:#f8fffe}
-  .comment-cell{max-width:220px;word-break:break-word}
-  .recipe-link{color:var(--t);text-decoration:none;font-weight:600}
-  .recipe-link:hover{text-decoration:underline}
-  form.action-form{display:inline}
-  .btn-action{border:none;border-radius:6px;padding:.3rem .65rem;font-size:.75rem;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;transition:opacity .15s}
-  .btn-action:hover{opacity:.8}
-  .btn-hide{background:#fef3c7;color:#92400e}
-  .btn-show{background:#d1fae5;color:#065f46}
-  .btn-del{background:#fee2e2;color:#991b1b}
-  .pagination{display:flex;gap:.4rem;margin-top:1rem;flex-wrap:wrap}
-  .pagination a,.pagination span{display:inline-block;padding:.35rem .75rem;border-radius:7px;border:1px solid var(--bd);color:var(--md);font-size:.8rem;text-decoration:none;background:var(--w)}
-  .pagination a:hover{background:var(--tp);color:var(--t);border-color:var(--tm)}
-  .pagination .cur{background:var(--t);color:#fff;border-color:var(--t)}
-  .empty{text-align:center;padding:3rem;color:var(--sf)}
-  @media(max-width:900px){.stats-bar{grid-template-columns:repeat(3,1fr)}table{font-size:.78rem}th,td{padding:.55rem .6rem}.comment-cell{max-width:130px}}
+body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; margin: 20px; color: #1a3a30; background: #f7faf8; }
+h1 { color: #1a3a30; }
+.filters { margin-bottom: 20px; }
+.filters a { margin-right: 10px; color: #4a6b64; text-decoration: none; padding: 5px 10px; background: #e8f0ec; border-radius: 4px; }
+.filters a.active { background: #1a3a30; color: #fff; }
+table { width: 100%; border-collapse: collapse; background: #fff; }
+th, td { padding: 8px; text-align: left; border-bottom: 1px solid #e0e8e4; font-size: 13px; vertical-align: top; }
+th { background: #1a3a30; color: #fff; }
+.badge { display: inline-block; padding: 2px 6px; border-radius: 3px; font-size: 11px; }
+.badge-visible { background: #d4edda; color: #155724; }
+.badge-hidden { background: #fff3cd; color: #856404; }
+.badge-deleted { background: #f8d7da; color: #721c24; }
+.stars { color: #f5a623; }
+button { padding: 4px 8px; font-size: 11px; cursor: pointer; border: 1px solid #ccc; background: #fff; margin-right: 2px; }
+button.danger { background: #d9534f; color: #fff; border-color: #d9534f; }
+.stats { background: #fff; padding: 10px; margin-top: 20px; border-radius: 4px; }
 </style>
 </head>
 <body>
-<header>
-  <div>
-    <h1>Dutch Goose Moderatie</h1>
-    <span>Rating systeem beheer</span>
-  </div>
-  <div style="margin-left:auto;font-size:.78rem;opacity:.7">Ingelogd als <?= htmlspecialchars(ADMIN_USER) ?></div>
-</header>
+<h1>Moderatie Dutch Goose</h1>
 
-<div class="container">
-
-  <!-- Stats -->
-  <div class="stats-bar">
-    <div class="stat-card"><div class="val"><?= $stats['total'] ?></div><div class="lbl">Totaal ratings</div></div>
-    <div class="stat-card"><div class="val"><?= number_format((float)($stats['avg_visible'] ?? 0), 1, ',', '') ?></div><div class="lbl">Gem. score (zichtbaar)</div></div>
-    <div class="stat-card"><div class="val"><?= $stats['s5'] ?></div><div class="lbl">5 sterren</div></div>
-    <div class="stat-card"><div class="val"><?= $stats['s4'] ?></div><div class="lbl">4 sterren</div></div>
-    <div class="stat-card"><div class="val"><?= $stats['s3'] ?></div><div class="lbl">3 sterren</div></div>
-    <div class="stat-card"><div class="val"><?= $stats['s2'] ?></div><div class="lbl">2 sterren</div></div>
-    <div class="stat-card"><div class="val"><?= $stats['s1'] ?></div><div class="lbl">1 ster</div></div>
-  </div>
-
-  <!-- Filters -->
-  <form class="filters" method="get" action="<?= htmlspecialchars($base_url) ?>">
-    <label>Status
-      <select name="status">
-        <option value="all"     <?= $filter_status === 'all'     ? 'selected' : '' ?>>Alle</option>
-        <option value="visible" <?= $filter_status === 'visible' ? 'selected' : '' ?>>Zichtbaar</option>
-        <option value="hidden"  <?= $filter_status === 'hidden'  ? 'selected' : '' ?>>Verborgen</option>
-        <option value="deleted" <?= $filter_status === 'deleted' ? 'selected' : '' ?>>Verwijderd</option>
-      </select>
-    </label>
-    <label>Recept
-      <select name="recipe">
-        <option value="">Alle recepten</option>
-        <?php foreach ($recipes as $r): ?>
-          <option value="<?= htmlspecialchars($r['recipe_url']) ?>"
-            <?= $filter_recipe === $r['recipe_url'] ? 'selected' : '' ?>>
-            <?= htmlspecialchars($r['recipe_title']) ?>
-          </option>
-        <?php endforeach; ?>
-      </select>
-    </label>
-    <label>Zoeken
-      <input type="text" name="q" placeholder="Naam of comment..." value="<?= htmlspecialchars($filter_search) ?>">
-    </label>
-    <button type="submit" class="btn-filter">Filteren</button>
-    <?php if ($filter_status !== 'all' || $filter_recipe || $filter_search): ?>
-      <a href="<?= htmlspecialchars($base_url) ?>" style="align-self:flex-end;color:var(--sf);font-size:.78rem;text-decoration:none">Wis filters</a>
-    <?php endif; ?>
-  </form>
-
-  <p style="font-size:.78rem;color:var(--sf);margin-bottom:.5rem"><?= $total ?> resultaten gevonden. Pagina <?= $page ?> van <?= max(1, $total_pages) ?>.</p>
-
-  <!-- Table -->
-  <?php if (empty($rows)): ?>
-    <div class="empty">Geen ratings gevonden voor dit filter.</div>
-  <?php else: ?>
-  <table>
-    <thead>
-      <tr>
-        <th>Datum</th>
-        <th>Recept</th>
-        <th>Sterren</th>
-        <th>Naam</th>
-        <th class="comment-cell">Comment</th>
-        <th>IP</th>
-        <th>Status</th>
-        <th>Acties</th>
-      </tr>
-    </thead>
-    <tbody>
-    <?php foreach ($rows as $row): ?>
-      <tr>
-        <td style="white-space:nowrap"><?= date('d-m-Y H:i', $row['created_at']) ?></td>
-        <td>
-          <a class="recipe-link" href="https://dutchgoose.nl<?= htmlspecialchars($row['recipe_url']) ?>" target="_blank">
-            <?= htmlspecialchars($row['recipe_title']) ?>
-          </a>
-        </td>
-        <td style="white-space:nowrap"><?= stars_html((int)$row['stars']) ?></td>
-        <td><?= htmlspecialchars($row['name']) ?></td>
-        <td class="comment-cell"><?= htmlspecialchars($row['comment'] ?? '') ?></td>
-        <td style="font-family:monospace;font-size:.72rem;color:var(--sf)"><?= htmlspecialchars(substr($row['ip_hash'], 0, 8)) ?></td>
-        <td><?= status_badge($row['status']) ?></td>
-        <td style="white-space:nowrap">
-          <?php if ($row['status'] !== 'hidden'): ?>
-            <form class="action-form" method="post">
-              <input type="hidden" name="action_token" value="<?= htmlspecialchars($action_token) ?>">
-              <input type="hidden" name="action" value="hide">
-              <input type="hidden" name="id" value="<?= $row['id'] ?>">
-              <button type="submit" class="btn-action btn-hide">Verbergen</button>
-            </form>
-          <?php endif; ?>
-          <?php if ($row['status'] !== 'visible'): ?>
-            <form class="action-form" method="post">
-              <input type="hidden" name="action_token" value="<?= htmlspecialchars($action_token) ?>">
-              <input type="hidden" name="action" value="show">
-              <input type="hidden" name="id" value="<?= $row['id'] ?>">
-              <button type="submit" class="btn-action btn-show">Tonen</button>
-            </form>
-          <?php endif; ?>
-          <?php if ($row['status'] !== 'deleted'): ?>
-            <form class="action-form" method="post">
-              <input type="hidden" name="action_token" value="<?= htmlspecialchars($action_token) ?>">
-              <input type="hidden" name="action" value="delete">
-              <input type="hidden" name="id" value="<?= $row['id'] ?>">
-              <button type="submit" class="btn-action btn-del">Verwijderen</button>
-            </form>
-          <?php endif; ?>
-        </td>
-      </tr>
-    <?php endforeach; ?>
-    </tbody>
-  </table>
-
-  <!-- Pagination -->
-  <?php if ($total_pages > 1): ?>
-  <div class="pagination">
-    <?php if ($page > 1): ?>
-      <a href="<?= htmlspecialchars($base_url . qp(['page' => $page - 1])) ?>">&laquo; Vorige</a>
-    <?php endif; ?>
-    <?php for ($p = max(1, $page - 3); $p <= min($total_pages, $page + 3); $p++): ?>
-      <?php if ($p === $page): ?>
-        <span class="cur"><?= $p ?></span>
-      <?php else: ?>
-        <a href="<?= htmlspecialchars($base_url . qp(['page' => $p])) ?>"><?= $p ?></a>
-      <?php endif; ?>
-    <?php endfor; ?>
-    <?php if ($page < $total_pages): ?>
-      <a href="<?= htmlspecialchars($base_url . qp(['page' => $page + 1])) ?>">Volgende &raquo;</a>
-    <?php endif; ?>
-  </div>
-  <?php endif; ?>
-  <?php endif; ?>
-
+<div class="filters">
+  <a href="?status=all" class="<?= $filter_status==='all'?'active':'' ?>">Alle (<?= array_sum($stats) ?>)</a>
+  <a href="?status=visible" class="<?= $filter_status==='visible'?'active':'' ?>">Zichtbaar (<?= $stats['visible'] ?? 0 ?>)</a>
+  <a href="?status=hidden" class="<?= $filter_status==='hidden'?'active':'' ?>">Verborgen (<?= $stats['hidden'] ?? 0 ?>)</a>
+  <a href="?status=deleted" class="<?= $filter_status==='deleted'?'active':'' ?>">Verwijderd (<?= $stats['deleted'] ?? 0 ?>)</a>
 </div>
+
+<p><?= count($ratings) ?> van <?= $total ?> ratings getoond</p>
+
+<table>
+<thead>
+<tr><th>Datum</th><th>Recept</th><th>Sterren</th><th>Naam</th><th>Comment</th><th>IP</th><th>Status</th><th>Actie</th></tr>
+</thead>
+<tbody>
+<?php foreach ($ratings as $r): ?>
+<tr>
+  <td><?= date('Y-m-d H:i', $r['created_at']) ?></td>
+  <td><a href="https://dutchgoose.nl<?= htmlspecialchars($r['recipe_url']) ?>" target="_blank"><?= htmlspecialchars(substr($r['recipe_title'], 0, 40)) ?></a></td>
+  <td><span class="stars"><?= str_repeat('★', $r['stars']) ?><?= str_repeat('☆', 5 - $r['stars']) ?></span></td>
+  <td><?= htmlspecialchars($r['name']) ?></td>
+  <td><?= htmlspecialchars($r['comment'] ?? '') ?></td>
+  <td><?= substr($r['ip_hash'], 0, 8) ?></td>
+  <td><span class="badge badge-<?= $r['status'] ?>"><?= $r['status'] ?></span></td>
+  <td>
+    <form method="post" style="display:inline">
+      <input type="hidden" name="action_token" value="<?= $action_token ?>">
+      <input type="hidden" name="id" value="<?= $r['id'] ?>">
+      <?php if ($r['status'] !== 'hidden'): ?>
+        <button name="action" value="hide">Verberg</button>
+      <?php endif; ?>
+      <?php if ($r['status'] !== 'visible'): ?>
+        <button name="action" value="show">Toon</button>
+      <?php endif; ?>
+      <button name="action" value="delete" class="danger" onclick="return confirm('Verwijderen?')">Verwijder</button>
+    </form>
+  </td>
+</tr>
+<?php endforeach; ?>
+</tbody>
+</table>
+
+<div class="stats">
+  <strong>Stats:</strong>
+  Totaal: <?= array_sum($stats) ?> |
+  Zichtbaar: <?= $stats['visible'] ?? 0 ?> |
+  Verborgen: <?= $stats['hidden'] ?? 0 ?> |
+  Verwijderd: <?= $stats['deleted'] ?? 0 ?>
+</div>
+
 </body>
 </html>
-<?php
-
-} catch (Throwable $e) {
-    http_response_code(500);
-    echo '<pre style="background:#fee2e2;color:#991b1b;padding:1rem;margin:1rem;border-radius:8px;">';
-    echo 'ERROR: ' . htmlspecialchars($e->getMessage()) . "\n\n";
-    echo htmlspecialchars($e->getTraceAsString());
-    echo '</pre>';
-}
