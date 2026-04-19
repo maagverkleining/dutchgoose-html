@@ -1,10 +1,34 @@
 <?php
+ini_set('log_errors', '1');
+ini_set('error_log', __DIR__ . '/data/error.log');
 error_reporting(E_ALL);
-ini_set('display_errors', '1');
+ini_set('display_errors', '0');
+
+register_shutdown_function(function () {
+    $err = error_get_last();
+    if ($err && in_array($err['type'], [E_ERROR, E_PARSE, E_CORE_ERROR, E_COMPILE_ERROR])) {
+        http_response_code(500);
+        echo '<pre>FATAL: ' . $err['message'] . ' in ' . $err['file'] . ' line ' . $err['line'] . '</pre>';
+    }
+});
+
+try {
+
 ini_set('session.use_cookies', '0');
 
-require_once __DIR__ . '/config.php';
-require_once __DIR__ . '/db.php';
+// Volgorde: config eerst, dan db (db heeft config nodig)
+$config_path = __DIR__ . '/config.php';
+$db_path     = __DIR__ . '/db.php';
+
+if (!file_exists($config_path)) {
+    throw new RuntimeException('config.php niet gevonden op: ' . $config_path);
+}
+if (!file_exists($db_path)) {
+    throw new RuntimeException('db.php niet gevonden op: ' . $db_path);
+}
+
+require_once $config_path;
+require_once $db_path;
 
 // Basic auth — volledig stateless, geen sessions
 $user = $_SERVER['PHP_AUTH_USER'] ?? '';
@@ -18,7 +42,6 @@ if ($user !== ADMIN_USER || !password_verify($pass, ADMIN_PASS_HASH)) {
 }
 
 // Action token: sha256(ADMIN_PASS_HASH . 'moderatie-action')
-// Alleen admins die al authenticated zijn kunnen dit token zien in de HTML.
 $action_token = hash('sha256', ADMIN_PASS_HASH . 'moderatie-action');
 
 $pdo = db_connect();
@@ -127,6 +150,7 @@ function qp(array $extra = []): string {
 }
 
 $base_url = strtok($_SERVER['REQUEST_URI'], '?');
+
 ?>
 <!DOCTYPE html>
 <html lang="nl">
@@ -312,3 +336,12 @@ $base_url = strtok($_SERVER['REQUEST_URI'], '?');
 </div>
 </body>
 </html>
+<?php
+
+} catch (Throwable $e) {
+    http_response_code(500);
+    echo '<pre style="background:#fee2e2;color:#991b1b;padding:1rem;margin:1rem;border-radius:8px;">';
+    echo 'ERROR: ' . htmlspecialchars($e->getMessage()) . "\n\n";
+    echo htmlspecialchars($e->getTraceAsString());
+    echo '</pre>';
+}
