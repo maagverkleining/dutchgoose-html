@@ -25,6 +25,11 @@
         <a href="/blog.html#vitamines">💊 Vitamines</a>
         <a href="/blog.html#herstel">🏥 Herstel</a>
         <a href="/blog.html#mentaal">🧠 Mentaal</a>
+        <a href="/blog/mag-ik-koffie-drinken-na-maagverkleining.html" style="border-top:1px solid var(--bd);margin-top:.2rem;padding-top:.5rem;">☕ Mag ik koffie?</a>
+        <a href="/blog/mag-ik-frisdrank-drinken-na-maagverkleining.html">🥤 Mag ik frisdrank?</a>
+        <a href="/blog/mag-ik-ibuprofen-na-maagverkleining.html">💊 Mag ik ibuprofen?</a>
+        <a href="/blog/mag-ik-zwanger-worden-na-maagverkleining.html">🤰 Mag ik zwanger worden?</a>
+        <a href="/blog/mag-ik-sporten-2-weken-na-maagverkleining.html">🏃 Mag ik sporten 2 weken?</a>
       </div>
     </li>
     <li class="nd"><a href="/recepten/">🍽️ Recepten ▾</a>
