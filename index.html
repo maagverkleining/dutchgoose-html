@@ -709,43 +709,18 @@ nav{align-items:flex-start;gap:.6rem;padding:.75rem 5vw 1rem}
     </style>
 </div>
 </section>
-<section style="background:var(--tp);padding:3.5rem 5vw">
-<div class="si">
-<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.8rem;flex-wrap:wrap;gap:.8rem">
-<div>
-<div class="sl">🍽️ RECEPTEN</div>
-<h2 class="st" style="margin-bottom:.3rem">Koken na je maagverkleining</h2>
-<p style="font-size:.85rem;color:var(--sf)">Van vloeibaar tot vaste voeding. Eiwitrijke recepten voor elke fase, met macros per portie.</p>
+<section class="top-recipes-section" id="top-recipes">
+<div class="container">
+<h2>⭐ Best beoordeeld door de Bari Community</h2>
+<p class="subtitle">De favoriete recepten per fase, gekozen door mensen in jouw situatie</p>
+<div class="top-recipes-grid" id="top-recipes-grid">
+<div class="top-recipes-loading">Recepten laden...</div>
 </div>
-<a href="recepten/" style="font-size:.82rem;color:var(--t);font-weight:700;border-bottom:2px solid var(--t);padding-bottom:1px;white-space:nowrap;flex-shrink:0">Alle recepten →</a>
+<div class="top-recipes-cta">
+<a href="/recepten/" class="btn-primary">Bekijk alle recepten →</a>
 </div>
-<div class="rec-grid-home" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem">
-<a class="rv" href="recepten/proteine-pannenkoeken-na-maagverkleining.html" style="background:white;border-radius:16px;overflow:hidden;display:block;border:1.5px solid var(--tm)">
-<img alt="Proteïne pannenkoeken" loading="lazy" src="assets/recepten/proteine-pannenkoeken.jpg" style="width:100%;height:160px;object-fit:cover;display:block;"/>
-<div style="padding:1rem 1.1rem 1.2rem">
-<span style="font-size:.65rem;font-weight:800;color:var(--t);text-transform:uppercase;letter-spacing:.06em;font-family:Nunito,sans-serif">Voeding</span>
-<h3 style="font-family:Nunito,sans-serif;font-weight:900;font-size:.95rem;line-height:1.3;margin:.4rem 0 .5rem;color:var(--tx)">Proteïne pannenkoeken</h3>
-<span style="font-size:.78rem;color:var(--sf)">Recept bekijken →</span>
 </div>
-</a>
-<a class="rv" href="recepten/kipgehaktballetjes-tomatensaus-maagverkleining.html" style="background:white;border-radius:16px;overflow:hidden;display:block;border:1.5px solid var(--tm)">
-<img alt="Kipgehaktballetjes in tomatensaus" loading="lazy" src="assets/recepten/kipgehaktballetjes.jpg" style="width:100%;height:160px;object-fit:cover;display:block;"/>
-<div style="padding:1rem 1.1rem 1.2rem">
-<span style="font-size:.65rem;font-weight:800;color:var(--t);text-transform:uppercase;letter-spacing:.06em;font-family:Nunito,sans-serif">Voeding</span>
-<h3 style="font-family:Nunito,sans-serif;font-weight:900;font-size:.95rem;line-height:1.3;margin:.4rem 0 .5rem;color:var(--tx)">Kipgehaktballetjes in tomatensaus</h3>
-<span style="font-size:.78rem;color:var(--sf)">Recept bekijken →</span>
-</div>
-</a>
-<a class="rv" href="recepten/griekse-kwark-bowl-maagverkleining.html" style="background:white;border-radius:16px;overflow:hidden;display:block;border:1.5px solid var(--tm)">
-<img alt="Griekse kwark bowl" loading="lazy" src="assets/recepten/griekse-kwark-bowl.jpg" style="width:100%;height:160px;object-fit:cover;display:block;"/>
-<div style="padding:1rem 1.1rem 1.2rem">
-<span style="font-size:.65rem;font-weight:800;color:var(--t);text-transform:uppercase;letter-spacing:.06em;font-family:Nunito,sans-serif">Ontbijt</span>
-<h3 style="font-family:Nunito,sans-serif;font-weight:900;font-size:.95rem;line-height:1.3;margin:.4rem 0 .5rem;color:var(--tx)">Griekse kwark bowl</h3>
-<span style="font-size:.78rem;color:var(--sf)">Recept bekijken →</span>
-</div>
-</a>
-</div>
-</div></section>
+</section>
 <section style="background:var(--cr);padding:3.5rem 5vw">
 <div class="si">
 <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.8rem;flex-wrap:wrap;gap:.8rem">
@@ -859,4 +834,6 @@ document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
 function tf(b){const it=b.closest('.fq');const op=it.classList.contains('op');document.querySelectorAll('.fq').forEach(i=>i.classList.remove('op'));if(!op)it.classList.add('op')}
 function cp(c,b){navigator.clipboard.writeText(c).then(()=>{const o=b.textContent;b.textContent='✓ Gekopieerd';setTimeout(()=>b.textContent=o,2000)})}
 </script><script defer="" src="/assets/tracking.js?v=2"></script>
+<link rel="stylesheet" href="/assets/top-recipes.css">
+<script src="/assets/top-recipes.js" defer></script>
 </body></html>
