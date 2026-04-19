@@ -21,6 +21,7 @@
     </li>
     <li class="nd"><a href="/blog.html">📚 Kennisbank ▾</a>
       <div class="nd-menu">
+        <a href="/blog.html#voor-de-operatie">🗓️ Voor de operatie</a>
         <a href="/blog.html#voeding">🍽️ Voeding &amp; eten</a>
         <a href="/blog.html#vitamines">💊 Vitamines</a>
         <a href="/blog.html#herstel">🏥 Herstel</a>
