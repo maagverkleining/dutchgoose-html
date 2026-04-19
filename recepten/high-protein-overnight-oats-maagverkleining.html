@@ -149,13 +149,14 @@ footer{background:var(--tx);color:white;padding:3.5rem 5vw 2rem}
 img{max-width:100%;height:auto}
 @media(max-width:900px){.nl{display:none}.article-wrap{grid-template-columns:minmax(0,1fr)}.sidebar{position:static}.related{grid-template-columns:1fr}.fg{grid-template-columns:1fr 1fr;gap:1.5rem}.fbot{flex-direction:column;align-items:flex-start;gap:.45rem}}
 @media(max-width:820px){nav{height:auto;padding:.8rem 5vw}.lt{font-size:1.08rem}.nc{display:inline-flex;padding:.38rem .62rem;font-size:.64rem;margin-left:0;white-space:nowrap}}
-@media(max-width:560px){.fg{grid-template-columns:1fr}.recipe-meta{gap:.6rem}}@media(max-width:900px){.sidebar .sidebar-cta{display:none}}</style>
+@media(max-width:560px){.fg{grid-template-columns:1fr}.recipe-meta{gap:.6rem}}@media(max-width:900px){.sidebar .sidebar-cta{display:none}}.breadcrumbs{display:flex;flex-wrap:wrap;align-items:center;gap:.2rem;font-size:.82rem;color:var(--md);padding:.7rem 5vw;background:var(--tp);border-bottom:2px solid var(--tm);line-height:1.5}.breadcrumbs a{color:var(--t);font-weight:700;text-decoration:none}.breadcrumbs a:hover{text-decoration:underline}.breadcrumbs .sep{margin:0 .2rem;color:var(--sf);font-size:.85em}.breadcrumbs .bc-cur{color:var(--tx);font-weight:800;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:52vw}@media(max-width:390px){.breadcrumbs .bc-cur{max-width:38vw}}</style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Dutch Goose", "item": "https://dutchgoose.nl/"}, {"@type": "ListItem", "position": 2, "name": "Recepten", "item": "https://dutchgoose.nl/recepten/"}, {"@type": "ListItem", "position": 3, "name": "High-protein overnight oats", "item": "https://dutchgoose.nl/recepten/high-protein-overnight-oats-maagverkleining.html"}]}</script>
 </head>
 <body>
 <nav id="nav-placeholder"></nav>
 <script src="/assets/nav.js"></script>
 <div class="bc"><a href="/">Dutch Goose</a><span>›</span><a href="../recepten/">Recepten</a><span>›</span>High-protein overnight oats na maagverkl...</div>
+<nav class="breadcrumbs"><a href="/">Dutch Goose</a><span class="sep">›</span><a href="/recepten/">Recepten</a><span class="sep">›</span><span class="bc-cur">High-protein overnight oats</span></nav>
 <div class="article-hero">
   <img src="../assets/recepten/overnight-oats.jpg" alt="High-protein overnight oats na maagverkleining makkelijk ontbijt" class="article-hero-img" loading="eager"/>
   <div class="article-hero-overlay"></div>
