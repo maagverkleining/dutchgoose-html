@@ -1,0 +1,23 @@
+# Dutch Goose
+
+> Nederlandstalig informatieplatform en community voor mensen met een maagverkleining (gastric bypass, gastric sleeve, SADI-S) in Nederland en Belgie. Geschreven door David Gans, die in januari 2024 een gastric bypass heeft ondergaan en 105 kg is afgevallen. De site combineert persoonlijke ervaring, evidence-based informatie, 50+ recepten per fase (vloeibaar, gepureerd, vaste voeding), vitamine-advies, klinieken-vergelijker en een actieve community van ruim 2000 leden.
+
+## Kerninformatie
+- Doelgroep: mensen die een maagverkleining overwegen, net hebben ondergaan, of in onderhoudsfase zitten
+- Fases: vloeibaar (week 1-2), gepureerd (week 3-4), vaste voeding (vanaf week 5-6)
+- Disclaimer: ervaringsplatform, geen medisch platform. Adviezen altijd afstemmen met eigen behandelteam.
+
+## Hoofdrubrieken
+- [Recepten](https://dutchgoose.nl/recepten/): 52 recepten verdeeld over 3 fasen, met macros en David's ervaringen
+- [Kennisbank](https://dutchgoose.nl/blog.html): artikelen over dumping, eiwitdoelen, haaruitval, plateaus, losse huid, etc.
+- [Vitamines](https://dutchgoose.nl/vitamines.html): persoonlijke gids voor bariatrische vitamines
+- [Klinieken](https://dutchgoose.nl/klinieken/): Nederlandse klinieken met wachttijd, nazorg, revisie-opties
+- [Deals](https://dutchgoose.nl/deals.html): aanbiedingen op eiwitrijke producten, drop, snacks
+- [Community](https://dutchgoose.nl/community.html): WhatsApp groep, Facebook, TikTok, Instagram
+
+## Auteur
+David Gans, Amsterdam. Gastric bypass januari 2024 bij Vitalys, follow-up bij Baria Nederland (Spaarne Gasthuis). -105 kg. Geen medisch professional, schrijft vanuit persoonlijke ervaring en gecontroleerde bronnen.
+
+## Contact
+- Email: info@dutchgoose.nl
+- Website: https://dutchgoose.nl
