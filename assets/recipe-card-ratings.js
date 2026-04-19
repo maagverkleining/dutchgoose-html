@@ -51,20 +51,32 @@
     ratingEl.appendChild(valSpan);
     ratingEl.appendChild(countSpan);
 
-    // Insert after .recipe-card-macros, .recipe-card-meta, or as last child of .recipe-card-body
+    // .recipe-card: insert after .recipe-card-macros or .recipe-card-meta inside .recipe-card-body
     var body = card.querySelector('.recipe-card-body');
-    if (!body) return;
+    if (body) {
+      var anchor = body.querySelector('.recipe-card-macros') || body.querySelector('.recipe-card-meta');
+      if (anchor && anchor.parentNode === body) {
+        anchor.after(ratingEl);
+      } else {
+        body.appendChild(ratingEl);
+      }
+      return;
+    }
 
-    var anchor = body.querySelector('.recipe-card-macros') || body.querySelector('.recipe-card-meta');
-    if (anchor && anchor.parentNode === body) {
-      anchor.after(ratingEl);
+    // .related-card: <a> is the card itself, insert after the last <p> child
+    var lastP = null;
+    Array.from(card.children).forEach(function (c) {
+      if (c.tagName === 'P') lastP = c;
+    });
+    if (lastP) {
+      lastP.after(ratingEl);
     } else {
-      body.appendChild(ratingEl);
+      card.appendChild(ratingEl);
     }
   }
 
   function init() {
-    var cards = Array.from(document.querySelectorAll('a.recipe-card[href]'));
+    var cards = Array.from(document.querySelectorAll('a.recipe-card[href], a.related-card[href]'));
     if (!cards.length) return;
 
     var urlMap = {}; // pathname -> [card, ...]
