@@ -1,34 +1,34 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+ini_set('session.use_cookies', '0');
+
 require_once __DIR__ . '/config.php';
 require_once __DIR__ . '/db.php';
 
-session_start();
-
-// Basic auth
+// Basic auth — volledig stateless, geen sessions
 $user = $_SERVER['PHP_AUTH_USER'] ?? '';
 $pass = $_SERVER['PHP_AUTH_PW']   ?? '';
 
 if ($user !== ADMIN_USER || !password_verify($pass, ADMIN_PASS_HASH)) {
     header('WWW-Authenticate: Basic realm="Dutch Goose Moderatie"');
     http_response_code(401);
-    echo '<!DOCTYPE html><html><body><h2>Toegang geweigerd</h2></body></html>';
+    echo '<!DOCTYPE html><html lang="nl"><body><h2>Toegang geweigerd</h2></body></html>';
     exit;
 }
 
-$pdo = db_connect();
+// Action token: sha256(ADMIN_PASS_HASH . 'moderatie-action')
+// Alleen admins die al authenticated zijn kunnen dit token zien in de HTML.
+$action_token = hash('sha256', ADMIN_PASS_HASH . 'moderatie-action');
 
-// CSRF
-if (empty($_SESSION['csrf_token'])) {
-    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
-}
-$csrf = $_SESSION['csrf_token'];
+$pdo = db_connect();
 
 // Handle POST actions
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $post_csrf = $_POST['csrf_token'] ?? '';
-    if (!hash_equals($csrf, $post_csrf)) {
+    $post_token = $_POST['action_token'] ?? '';
+    if (!hash_equals($action_token, $post_token)) {
         http_response_code(403);
-        echo '<p>Ongeldige CSRF token.</p>';
+        echo '<p>Ongeldige action token.</p>';
         exit;
     }
 
@@ -50,12 +50,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 // Filters
-$filter_status  = $_GET['status']  ?? 'all';
-$filter_recipe  = $_GET['recipe']  ?? '';
-$filter_search  = $_GET['q']       ?? '';
-$page           = max(1, (int) ($_GET['page'] ?? 1));
-$per_page       = 50;
-$offset         = ($page - 1) * $per_page;
+$filter_status = $_GET['status'] ?? 'all';
+$filter_recipe = $_GET['recipe'] ?? '';
+$filter_search = $_GET['q']      ?? '';
+$page          = max(1, (int) ($_GET['page'] ?? 1));
+$per_page      = 50;
+$offset        = ($page - 1) * $per_page;
 
 $where  = [];
 $params = [];
@@ -84,11 +84,9 @@ $rows_stmt = $pdo->prepare("SELECT * FROM ratings $where_sql ORDER BY created_at
 $rows_stmt->execute($params);
 $rows = $rows_stmt->fetchAll();
 
-// Recipe dropdown
 $recipes_stmt = $pdo->query("SELECT DISTINCT recipe_url, recipe_title FROM ratings ORDER BY recipe_url");
 $recipes      = $recipes_stmt->fetchAll();
 
-// Stats
 $stats = $pdo->query("
     SELECT
         COUNT(*) as total,
@@ -106,7 +104,9 @@ $total_pages = (int) ceil($total / $per_page);
 function stars_html(int $n): string {
     $out = '';
     for ($i = 1; $i <= 5; $i++) {
-        $out .= $i <= $n ? '<span style="color:#f59e0b">&#9733;</span>' : '<span style="color:#d1d5db">&#9733;</span>';
+        $out .= $i <= $n
+            ? '<span style="color:#f59e0b">&#9733;</span>'
+            : '<span style="color:#d1d5db">&#9733;</span>';
     }
     return $out;
 }
@@ -138,7 +138,6 @@ $base_url = strtok($_SERVER['REQUEST_URI'], '?');
   :root{--t:#1a7c6b;--tl:#2a9d87;--tp:#e8f5f2;--tm:#c5e8e1;--cr:#faf8f4;--w:#fff;--tx:#1a2b28;--md:#4a6b64;--sf:#7a9b94;--bd:#d8ede8}
   *{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--cr);color:var(--tx);font-family:'Inter',system-ui,sans-serif;font-size:14px;line-height:1.5}
-  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Inter:wght@400;500;600&display=swap');
   header{background:var(--t);color:#fff;padding:.9rem 1.5rem;display:flex;align-items:center;gap:1rem}
   header h1{font-family:'Nunito',sans-serif;font-size:1.2rem;font-weight:900}
   header span{font-size:.8rem;opacity:.75}
@@ -262,7 +261,7 @@ $base_url = strtok($_SERVER['REQUEST_URI'], '?');
         <td style="white-space:nowrap">
           <?php if ($row['status'] !== 'hidden'): ?>
             <form class="action-form" method="post">
-              <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrf) ?>">
+              <input type="hidden" name="action_token" value="<?= htmlspecialchars($action_token) ?>">
               <input type="hidden" name="action" value="hide">
               <input type="hidden" name="id" value="<?= $row['id'] ?>">
               <button type="submit" class="btn-action btn-hide">Verbergen</button>
@@ -270,7 +269,7 @@ $base_url = strtok($_SERVER['REQUEST_URI'], '?');
           <?php endif; ?>
           <?php if ($row['status'] !== 'visible'): ?>
             <form class="action-form" method="post">
-              <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrf) ?>">
+              <input type="hidden" name="action_token" value="<?= htmlspecialchars($action_token) ?>">
               <input type="hidden" name="action" value="show">
               <input type="hidden" name="id" value="<?= $row['id'] ?>">
               <button type="submit" class="btn-action btn-show">Tonen</button>
@@ -278,7 +277,7 @@ $base_url = strtok($_SERVER['REQUEST_URI'], '?');
           <?php endif; ?>
           <?php if ($row['status'] !== 'deleted'): ?>
             <form class="action-form" method="post">
-              <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrf) ?>">
+              <input type="hidden" name="action_token" value="<?= htmlspecialchars($action_token) ?>">
               <input type="hidden" name="action" value="delete">
               <input type="hidden" name="id" value="<?= $row['id'] ?>">
               <button type="submit" class="btn-action btn-del">Verwijderen</button>
