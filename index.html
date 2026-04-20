@@ -416,8 +416,9 @@ nav{align-items:flex-start;gap:.6rem;padding:.75rem 5vw 1rem}
 .ob-heading{font-size:26px;font-weight:700;color:#1a2b28;margin:0 0 6px}
 .ob-sub{font-size:15px;color:#4e6b67;margin:0 0 32px}
 .ob-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.ob-card{background:#fff;border:1.5px solid #d6e8e4;border-radius:20px;padding:24px 20px 20px;display:flex;flex-direction:column}
+.ob-card{background:#fff;border:1.5px solid #d6e8e4;border-radius:20px;padding:0 20px 20px;display:flex;flex-direction:column;overflow:hidden}
 .ob-card.featured{border-color:#1a7c6b}
+.ob-card-image{height:140px;margin:0 -20px 18px;background-size:cover;background-position:center;background-color:#c5e8e1;border-radius:18px 18px 0 0;flex-shrink:0}
 .ob-badge{display:inline-block;font-size:10px;font-weight:600;background:#1a7c6b;color:#fff;padding:3px 10px;border-radius:100px;margin-bottom:12px;align-self:flex-start}
 .ob-icon{font-size:26px;margin-bottom:10px}
 .ob-title{font-size:15px;font-weight:700;color:#1a2b28;margin:0 0 6px}
@@ -435,7 +436,8 @@ nav{align-items:flex-start;gap:.6rem;padding:.75rem 5vw 1rem}
 <p class="ob-sub">Kies je situatie en ik wijs je direct de weg.</p>
 <div class="ob-grid">
 <div class="ob-card">
-<div class="ob-icon">🔍</div>
+<div class="ob-card-image" style="background-image:url('/assets/dg-orienteren.jpg')" role="img" aria-label="Oriënteren voor je maagverkleining"></div>
+<div class="ob-icon" style="margin-top:18px">🔍</div>
 <p class="ob-title">Ik overweeg een operatie</p>
 <p class="ob-desc">Je bent aan het oriënteren. Welke ingreep past bij jou, kom je in aanmerking, wat kost het en welke kliniek kies je?</p>
 <div class="ob-group">
@@ -459,7 +461,8 @@ nav{align-items:flex-start;gap:.6rem;padding:.75rem 5vw 1rem}
 <a class="ob-cta" href="orienteren.html">Start hier →</a>
 </div>
 <div class="ob-card featured">
-<span class="ob-badge">Meest bezocht</span>
+<div class="ob-card-image" style="background-image:url('/assets/dg-na-de-operatie.jpg')" role="img" aria-label="Na de operatie: eerste jaar na een maagverkleining"></div>
+<span class="ob-badge" style="margin-top:18px">Meest bezocht</span>
 <div class="ob-icon">🏔</div>
 <p class="ob-title">Ik ben net geopereerd</p>
 <p class="ob-desc">Eerste weken tot maanden. Voeding per fase, vitamines regelen, herstel begrijpen en de juiste tools gebruiken.</p>
@@ -484,7 +487,8 @@ nav{align-items:flex-start;gap:.6rem;padding:.75rem 5vw 1rem}
 <a class="ob-cta" href="na-de-operatie.html">Start hier →</a>
 </div>
 <div class="ob-card">
-<div class="ob-icon">💪</div>
+<div class="ob-card-image" style="background-image:url('/assets/dg-leven-na-maagverkleining.jpg')" role="img" aria-label="Leven na maagverkleining: de lange termijn"></div>
+<div class="ob-icon" style="margin-top:18px">💪</div>
 <p class="ob-title">Ik ben al een tijdje verder</p>
 <p class="ob-desc">Je bent er al even in. Plateaus, mentale kant, sport, bloedwaarden, deals en de community om je heen.</p>
 <div class="ob-group">
