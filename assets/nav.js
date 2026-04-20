@@ -48,16 +48,12 @@
         <a href="https://www.wlsvitaminen.nl">💊 Vitamines vergelijken</a>
       </div>
     </li>
-    <li class="nd"><a href="/orienteren.html">🔍 Oriënteren ▾</a>
+    <li class="nd"><a href="/orienteren.html">🗺️ Traject ▾</a>
       <div class="nd-menu">
-        <a href="/klinieken/">🏥 Klinieken vergelijker</a>
-        <a href="/klinieken/profielen/">🏥 Kliniekprofielen</a>
-        <a href="/gastric-bypass.html">🥝 Gastric bypass</a>
-        <a href="/gastric-sleeve.html">🍌 Gastric sleeve</a>
-        <a href="/criteria.html">✅ Kom ik in aanmerking?</a>
-        <a href="/vergoeding.html">💶 Vergoeding &amp; verzekering</a>
-        <a href="/maagverkleining-buitenland.html">🌍 Maagverkleining buitenland</a>
-        <a href="/blog/kosten-maagverkleining-wat-kost-het-echt.html">💶 Kosten maagverkleining</a>
+        <a href="/orienteren.html">🔍 Oriënteren</a>
+        <a href="/blog.html#voor-de-operatie">🗓️ Voor de operatie</a>
+        <a href="/na-de-operatie.html">🏥 Na de operatie</a>
+        <a href="/leven-na-maagverkleining.html">♾️ Levenslang</a>
       </div>
     </li>
     <li class="nd"><a href="/community.html">👥 Community ▾</a>
