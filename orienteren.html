@@ -48,6 +48,54 @@ footer{background:var(--tx);color:white;padding:3.5rem 5vw 2rem}
 .ori-link:hover{text-decoration:underline}
 /* Disclaimer */
 .dis-box{background:var(--tp);border:1.5px solid var(--tm);border-radius:14px;padding:1.2rem 1.5rem;font-size:.82rem;color:var(--md);line-height:1.55;max-width:1160px;margin:0 auto}
+/* Hero foto */
+.hero-img{width:100%;max-height:400px;object-fit:cover;border-radius:16px;display:block;aspect-ratio:3/2;margin:0 0 2rem}
+/* Tip boxes */
+.tip-box{background:var(--tp);border-left:4px solid var(--t);border-radius:0 12px 12px 0;padding:1.1rem 1.4rem;margin:1.8rem 0;display:flex;gap:.8rem}
+.tip-box .tip-icon{font-size:1.3rem;flex-shrink:0;margin-top:.1rem}
+.tip-box .tip-text strong{color:var(--t);font-family:Nunito,sans-serif;font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:.3rem}
+.tip-box .tip-text p{font-size:.88rem;color:var(--md);margin:0;line-height:1.6}
+.warn-box{background:#fff8f0;border-left:4px solid #e8873a;border-radius:0 12px 12px 0;padding:1.1rem 1.4rem;margin:1.8rem 0;display:flex;gap:.8rem}
+.warn-box .tip-icon{font-size:1.3rem;flex-shrink:0;margin-top:.1rem}
+.warn-box .tip-text strong{color:#c0700a;font-family:Nunito,sans-serif;font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:.3rem}
+.warn-box .tip-text p{font-size:.88rem;color:#7a4a1a;margin:0;line-height:1.6}
+.cost-box{background:#fffbea;border-left:4px solid #d4a017;border-radius:0 12px 12px 0;padding:1.1rem 1.4rem;margin:1.8rem 0;display:flex;gap:.8rem}
+.cost-box .tip-icon{font-size:1.3rem;flex-shrink:0;margin-top:.1rem}
+.cost-box .tip-text strong{color:#9a7600;font-family:Nunito,sans-serif;font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:.3rem}
+.cost-box .tip-text p{font-size:.88rem;color:#5a4400;margin:0;line-height:1.6}
+/* SVG infographic timeline */
+.tl-svg-wrap{display:block;width:100%;overflow-x:auto;margin:1.5rem 0 2rem}
+.tl-mobile{display:none;flex-direction:column;gap:.55rem;margin:1.5rem 0 2rem}
+.tl-mobile-card{background:var(--w);border:2px solid var(--bd);border-radius:14px;padding:.85rem 1.1rem;display:flex;align-items:center;gap:.9rem;transition:border-color .2s}
+.tl-mobile-card.tl-current{border-color:var(--t);background:var(--tp)}
+.tl-mobile-icon{font-size:1.5rem;flex-shrink:0;line-height:1}
+.tl-mobile-label{font-weight:900;font-family:'Nunito',sans-serif;font-size:.9rem;color:var(--tx)}
+.tl-mobile-sub{font-size:.74rem;color:var(--sf);margin-top:.1rem}
+@media(max-width:640px){.tl-svg-wrap{display:none}.tl-mobile{display:flex}}
+/* Community */
+.community-section{background:var(--w);padding:3.5rem 5vw}
+.community-section h2{font-size:clamp(1.3rem,2.2vw,1.8rem);font-weight:900;letter-spacing:-.025em;margin-bottom:.6rem}
+.community-section>p{font-size:.92rem;color:var(--md);line-height:1.6;margin-bottom:1.5rem}
+.community-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;max-width:1160px;margin:0 auto}
+.community-card{background:var(--tp);border:2px solid var(--tm);border-radius:16px;padding:1.5rem 1.4rem;display:flex;flex-direction:column;gap:.5rem;color:var(--tx);transition:border-color .2s,box-shadow .2s}
+.community-card:hover{border-color:var(--t);box-shadow:var(--sh)}
+.community-icon{font-size:1.8rem;line-height:1}
+.community-card h3{font-family:'Nunito',sans-serif;font-weight:900;font-size:1rem;color:var(--tx)}
+.community-card p{font-size:.84rem;color:var(--md);line-height:1.5;flex:1}
+.community-cta{display:inline-flex;align-items:center;gap:.3rem;font-size:.82rem;font-weight:800;color:var(--t);font-family:'Nunito',sans-serif;margin-top:.25rem;min-height:44px}
+.community-card-instagram{background:linear-gradient(135deg,#fff1f8,#fff5e8);border-color:#f0b8d0}
+.community-card-instagram:hover{border-color:#e8568a}
+.community-card-instagram .community-cta{color:#c13584}
+@media(max-width:700px){.community-grid{grid-template-columns:1fr}}
+/* Affiliate CTA */
+.affiliate-cta{display:flex;gap:1.5rem;align-items:flex-start;background:var(--w);border:2px solid var(--bd);border-radius:18px;padding:1.5rem 1.75rem;box-shadow:var(--sh);margin-bottom:1.25rem}
+.affiliate-cta .cta-content{flex:1;min-width:0}
+.affiliate-cta .cta-content h4{font-size:1rem;font-weight:900;margin-bottom:.4rem;font-family:'Nunito',sans-serif;color:var(--tx)}
+.affiliate-cta .cta-content p{font-size:.85rem;color:var(--md);line-height:1.55;margin-bottom:.85rem}
+.affiliate-cta .cta-content small{display:block;font-size:.74rem;color:var(--sf);margin-top:.45rem}
+.cta-button{display:inline-flex;align-items:center;background:var(--t);color:white;font-family:'Nunito',sans-serif;font-weight:800;font-size:.84rem;padding:.65rem 1.3rem;border-radius:100px;transition:background .2s,transform .15s;min-height:44px}
+.cta-button:hover{background:var(--tl);transform:translateY(-2px)}
+@media(max-width:600px){.affiliate-cta{flex-direction:column}}
 @media(max-width:900px){nav .nl{display:none}.fg{grid-template-columns:1fr 1fr;gap:1.5rem}.ori-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.ori-grid{grid-template-columns:1fr}}
 </style>
@@ -66,6 +114,7 @@ footer{background:var(--tx);color:white;padding:3.5rem 5vw 2rem}
 <meta property="og:image" content="https://dutchgoose.nl/assets/dg-orienteren.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="800">
+<meta property="og:image:alt" content="Oriënteren voor je maagverkleining">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://dutchgoose.nl/orienteren.html">
 <meta name="twitter:card" content="summary_large_image">
@@ -73,27 +122,38 @@ footer{background:var(--tx);color:white;padding:3.5rem 5vw 2rem}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Oriënteren voor je maagverkleining: alles wat je moet weten",
-  "description": "Overweeg je een maagverkleining? Alles over bypass vs sleeve, criteria, vergoeding, klinieken kiezen en de buitenlandoptie.",
-  "url": "https://www.dutchgoose.nl/orienteren.html",
-  "image": "https://www.dutchgoose.nl/assets/dutch-goose-logo-cropped.png",
-  "datePublished": "2026-04-07",
-  "dateModified": "2026-04-07",
-  "author": {
-    "@type": "Person",
-    "name": "David Gans",
-    "url": "https://www.dutchgoose.nl/over-david.html"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Dutch Goose",
-    "url": "https://www.dutchgoose.nl"
-  },
-  "speakable": {
-    "@type": "SpeakableSpecification",
-    "cssSelector": [".ori-lead", ".speakable"]
-  }
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.dutchgoose.nl/orienteren.html",
+      "url": "https://www.dutchgoose.nl/orienteren.html",
+      "name": "Oriënteren voor je maagverkleining | Dutch Goose",
+      "description": "Overweeg je een maagverkleining? Alles over bypass vs sleeve, criteria, vergoeding, klinieken en het buitenland.",
+      "inLanguage": "nl",
+      "datePublished": "2026-04-07",
+      "dateModified": "2026-04-22",
+      "author": {
+        "@type": "Person",
+        "name": "David Gans",
+        "url": "https://www.dutchgoose.nl/over-david.html",
+        "sameAs": "https://www.instagram.com/dutchgoosejourney/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Dutch Goose",
+        "url": "https://www.dutchgoose.nl"
+      },
+      "breadcrumb": {"@id": "https://www.dutchgoose.nl/orienteren.html#breadcrumb"}
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.dutchgoose.nl/orienteren.html#breadcrumb",
+      "itemListElement": [
+        {"@type": "ListItem","position": 1,"name": "Home","item": "https://www.dutchgoose.nl/"},
+        {"@type": "ListItem","position": 2,"name": "Oriënteren","item": "https://www.dutchgoose.nl/orienteren.html"}
+      ]
+    }
+  ]
 }
 </script>
 <script type="application/ld+json">
@@ -184,7 +244,9 @@ footer{background:var(--tx);color:white;padding:3.5rem 5vw 2rem}
 
 <main style="max-width:860px;margin:0 auto;padding:0 32px;">
 
-<section style="padding:48px 0 40px;border-bottom:1px solid #e4edeb;margin-bottom:48px;">
+<img src="/assets/dg-orienteren.jpg" alt="Oriënteren op je maagverkleining: notities, koffie en rustig nadenken" class="hero-img" loading="eager" width="1200" height="800" style="margin-top:2rem;">
+
+<section style="padding:32px 0 40px;border-bottom:1px solid #e4edeb;margin-bottom:32px;">
   <p class="ori-lead speakable" style="font-size:16px;line-height:1.75;color:#2a3d3a;margin:0 0 16px;">
     Ik deed er twee jaar over om de stap te zetten. Niet omdat ik het niet wilde, maar omdat ik niet wist waar te beginnen. Welke operatie? Welke kliniek? Betaal ik dat zelf? Mag ik dat wel willen? Al die vragen cirkelden door mijn hoofd terwijl ik online van het ene forum naar het andere sprong en overal andere antwoorden vond.
   </p>
@@ -200,6 +262,76 @@ footer{background:var(--tx);color:white;padding:3.5rem 5vw 2rem}
     <a href="#kliniek-kiezen" style="background:#e8f5f2;color:#1a7c6b;border-radius:12px;padding:10px 14px;font-size:13px;font-weight:600;text-decoration:none;">🏥 Kliniek kiezen</a>
     <a href="#buitenland" style="background:#e8f5f2;color:#1a7c6b;border-radius:12px;padding:10px 14px;font-size:13px;font-weight:600;text-decoration:none;">🌍 Buitenland optie</a>
     <a href="#faq" style="background:#e8f5f2;color:#1a7c6b;border-radius:12px;padding:10px 14px;font-size:13px;font-weight:600;text-decoration:none;">❓ Veelgestelde vragen</a>
+  </div>
+</section>
+
+<!-- SVG infographic: het traject tot aan de operatie -->
+<section style="margin-bottom:48px;padding:0;">
+  <h2 style="font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#0f6e56;margin:0 0 12px;">Het traject tot aan de operatie</h2>
+  <div class="tl-svg-wrap">
+    <svg viewBox="0 0 1100 205" xmlns="http://www.w3.org/2000/svg" aria-label="Het traject tot aan de operatie: 6 stappen" style="width:100%;height:auto;min-width:540px">
+      <defs>
+        <linearGradient id="oriGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#1a7c6b"/>
+          <stop offset="100%" stop-color="#27bfa3"/>
+        </linearGradient>
+      </defs>
+      <line x1="90" y1="88" x2="1010" y2="88" stroke="url(#oriGrad)" stroke-width="4.5" stroke-linecap="round"/>
+      <!-- Stap 1: Oriënteren (huidige fase) -->
+      <circle cx="90" cy="88" r="40" fill="#1a7c6b" stroke="#0f5a4d" stroke-width="3"/>
+      <text x="90" y="97" text-anchor="middle" font-size="25" fill="white">🔍</text>
+      <text x="90" y="150" text-anchor="middle" font-size="13" font-weight="900" font-family="Nunito,sans-serif" fill="#1a7c6b">Oriënteren</text>
+      <text x="90" y="167" text-anchor="middle" font-size="10.5" font-family="sans-serif" fill="#1a7c6b" font-weight="700">jij bent hier</text>
+      <!-- Stap 2: Huisarts -->
+      <circle cx="274" cy="88" r="36" fill="#e8f5f2" stroke="#a8d8cb" stroke-width="2.5"/>
+      <text x="274" y="97" text-anchor="middle" font-size="22">🏥</text>
+      <text x="274" y="148" text-anchor="middle" font-size="12.5" font-weight="900" font-family="Nunito,sans-serif" fill="#1a2b28">Huisarts</text>
+      <text x="274" y="164" text-anchor="middle" font-size="10.5" font-family="sans-serif" fill="#7a9b94">doorverwijzing</text>
+      <!-- Stap 3: Intake kliniek -->
+      <circle cx="458" cy="88" r="36" fill="#e8f5f2" stroke="#a8d8cb" stroke-width="2.5"/>
+      <text x="458" y="97" text-anchor="middle" font-size="22">📋</text>
+      <text x="458" y="148" text-anchor="middle" font-size="12.5" font-weight="900" font-family="Nunito,sans-serif" fill="#1a2b28">Intake kliniek</text>
+      <!-- Stap 4: Screening -->
+      <circle cx="642" cy="88" r="36" fill="#e8f5f2" stroke="#a8d8cb" stroke-width="2.5"/>
+      <text x="642" y="97" text-anchor="middle" font-size="22">🩺</text>
+      <text x="642" y="148" text-anchor="middle" font-size="12.5" font-weight="900" font-family="Nunito,sans-serif" fill="#1a2b28">Screening</text>
+      <text x="642" y="164" text-anchor="middle" font-size="10.5" font-family="sans-serif" fill="#7a9b94">dietist / psycholoog</text>
+      <!-- Stap 5: Wachtlijst -->
+      <circle cx="826" cy="88" r="36" fill="#e8f5f2" stroke="#a8d8cb" stroke-width="2.5"/>
+      <text x="826" y="97" text-anchor="middle" font-size="22">⏳</text>
+      <text x="826" y="148" text-anchor="middle" font-size="12.5" font-weight="900" font-family="Nunito,sans-serif" fill="#1a2b28">Wachtlijst</text>
+      <text x="826" y="164" text-anchor="middle" font-size="10.5" font-family="sans-serif" fill="#7a9b94">0-12 maanden</text>
+      <!-- Stap 6: Operatie -->
+      <circle cx="1010" cy="88" r="36" fill="#e8f5f2" stroke="#2a9d87" stroke-width="2.5"/>
+      <text x="1010" y="97" text-anchor="middle" font-size="22">🎯</text>
+      <text x="1010" y="148" text-anchor="middle" font-size="12.5" font-weight="900" font-family="Nunito,sans-serif" fill="#1a2b28">Operatie</text>
+    </svg>
+  </div>
+  <div class="tl-mobile">
+    <div class="tl-mobile-card tl-current">
+      <span class="tl-mobile-icon">🔍</span>
+      <div><div class="tl-mobile-label">Oriënteren</div><div class="tl-mobile-sub">jij bent hier</div></div>
+    </div>
+    <div class="tl-mobile-card">
+      <span class="tl-mobile-icon">🏥</span>
+      <div><div class="tl-mobile-label">Huisarts doorverwijzing</div></div>
+    </div>
+    <div class="tl-mobile-card">
+      <span class="tl-mobile-icon">📋</span>
+      <div><div class="tl-mobile-label">Intake kliniek</div></div>
+    </div>
+    <div class="tl-mobile-card">
+      <span class="tl-mobile-icon">🩺</span>
+      <div><div class="tl-mobile-label">Screening</div><div class="tl-mobile-sub">dietist / psycholoog / internist</div></div>
+    </div>
+    <div class="tl-mobile-card">
+      <span class="tl-mobile-icon">⏳</span>
+      <div><div class="tl-mobile-label">Wachtlijst</div><div class="tl-mobile-sub">0-12 maanden</div></div>
+    </div>
+    <div class="tl-mobile-card">
+      <span class="tl-mobile-icon">🎯</span>
+      <div><div class="tl-mobile-label">Operatie</div></div>
+    </div>
   </div>
 </section>
 
@@ -242,6 +374,14 @@ footer{background:var(--tx);color:white;padding:3.5rem 5vw 2rem}
   <p style="font-size:14px;margin:0;">
     <a href="tools/bypass-vs-sleeve.html" style="color:#1a7c6b;font-weight:600;">Vergelijk bypass en sleeve uitgebreid via de tool &#8594;</a>
   </p>
+
+  <div class="tip-box">
+    <div class="tip-icon">💡</div>
+    <div class="tip-text">
+      <strong>Tip van David</strong>
+      <p>Ik koos zelf bypass omdat ik reflux-klachten had. Dat was bij mij de doorslaggevende factor. Bij sleeve kan reflux juist verergeren. Bespreek dit expliciet in je intake.</p>
+    </div>
+  </div>
 </section>
 
 <section id="aanmerking" style="margin-bottom:56px;">
@@ -283,6 +423,14 @@ footer{background:var(--tx);color:white;padding:3.5rem 5vw 2rem}
   <p style="font-size:14px;margin:0;">
     <a href="criteria.html" style="color:#1a7c6b;font-weight:600;">Lees de volledige criteria en hoe het traject werkt &#8594;</a>
   </p>
+
+  <div class="warn-box">
+    <div class="tip-icon">⚠️</div>
+    <div class="tip-text">
+      <strong>Let op</strong>
+      <p>De criteria zijn strikt maar er is ruimte voor uitzonderingen. BMI 35-40 met ernstige comorbiditeit (diabetes type 2, slaapapneu) komt vaak wel in aanmerking. Laat je niet afwimpelen zonder consult.</p>
+    </div>
+  </div>
 </section>
 
 <section id="kosten" style="margin-bottom:56px;">
@@ -321,6 +469,14 @@ footer{background:var(--tx);color:white;padding:3.5rem 5vw 2rem}
     &nbsp;&nbsp;
     <a href="kosten-maagverkleining.html" style="color:#1a7c6b;font-weight:600;">Uitgebreide kostenoverzicht &#8594;</a>
   </p>
+
+  <div class="cost-box">
+    <div class="tip-icon">💰</div>
+    <div class="tip-text">
+      <strong>Eigen risico</strong>
+      <p>Reken op 385 euro eigen risico (2025). Bij opname in het ziekenhuis gaat dit er direct vanaf. Extra kosten zoals vitamines, proteïne en extra bezoeken aan de dietist kunnen oplopen tot 500-800 euro per jaar.</p>
+    </div>
+  </div>
 </section>
 
 <section id="kliniek-kiezen" style="margin-bottom:56px;">
@@ -352,6 +508,14 @@ footer{background:var(--tx);color:white;padding:3.5rem 5vw 2rem}
     &nbsp;&nbsp;
     <a href="klinieken/profielen/" style="color:#1a7c6b;font-weight:600;">Lees de 6 kliniekprofielen &#8594;</a>
   </p>
+
+  <div class="tip-box">
+    <div class="tip-icon">🏥</div>
+    <div class="tip-text">
+      <strong>David's ervaring</strong>
+      <p>Ik begon bij Vitalys (operatie jan 2024) en ben later overgestapt naar Baria Nederland/Spaarne Gasthuis voor nazorg. Geen kliniek is perfect. Kijk vooral naar nazorg-programma, wachttijd en afstand vanaf huis.</p>
+    </div>
+  </div>
 </section>
 
 <section id="buitenland" style="margin-bottom:56px;">
@@ -368,6 +532,32 @@ footer{background:var(--tx);color:white;padding:3.5rem 5vw 2rem}
   <p style="font-size:14px;margin:0;">
     <a href="maagverkleining-buitenland.html" style="color:#1a7c6b;font-weight:600;">Lees het eerlijke verhaal over opereren in het buitenland &#8594;</a>
   </p>
+</section>
+
+<!-- Volgende stap: 3 cross-link kaarten -->
+<section id="volgende-stap" style="margin-bottom:56px;padding:0;">
+  <h2 style="font-size:20px;font-weight:800;color:#1a2b28;margin:0 0 6px;">Klaar voor de volgende stap?</h2>
+  <p style="font-size:15px;color:#5a7370;margin:0 0 20px;">Kies waar je verder wilt verdiepen:</p>
+  <div class="ori-grid">
+    <a href="/gastric-bypass.html" class="ori-card">
+      <div class="ori-icon">🔬</div>
+      <h3>Diep in de operatietypes duiken</h3>
+      <p>Hoe werkt een gastric bypass precies? Wat verwacht je aan gewichtsverlies, risico's en herstel?</p>
+      <span class="ori-link">Lees meer &#8594;</span>
+    </a>
+    <a href="/klinieken/" class="ori-card">
+      <div class="ori-icon">🏥</div>
+      <h3>Eerlijk klinieken vergelijken</h3>
+      <p>7 klinieken getest op wachttijd, nazorg, kosten en David's persoonlijke ervaring.</p>
+      <span class="ori-link">Vergelijk &#8594;</span>
+    </a>
+    <a href="/na-de-operatie.html" class="ori-card">
+      <div class="ori-icon">🌱</div>
+      <h3>Na de operatie: wat verwacht je?</h3>
+      <p>De eerste weken, voeding per fase, vitamines regelen en herstel begrijpen.</p>
+      <span class="ori-link">Lees meer &#8594;</span>
+    </a>
+  </div>
 </section>
 
 </main>
@@ -398,28 +588,28 @@ footer{background:var(--tx);color:white;padding:3.5rem 5vw 2rem}
         <div class="ori-icon">🥝</div>
         <h3>Gastric bypass</h3>
         <p>Hoe werkt een gastric bypass, wat zijn de resultaten en voor wie is het geschikt?</p>
-        <span class="ori-link">Lees meer →</span>
+        <span class="ori-link">Lees meer &#8594;</span>
       </a>
 
       <a href="/gastric-sleeve.html" class="ori-card rv">
         <div class="ori-icon">🍌</div>
         <h3>Gastric sleeve</h3>
         <p>Alles over de gastric sleeve: de ingreep, herstel en wat je kunt verwachten.</p>
-        <span class="ori-link">Lees meer →</span>
+        <span class="ori-link">Lees meer &#8594;</span>
       </a>
 
       <a href="/criteria.html" class="ori-card rv">
         <div class="ori-icon">✅</div>
         <h3>Kom ik in aanmerking?</h3>
         <p>Wat zijn de criteria voor een maagverkleining in Nederland? BMI, voorwaarden en het traject.</p>
-        <span class="ori-link">Lees meer →</span>
+        <span class="ori-link">Lees meer &#8594;</span>
       </a>
 
       <a href="/vergoeding.html" class="ori-card rv">
         <div class="ori-icon">💶</div>
         <h3>Vergoeding &amp; verzekering</h3>
         <p>Wordt een maagverkleining vergoed? Wat betaal je zelf en hoe zit het met het eigen risico?</p>
-        <span class="ori-link">Lees meer →</span>
+        <span class="ori-link">Lees meer &#8594;</span>
       </a>
 
       <a href="/klinieken/" class="ori-card rv" style="border-color:#1a7c6b;border-width:2px;position:relative;">
@@ -427,14 +617,14 @@ footer{background:var(--tx);color:white;padding:3.5rem 5vw 2rem}
         <div class="ori-icon">🏥</div>
         <h3>Klinieken vergelijker</h3>
         <p>NOK, Vitalys, WeightWorks, OCA, CON en Baria Nederland eerlijk naast elkaar. Gratis en onafhankelijk.</p>
-        <span class="ori-link" style="color:#1a7c6b;font-weight:700;">Vergelijk nu →</span>
+        <span class="ori-link" style="color:#1a7c6b;font-weight:700;">Vergelijk nu &#8594;</span>
       </a>
 
       <a href="/maagverkleining-buitenland.html" class="ori-card rv">
         <div class="ori-icon">🌍</div>
         <h3>Maagverkleining in het buitenland</h3>
         <p>Turkije of België? Eerlijk antwoord over kosten, risico's en nazorg bij een buitenlandse operatie.</p>
-        <span class="ori-link">Lees meer →</span>
+        <span class="ori-link">Lees meer &#8594;</span>
       </a>
 
     </div>
@@ -458,52 +648,52 @@ footer{background:var(--tx);color:white;padding:3.5rem 5vw 2rem}
         <div class="ori-icon">🏥</div>
         <h3>Baria Nederland</h3>
         <p>Individueel traject, geen wachttijd en 24/7 chirurg bereikbaar via Spaarne Gasthuis in Hoofddorp.</p>
-        <span class="ori-link">Lees profiel →</span>
+        <span class="ori-link">Lees profiel &#8594;</span>
       </a>
 
       <a href="/klinieken/nok/" class="ori-card rv">
         <div class="ori-icon">🔵</div>
         <h3>NOK</h3>
         <p>Grootste screeningsnetwerk met 11 locaties landelijk en meer dan 30 jaar ervaring in begeleiding.</p>
-        <span class="ori-link">Lees profiel →</span>
+        <span class="ori-link">Lees profiel &#8594;</span>
       </a>
 
       <a href="/klinieken/vitalys/" class="ori-card rv">
         <div class="ori-icon">🟢</div>
         <h3>Vitalys</h3>
         <p>IFSO Centre of Excellence in Rijnstate Arnhem, ~1.500 operaties per jaar met vaste groepsaanpak.</p>
-        <span class="ori-link">Lees profiel →</span>
+        <span class="ori-link">Lees profiel &#8594;</span>
       </a>
 
       <a href="/klinieken/weightworks/" class="ori-card rv">
         <div class="ori-icon">⚡</div>
         <h3>WeightWorks</h3>
         <p>Grootste privékliniek van Nederland in Amersfoort: 0 weken wachttijd, volledig individueel traject.</p>
-        <span class="ori-link">Lees profiel →</span>
+        <span class="ori-link">Lees profiel &#8594;</span>
       </a>
 
       <a href="/klinieken/oca/" class="ori-card rv">
         <div class="ori-icon">🔶</div>
         <h3>OCA / OLVG</h3>
         <p>Specialist in revisie-operaties en dagbehandeling, onderdeel van OLVG in Amsterdam West.</p>
-        <span class="ori-link">Lees profiel →</span>
+        <span class="ori-link">Lees profiel &#8594;</span>
       </a>
 
       <a href="/klinieken/con/" class="ori-card rv">
         <div class="ori-icon">🔴</div>
         <h3>CON / Frisius MC</h3>
         <p>Enige volwaardige kliniek in Noord-Nederland, onderdeel van het Frisius MC netwerk in Leeuwarden.</p>
-        <span class="ori-link">Lees profiel →</span>
+        <span class="ori-link">Lees profiel &#8594;</span>
       </a>
 
     </div>
     <div style="text-align:center;margin-top:2rem">
-      <a href="/klinieken/profielen/" style="display:inline-flex;align-items:center;gap:.4rem;background:var(--t);color:white;font-family:'Nunito',sans-serif;font-weight:800;font-size:.92rem;padding:.85rem 1.8rem;border-radius:100px;transition:background .2s" onmouseover="this.style.background='var(--tl)'" onmouseout="this.style.background='var(--t)'">Alle kliniekprofielen bekijken →</a>
+      <a href="/klinieken/profielen/" style="display:inline-flex;align-items:center;gap:.4rem;background:var(--t);color:white;font-family:'Nunito',sans-serif;font-weight:800;font-size:.92rem;padding:.85rem 1.8rem;border-radius:100px;transition:background .2s" onmouseover="this.style.background='var(--tl)'" onmouseout="this.style.background='var(--t)'">Alle kliniekprofielen bekijken &#8594;</a>
     </div>
   </div>
 </section>
 
-<div style="max-width:860px;margin:0 auto;padding:0 32px 64px;">
+<div style="max-width:860px;margin:0 auto;padding:0 32px 40px;">
 
   <section class="faq-section" id="faq" style="background:#fff;border:2px solid #d8ede8;border-radius:24px;padding:32px;margin-bottom:32px;">
     <h2 style="font-size:20px;font-weight:700;color:#1a2b28;margin:0 0 24px;">Veelgestelde vragen</h2>
@@ -556,6 +746,54 @@ footer{background:var(--tx);color:white;padding:3.5rem 5vw 2rem}
 
 </div>
 
+<!-- Affiliate CTAs -->
+<div style="max-width:860px;margin:0 auto;padding:0 32px 16px;">
+  <h2 style="font-size:18px;font-weight:800;color:#1a2b28;margin:0 0 1.25rem;">Al aan het nadenken over voorbereiden?</h2>
+
+  <div class="affiliate-cta">
+    <div class="cta-content">
+      <h4>Eiwitshakes voor de pre-op periode</h4>
+      <p>In de weken voor je operatie moet je vaak een vooronderzoek en pre-op dieet volgen. Eiwitrijke shakes helpen veel mensen door deze periode. Ahead Whey Mix Box biedt 4 smaken in een probeerverpakking. Code <strong>DUTCHGOOSE</strong> geeft 15% korting.</p>
+      <a href="https://www.ahead-nutrition.com/products/whey-mix-box" target="_blank" rel="sponsored noopener" class="cta-button">Bekijk Ahead Whey Mix Box &#8594;</a>
+      <small>Affiliate link. Je betaalt niks extra. Ahead is David's persoonlijke keuze.</small>
+    </div>
+  </div>
+
+  <div class="affiliate-cta">
+    <div class="cta-content">
+      <h4>Vitamines alvast leren kennen?</h4>
+      <p>Na de operatie heb je levenslang WLS-vitamines nodig. Via Dutch Goose vraag je gratis een proefpakket aan bij Vitaminenspecialist, de goedkoopste WLS-vitamines van Nederland en Belgie.</p>
+      <a href="https://www.vitaminenspecialist.nl/dgproefpakket?vsa=2" target="_blank" rel="sponsored noopener" class="cta-button">Gratis proefpakket aanvragen &#8594;</a>
+    </div>
+  </div>
+</div>
+
+<!-- Community block -->
+<section class="community-section">
+  <h2>Je staat er niet alleen voor</h2>
+  <p>Duizenden mensen in NL en BE lopen hetzelfde traject. Vraag tips, deel je twijfels of lees andere verhalen. De Bari Community is gratis en staat op drie plekken:</p>
+  <div class="community-grid">
+    <a href="https://wa.me/31630036848?text=Hoi%2C%20ik%20wil%20graag%20lid%20worden%20van%20de%20Bari%20Community%21" target="_blank" rel="noopener" class="community-card">
+      <span class="community-icon">💬</span>
+      <h3>WhatsApp Bari Community</h3>
+      <p>Dagelijkse support, vragen en herkenning. Moderatie door David.</p>
+      <span class="community-cta">Sluit je aan &#8594;</span>
+    </a>
+    <a href="https://www.facebook.com/groups/967891648992898" target="_blank" rel="noopener" class="community-card">
+      <span class="community-icon">👥</span>
+      <h3>Facebook-groep</h3>
+      <p>Uitgebreide discussies, archief van eerdere vragen en ervaringen delen.</p>
+      <span class="community-cta">Word lid &#8594;</span>
+    </a>
+    <a href="https://www.instagram.com/dutchgoosejourney/" target="_blank" rel="noopener" class="community-card community-card-instagram">
+      <span class="community-icon">📸</span>
+      <h3>Instagram @dutchgoosejourney</h3>
+      <p>Volg David's dagelijks leven na zijn gastric bypass. Persoonlijk, open en eerlijk.</p>
+      <span class="community-cta">Volg op Instagram &#8594;</span>
+    </a>
+  </div>
+</section>
+
 <script>
   function tf(btn) {
     var fq = btn.closest('.fq');
@@ -568,7 +806,7 @@ footer{background:var(--tx);color:white;padding:3.5rem 5vw 2rem}
     if (!isOpen) {
       fq.classList.add('open');
       fq.querySelector('.fqa').style.display = 'block';
-      fq.querySelector('.fqi').textContent = '\u00D7';
+      fq.querySelector('.fqi').textContent = '×';
     }
   }
 </script>
