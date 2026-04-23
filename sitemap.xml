@@ -103,31 +103,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://dutchgoose.nl/samenwerken.html</loc>
-    <lastmod>2026-03-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://dutchgoose.nl/contact.html</loc>
-    <lastmod>2026-03-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://dutchgoose.nl/disclosure.html</loc>
-    <lastmod>2026-03-17</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://dutchgoose.nl/privacy.html</loc>
-    <lastmod>2026-03-17</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://dutchgoose.nl/cookies.html</loc>
     <lastmod>2026-03-17</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
@@ -529,12 +505,12 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.dutchgoose.nl/leven-na-maagverkleining.html</loc>
+    <loc>https://dutchgoose.nl/leven-na-maagverkleining.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.dutchgoose.nl/na-de-operatie.html</loc>
+    <loc>https://dutchgoose.nl/na-de-operatie.html</loc>
     <lastmod>2026-04-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
