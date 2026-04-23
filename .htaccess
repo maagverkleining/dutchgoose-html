@@ -2,7 +2,8 @@ RewriteEngine On
 RewriteCond %{HTTP_HOST} ^www\.dutchgoose\.nl [NC]
 RewriteRule ^(.*)$ https://dutchgoose.nl/$1 [R=301,L]
 
-# Redirect /index.html to / for canonical consistency
+# Redirect /index.html to / for canonical consistency (incl. query-strings)
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html[\s?] [OR]
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html\ HTTP/
 RewriteRule ^index\.html$ / [R=301,L]
 
