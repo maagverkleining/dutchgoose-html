@@ -10,6 +10,35 @@ RewriteRule ^index\.html$ / [R=301,L]
 Options -Indexes
 RewriteEngine On
 
+# === 404 FIX BATCH 27-04-2026 (Google Search Console) ===
+
+# Tools zijn anchor-secties op /tools.html, geen aparte pagina's
+Redirect 301 /tools/eiwit-calculator.html /tools.html#eiwit-calc
+Redirect 301 /tools/fase-checker.html /tools.html#fase-check
+Redirect 301 /tools/eet-timer.html /tools.html#eet-timer
+
+# Redirects naar bestaande pagina's met juiste naam
+Redirect 301 /kosten-maagverkleining.html /blog/kosten-maagverkleining-wat-kost-het-echt.html
+Redirect 301 /blog/plateaus-na-maagverkleining-wanneer-is-stilstand-echt-een-plateau.html /blog/plateaus-wat-is-het-en-wanneer-is-het-echt-een-plateau.html
+Redirect 301 /blog/plateaus-na-maagverkleining.html /blog/plateaus-wat-is-het-en-wanneer-is-het-echt-een-plateau.html
+Redirect 301 /blog/zelfbeeld-na-maagverkleining.html /blog.html
+Redirect 301 /recepten/proteine-kwark-granola.html /recepten/
+Redirect 301 /recepten/vaste-voeding/proteine-kwark-granola-maagverkleining.html /recepten/vaste-voeding/
+Redirect 301 /disclaimer.html /disclosure.html
+
+# Algemene fallback: extension-less URL automatisch naar .html versie
+# Lost o.a. op: /blog/eiwit-doelen-per-dag-simpele-richtlijn-na-maagverkleining
+# en /disclosure en /blog/haaruitval-na-maagverkleining-oorzaak-en-aanpak
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.+?)/?$ /$1.html [R=301,L]
+
+# 404 error page
+ErrorDocument 404 /404.html
+
+# === EINDE 404 FIX BATCH ===
+
 # Redirect kennisbank overzicht naar blog
 Redirect 301 /kennisbank /blog.html
 Redirect 301 /kennisbank/ /blog.html
