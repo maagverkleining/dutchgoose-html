@@ -26,6 +26,10 @@ Redirect 301 /recepten/proteine-kwark-granola.html /recepten/
 Redirect 301 /recepten/vaste-voeding/proteine-kwark-granola-maagverkleining.html /recepten/vaste-voeding/
 Redirect 301 /disclaimer.html /disclosure.html
 
+# Tools en blog directory zonder slash en zonder .html
+Redirect 301 /tools /tools.html
+Redirect 301 /blog /blog.html
+
 # Algemene fallback: extension-less URL automatisch naar .html versie
 # Lost o.a. op: /blog/eiwit-doelen-per-dag-simpele-richtlijn-na-maagverkleining
 # en /disclosure en /blog/haaruitval-na-maagverkleining-oorzaak-en-aanpak
