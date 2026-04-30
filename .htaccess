@@ -44,8 +44,7 @@ ErrorDocument 404 /404.html
 # === EINDE 404 FIX BATCH ===
 
 # Redirect kennisbank overzicht naar blog
-Redirect 301 /kennisbank /blog.html
-Redirect 301 /kennisbank/ /blog.html
+RedirectMatch 301 ^/kennisbank/?$ /blog.html
 
 # Redirect individuele kennisbank artikelen naar blog
 Redirect 301 /kennisbank/hoofdhonger-vs-buikhonger-na-maagverkleining /blog/hoofdhonger-vs-buikhonger-na-maagverkleining.html
@@ -79,6 +78,6 @@ Redirect 301 /vitamines-na-maagverkleining.html /vitamines.html
 
 # Redirect verwijderde pagina
 Redirect 301 /alcohol-na-maagverkleining-waarom-het-harder-aankomt.html /blog/alcohol-na-maagverkleining-waarom-het-harder-aankomt.html
-Redirect 301 /starter-kits /deals.html
+RedirectMatch 301 ^/starter-kits/?$ /deals.html
 Redirect 301 /starter-kits.html /deals.html
 
