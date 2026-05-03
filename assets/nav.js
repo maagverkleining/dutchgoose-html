@@ -38,8 +38,10 @@
         <a href="/recepten/vaste-voeding/">🥗 Vaste voeding</a>
       </div>
     </li>
-    <li class="nd"><a href="/tools.html">🔧 Tools ▾</a>
+    <li class="nd"><a href="/tools/">🔧 Tools ▾</a>
       <div class="nd-menu">
+        <a href="/tools/" style="font-weight:900;color:var(--t);border-bottom:1px solid var(--bd);margin-bottom:.2rem;padding-bottom:.5rem;">🔧 Alle tools</a>
+        <a href="/tools/ai-maaltijdplanner/">🤖 AI Maaltijdplanner</a>
         <a href="/tools.html#eiwit">🥙 Eiwit calculator</a>
         <a href="/tools.html#fase">🥘 Fase checker</a>
         <a href="/tools.html#timer">⏳ Eet timer</a>

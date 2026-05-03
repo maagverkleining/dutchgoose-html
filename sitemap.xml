@@ -25,6 +25,18 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://dutchgoose.nl/tools/</loc>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dutchgoose.nl/tools/ai-maaltijdplanner/</loc>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dutchgoose.nl/blog.html</loc>
     <lastmod>2026-03-21</lastmod>
     <changefreq>weekly</changefreq>
