@@ -19,6 +19,9 @@ RedirectMatch 301 ^/tools/eiwit-calculator\.html$ /tools/eiwit-calculator/
 RedirectMatch 301 ^/tools/fase-checker\.html$ /tools/fase-checker/
 RedirectMatch 301 ^/tools/eet-timer\.html$ /tools/eet-timer/
 
+# Bypass vs sleeve verhuisd van /tools/ naar /blog/ (artikel, geen tool) mei 2026
+RedirectMatch 301 ^/tools/bypass-vs-sleeve\.html$ /blog/bypass-vs-sleeve.html
+
 # Redirects naar bestaande pagina's met juiste naam
 Redirect 301 /kosten-maagverkleining.html /blog/kosten-maagverkleining-wat-kost-het-echt.html
 Redirect 301 /blog/plateaus-na-maagverkleining-wanneer-is-stilstand-echt-een-plateau.html /blog/plateaus-wat-is-het-en-wanneer-is-het-echt-een-plateau.html
