@@ -41,11 +41,11 @@
     <li class="nd"><a href="/tools/">🔧 Tools ▾</a>
       <div class="nd-menu">
         <a href="/tools/ai-maaltijdplanner/" style="font-weight:900;color:var(--t);border-bottom:1px solid var(--bd);margin-bottom:.2rem;padding-bottom:.5rem;">🤖 AI Maaltijdplanner</a>
-        <a href="/tools.html#eiwit">🥙 Eiwit calculator</a>
-        <a href="/tools.html#fase">🥘 Fase checker</a>
-        <a href="/tools.html#timer">⏳ Eet timer</a>
+        <a href="/tools/eiwit-calculator/">🥗 Eiwit calculator</a>
+        <a href="/tools/fase-checker/">🍲 Voedingsfase checker</a>
+        <a href="/tools/eet-timer/">⏳ Eet timer</a>
         <a href="/tools/bypass-vs-sleeve.html">🥝 Bypass vs sleeve</a>
-        <a href="/tools/bloedwaarden.html">📅 Bloedwaarden checklist</a>
+        <a href="/tools/bloedwaarden.html">📋 Bloedwaarden checklist</a>
         <a href="https://www.wlsvitaminen.nl">💊 Vitamines vergelijken</a>
         <a href="/tools/" style="border-top:1px solid var(--bd);margin-top:.2rem;padding-top:.5rem;font-weight:700;">🔧 Alle tools</a>
       </div>

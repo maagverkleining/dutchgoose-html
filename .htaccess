@@ -12,10 +12,12 @@ RewriteEngine On
 
 # === 404 FIX BATCH 27-04-2026 (Google Search Console) ===
 
-# Tools zijn anchor-secties op /tools.html, geen aparte pagina's
-Redirect 301 /tools/eiwit-calculator.html /tools.html#eiwit-calc
-Redirect 301 /tools/fase-checker.html /tools.html#fase-check
-Redirect 301 /tools/eet-timer.html /tools.html#eet-timer
+# === Tools cleanup mei 2026 ===
+# Legacy /tools.html is vervangen door /tools/ (directory hub) met losse tool-pagina's
+RedirectMatch 301 ^/tools\.html$ /tools/
+RedirectMatch 301 ^/tools/eiwit-calculator\.html$ /tools/eiwit-calculator/
+RedirectMatch 301 ^/tools/fase-checker\.html$ /tools/fase-checker/
+RedirectMatch 301 ^/tools/eet-timer\.html$ /tools/eet-timer/
 
 # Redirects naar bestaande pagina's met juiste naam
 Redirect 301 /kosten-maagverkleining.html /blog/kosten-maagverkleining-wat-kost-het-echt.html
@@ -27,7 +29,7 @@ Redirect 301 /recepten/vaste-voeding/proteine-kwark-granola-maagverkleining.html
 Redirect 301 /disclaimer.html /disclosure.html
 
 # Tools en blog directory zonder slash en zonder .html
-RedirectMatch 301 ^/tools$ /tools.html
+RedirectMatch 301 ^/tools$ /tools/
 RedirectMatch 301 ^/blog$ /blog.html
 
 # Algemene fallback: extension-less URL automatisch naar .html versie

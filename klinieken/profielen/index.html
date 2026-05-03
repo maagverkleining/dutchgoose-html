@@ -88,7 +88,7 @@ footer{background:var(--tx);color:white;padding:3.5rem 5vw 2rem}
 </head>
 <body>
 <nav id="nav-placeholder"></nav>
-<script src="/assets/nav.js?v=2"></script>
+<script src="/assets/nav.js?v=3"></script>
 <div class="bc"><a href="/">Dutch Goose</a><span>›</span><a href="/klinieken/">Klinieken</a><span>›</span>Kliniekprofielen</div>
 <div class="hero">
 <div class="hero-inner">
@@ -210,7 +210,7 @@ footer{background:var(--tx);color:white;padding:3.5rem 5vw 2rem}
 </div>
 </section>
 <footer id="footer-placeholder"></footer>
-<script src="/assets/footer.js"></script>
+<script src="/assets/footer.js?v=2"></script>
 <script>
 const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('vis');io.unobserve(x.target)}}),{threshold:.1});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
