@@ -21,7 +21,6 @@
     </li>
     <li class="nd"><a href="/blog.html">📚 Kennisbank ▾</a>
       <div class="nd-menu">
-        <a href="/blog/bypass-vs-sleeve.html" style="font-weight:900;color:var(--t);border-bottom:1px solid var(--bd);margin-bottom:.2rem;padding-bottom:.5rem;">🥝 Bypass vs sleeve</a>
         <a href="/blog.html#voor-de-operatie">🗓️ Voor de operatie</a>
         <a href="/blog.html#voeding">🍽️ Voeding &amp; eten</a>
         <a href="/blog.html#vitamines">💊 Vitamines</a>
