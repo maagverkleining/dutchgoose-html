@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="nl">
 <head>
 <meta charset="utf-8"/><meta content="width=device-width,initial-scale=1.0" name="viewport"/>
@@ -257,7 +256,30 @@ footer{background:var(--tx);color:rgba(255,255,255,.75);padding:2.5rem 5vw 1.5re
   ]
 }
 </script>
-</head>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Dutch Goose",
+      "item": "https://dutchgoose.nl/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Klinieken",
+      "item": "https://dutchgoose.nl/klinieken/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "OCA",
+      "item": "https://dutchgoose.nl/klinieken/oca/"
+    }
+  ]
+}</script></head>
 <body>
 <nav id="nav-placeholder"></nav>
 <script src="/assets/nav.js?v=5"></script>

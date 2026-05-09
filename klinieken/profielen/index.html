@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="nl">
 <head>
 <meta charset="utf-8"/><meta content="width=device-width,initial-scale=1.0" name="viewport"/>
@@ -85,7 +84,30 @@ footer{background:var(--tx);color:white;padding:3.5rem 5vw 2rem}
 @media(max-width:900px){nav .nl{display:none}.fg{grid-template-columns:1fr 1fr;gap:1.5rem}.kp-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.kp-grid{grid-template-columns:1fr}}
 </style>
-</head>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Dutch Goose",
+      "item": "https://dutchgoose.nl/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Klinieken",
+      "item": "https://dutchgoose.nl/klinieken/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Profielen",
+      "item": "https://dutchgoose.nl/klinieken/profielen/"
+    }
+  ]
+}</script></head>
 <body>
 <nav id="nav-placeholder"></nav>
 <script src="/assets/nav.js?v=5"></script>
