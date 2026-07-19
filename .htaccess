@@ -85,3 +85,15 @@ RedirectMatch 301 ^/vitamines-na-maagverkleining\.html$ /vitamines.html
 Redirect 301 /alcohol-na-maagverkleining-waarom-het-harder-aankomt.html /blog/alcohol-na-maagverkleining-waarom-het-harder-aankomt.html
 RedirectMatch 301 ^/starter-kits/?$ /deals.html
 Redirect 301 /starter-kits.html /deals.html
+
+# === Mediakit juli 2026 ===
+# Bereikbaar op /mediakit, bewust nergens naartoe gelinkt en niet in sitemap.
+# Geen Disallow in robots.txt: Google moet de URL kunnen crawlen om de
+# noindex-header te zien. De X-Robots-Tag is de bescherming, niet robots.txt.
+<Files "mediakit.pdf">
+  <IfModule mod_headers.c>
+    Header set X-Robots-Tag "noindex, nofollow"
+  </IfModule>
+</Files>
+
+RewriteRule ^mediakit/?$ /mediakit.pdf [L]
